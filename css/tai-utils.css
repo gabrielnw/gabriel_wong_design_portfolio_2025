@@ -1,0 +1,416 @@
+/* Utility classes used by TAI page */
+
+/* Theme: Red, White, and Blue (Modern/Clean) */
+.tai-body.case-study {
+  background-color: #f0f4f8; /* Light cool grey/blue */
+}
+
+.tai-body h1,
+.tai-body h2 {
+  color: #0a2540; /* Dark Navy Blue */
+}
+
+.tai-body p {
+  color: #334e68; /* Dark Slate */
+}
+
+.tai-body h3 {
+  color: #d64545; /* Red Accent */
+}
+
+.project-title {
+  font-family: "Playfair Display", serif;
+  font-size: 1.25rem;
+  margin: 0 0 8px 0;
+}
+
+/* Masonry Grid Layout */
+.tai-grid {
+  column-count: 2;
+  column-gap: 16px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.tai-grid img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 16px;
+  break-inside: avoid;
+  border-radius: 4px;
+  display: block;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 600px) {
+  .tai-grid {
+    column-count: 1;
+  }
+}
+
+/* Standard Grid Layout (for text cards) */
+.tai-results-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 600px) {
+  .tai-results-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.tai-results-grid .tai-card {
+  margin-bottom: 0;
+  height: 100%; /* Ensure equal height */
+}
+
+/* Specific Components */
+.tai-card {
+  background: #ffffff;
+  border: 1px solid rgba(10, 37, 64, 0.1);
+  border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 16px;
+  break-inside: avoid;
+}
+
+.tai-card h3 {
+  margin-top: 0;
+  font-family: "Playfair Display", serif;
+  font-size: 1.1rem;
+}
+
+.tai-card p {
+  font-size: 0.95rem;
+  margin-bottom: 0;
+}
+
+/* Button style override if needed */
+.btn-primary {
+  background-color: #0a2540;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-top: 12px;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: #d64545;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* Coded Style Guide */
+.style-guide-container {
+  background: #ffffff;
+  border: 1px solid rgba(10, 37, 64, 0.1);
+  border-radius: 8px;
+  padding: 32px;
+  margin-top: 24px;
+}
+
+.style-guide-section {
+  margin-bottom: 32px;
+}
+
+.style-guide-section:last-child {
+  margin-bottom: 0;
+}
+
+.style-guide-section h3 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-family: "Playfair Display", serif;
+  color: #0a2540;
+}
+
+/* Color Grid */
+.color-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 16px;
+}
+
+.color-swatch {
+  aspect-ratio: 1 / 1;
+  border-radius: 8px;
+  display: flex;
+  align-items: flex-end;
+  padding: 8px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.75rem;
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.color-swatch span {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 2px 4px;
+  border-radius: 4px;
+  backdrop-filter: blur(4px);
+}
+
+.bg-grey {
+  background-color: #7a7a7a;
+}
+.bg-navy {
+  background-color: #1c2c63;
+}
+.bg-light-grey {
+  background-color: #d9d9d9;
+  color: #1a1b18 !important;
+}
+.bg-dark-grey {
+  background-color: #696666;
+}
+.bg-red {
+  background-color: #ff2020;
+}
+.bg-white {
+  background-color: #ffffff;
+  color: #1a1b18 !important;
+  border: 1px solid #eee;
+}
+.bg-dark-red {
+  background-color: #aa2020;
+}
+.bg-black {
+  background-color: #1a1b18;
+}
+
+/* Typography Showcase */
+.typography-showcase {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.type-item {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 16px;
+}
+
+.type-item:last-child {
+  border-bottom: none;
+}
+
+.type-label {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.type-sample {
+  margin: 0;
+  color: #1c2c63;
+}
+
+.style-guide-container .type-sample.chakra-display-lg {
+  font-family: "Chakra Petch", sans-serif;
+  font-size: clamp(2rem, 4vw, 3.5rem); /* 57px approx */
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.style-guide-container .type-sample.chakra-display-sb {
+  font-family: "Chakra Petch", sans-serif;
+  font-size: clamp(1.75rem, 3vw, 2.8rem); /* 45px approx */
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.style-guide-container .type-sample.chakra-headline-lg {
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 2rem; /* 32px */
+  font-weight: 400;
+}
+
+.style-guide-container .type-sample.poppins-subheader-lg {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.375rem; /* 22px */
+  font-weight: 400;
+}
+
+/* User Testing Chart */
+.tai-chart-container {
+  background: #ffffff;
+  border: 1px solid rgba(10, 37, 64, 0.1);
+  border-radius: 8px;
+  padding: 32px;
+  margin-top: 24px;
+}
+
+.tai-chart-container h3 {
+  margin-top: 0;
+  margin-bottom: 24px;
+  font-family: "Playfair Display", serif;
+  color: #0a2540;
+}
+
+.chart-legend {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 32px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.legend-item .swatch {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+}
+
+.tai-chart {
+  display: flex;
+  height: 300px;
+  gap: 16px;
+}
+
+.d3-chart {
+  width: 100%;
+  height: auto;
+  min-height: 300px;
+}
+
+.chart-y-axis {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.8rem;
+  color: #999;
+  padding-bottom: 32px; /* Align with x-axis labels (20px label + 12px gap) */
+  height: 100%;
+}
+
+.chart-bars {
+  flex: 1;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  /* Border removed, moved to ::before */
+  padding-bottom: 0;
+  position: relative;
+}
+
+/* Horizontal grid lines & 0s Axis */
+.chart-bars::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 32px; /* Stop above labels */
+  background-image: linear-gradient(to bottom, #eee 1px, transparent 1px);
+  background-size: 100% 33.33%;
+  border-bottom: 1px solid #eee; /* 0s line */
+  z-index: 0;
+  pointer-events: none;
+}
+
+.bar-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  z-index: 1;
+  height: 100%;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.bars-wrapper {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  flex: 1; /* Fill remaining space above label */
+  width: 60%;
+}
+
+.bar {
+  flex: 1;
+  border-radius: 4px 4px 0 0;
+  transition: height 0.5s ease-out;
+}
+
+.bar.navy {
+  background-color: #1c2c63;
+}
+.bar.red {
+  background-color: #aa2020;
+}
+
+.x-label {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.8rem;
+  color: #666;
+  text-align: center;
+  height: 20px; /* Fixed height for alignment */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 600px) {
+  .chart-bars {
+    gap: 8px;
+  }
+  .bars-wrapper {
+    width: 90%;
+  }
+  .x-label {
+    font-size: 0.7rem;
+  }
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .tai-card {
+    padding: 16px;
+  }
+
+  .style-guide-container {
+    padding: 16px;
+  }
+
+  .style-guide-section {
+    margin-bottom: 24px;
+  }
+
+  .color-grid {
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 12px;
+  }
+
+  .tai-chart-container {
+    padding: 16px;
+  }
+
+  .chart-legend {
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .tai-chart {
+    height: 250px;
+  }
+}

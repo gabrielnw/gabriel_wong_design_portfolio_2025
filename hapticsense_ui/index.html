@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haptic Device</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="device-container">
+        <div class="strap top"></div>
+        <div class="case">
+            <div class="button-side">
+                <svg width="120" height="120" viewBox="0 0 120 120">
+                    <!-- Circle radius 50 (overlaps case), stroke 14, dasharray for segment -->
+                    <circle cx="60" cy="60" r="50" fill="none" stroke="#d35f28" stroke-width="14" stroke-linecap="round" stroke-dasharray="40 300" transform="rotate(-65 60 60)" />
+                </svg>
+            </div>
+            <div class="screen-area">
+                <div id="screen-content">
+                    <!-- Step 1: Welcome -->
+                    <div class="screen-step active" id="step-welcome">
+                        <div class="icon-logo"></div>
+                        <h1>Welcome</h1>
+                        <p>Let's begin calibration to personalize your haptic experience.</p>
+                        <button class="btn-primary" id="btn-start">Start Setup</button>
+                    </div>
+
+                    <!-- Step 2: Calibration -->
+                    <div class="screen-step" id="step-calibration">
+                        <h2>Calibration</h2>
+                        <p>Flex each finger individually as highlighted.</p>
+                        <div class="hand-visual">
+                            <div class="finger f1"></div>
+                            <div class="finger f2"></div>
+                            <div class="finger f3"></div>
+                            <div class="finger f4"></div>
+                        </div>
+                        <button class="btn-primary" id="btn-cal-next">Next</button>
+                    </div>
+
+                    <!-- Step 3: Test -->
+                    <div class="screen-step" id="step-test">
+                        <h2>Test Haptics</h2>
+                        <p>Can you feel the pulse?</p>
+                        <div class="pulse-circle"></div>
+                        <div class="button-group">
+                            <button class="btn-secondary" id="btn-test-no">No</button>
+                            <button class="btn-primary" id="btn-test-yes">Yes</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3b: Recalibrating -->
+                    <div class="screen-step" id="step-recalibrating">
+                        <div class="spinner"></div>
+                        <h2>Recalibrating...</h2>
+                        <p>Please wait.</p>
+                    </div>
+
+                    <!-- Step 4: Complete (Intermediate) -->
+                    <div class="screen-step" id="step-complete">
+                        <div class="icon-check"></div>
+                        <h1>Calibration Done</h1>
+                        <p>Ready for next steps.</p>
+                        <button class="btn-primary" id="btn-complete-next">Continue</button>
+                    </div>
+
+                    <!-- Step 5: Visor Setup (04) -->
+                    <div class="screen-step" id="step-visor">
+                        <div class="icon-visor"></div>
+                        <h2>Visor Setup</h2>
+                        <p>Put on visor for immersive experience or continue without.</p>
+                        <div class="button-group">
+                            <button class="btn-secondary" id="btn-visor-skip">Skip</button>
+                            <button class="btn-primary" id="btn-visor-use">Use Visor</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 6: Haptic Adjustment (05) -->
+                    <div class="screen-step" id="step-haptic">
+                        <h2>Haptic Intensity</h2>
+                        <p>Rotate dial to adjust feedback intensity.</p>
+                        <div class="intensity-meter">
+                            <div class="intensity-bar" id="intensity-bar"></div>
+                            <div class="intensity-value" id="intensity-val">50%</div>
+                        </div>
+                        <button class="btn-primary" id="btn-haptic-next">Next</button>
+                    </div>
+
+                    <!-- Step 7: Immersion Control (06) -->
+                    <div class="screen-step" id="step-immersion">
+                        <h2>Immersion Level</h2>
+                        <p>Slide toggle to control immersion.</p>
+                        <div class="immersion-visual">
+                            <div class="immersion-circle" id="immersion-circle"></div>
+                        </div>
+                        <button class="btn-primary" id="btn-finish">Finish</button>
+                    </div>
+
+                    <!-- Step 8: Finished -->
+                    <div class="screen-step" id="step-finished">
+                        <div class="icon-check"></div>
+                        <h1>Setup Complete</h1>
+                        <p>You are ready to go.</p>
+                        <button class="btn-secondary" id="btn-ready">Start Experience</button>
+                    </div>
+                </div>
+            </div>
+            <div class="controls-area">
+                <div class="control-module slider-module">
+                    <div class="slider-track">
+                        <div class="slider-handle"></div>
+                    </div>
+                </div>
+                <div class="control-module knob-module">
+                    <div class="knob-base">
+                        <div class="knob-dial"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="strap bottom"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

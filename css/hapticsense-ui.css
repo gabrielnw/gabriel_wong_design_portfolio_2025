@@ -1,0 +1,560 @@
+:root {
+  --hs-bg-color: #f0f0f0;
+  --hs-case-color: #1a1a1a;
+  --hs-strap-color: #d35f28;
+  --hs-screen-color: #000000;
+  --hs-control-bg: #111111;
+  --hs-accent-color: #d35f28;
+  --hs-shadow-color: rgba(0, 0, 0, 0.5);
+}
+
+.device-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: sans-serif; /* Ensure font consistency within component */
+}
+
+.interaction-label {
+  position: absolute;
+  top: -50px;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: rgb(66, 30, 0); /* Dark brown from case study */
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: 1px solid rgba(66, 30, 0, 0.1);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  animation: float 4s ease-in-out infinite;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  backdrop-filter: blur(4px);
+}
+
+.interaction-label::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background-color: var(--hs-accent-color);
+  border-radius: 50%;
+  animation: pulse-dot 2s infinite;
+}
+
+.interaction-label::after {
+  /* Removed arrow for cleaner look */
+  content: none;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes pulse-dot {
+  0% { transform: scale(0.8); opacity: 0.5; }
+  50% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(0.8); opacity: 0.5; }
+}
+
+/* Strap */
+.strap {
+  width: 140px;
+  height: 60px;
+  background-color: var(--hs-strap-color);
+  position: relative;
+  z-index: 0;
+}
+
+.strap.top {
+  border-radius: 10px 10px 0 0;
+  margin-bottom: -10px;
+  background: linear-gradient(to bottom, #222 15%, var(--hs-strap-color) 15%);
+}
+
+.strap.bottom {
+  border-radius: 0 0 10px 10px;
+  margin-top: -10px;
+  background: linear-gradient(to top, #333 15%, var(--hs-strap-color) 15%);
+}
+
+/* Case */
+.case {
+  width: 280px;
+  height: 340px;
+  background-color: var(--hs-case-color);
+  border-radius: 45px;
+  padding: 20px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3),
+    inset 0 2px 5px rgba(255, 255, 255, 0.1),
+    inset 0 -2px 5px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Side Button */
+.button-side {
+    position: absolute;
+    right: -15px;
+    top: -15px;
+    width: 120px;
+    height: 120px;
+    z-index: -1;
+    pointer-events: none; /* Let clicks pass through if needed, or remove if button should be clickable */
+}
+
+/* Screen */
+.screen-area {
+  flex: 1.5;
+  background-color: var(--hs-screen-color);
+  border-radius: 25px 25px 4px 4px;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.2);
+  overflow: hidden; /* Clip content */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Screen Area - Retro NASA Style */
+#screen-content {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    color: rgba(255, 255, 255, 0.9);
+    font-family: 'Courier New', Courier, monospace; /* Monospace for technical look */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: 
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 20px 20px; /* Grid effect */
+    position: relative;
+}
+
+.screen-step {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 100%;
+    animation: fadeIn 0.5s ease;
+}
+
+.screen-step.active {
+    display: flex;
+}
+
+/* New Visuals for Steps 04-06 (Restored) */
+.icon-visor {
+    width: 30px;
+    height: 18px;
+    border: 2px solid var(--hs-accent-color);
+    border-radius: 4px;
+    position: relative;
+    margin-bottom: 5px;
+}
+
+.icon-visor::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 22px;
+    height: 10px;
+    background-color: rgba(211, 95, 40, 0.3);
+}
+
+/* Corner Brackets Decoration */
+#screen-content::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+    pointer-events: none;
+    clip-path: polygon(
+        0 10px, 0 0, 10px 0, 
+        calc(100% - 10px) 0, 100% 0, 100% 10px,
+        100% calc(100% - 10px), 100% 100%, calc(100% - 10px) 100%,
+        10px 100%, 0 100%, 0 calc(100% - 10px)
+    );
+}
+
+/* Typography Overrides */
+#screen-content h1, #screen-content h2, #screen-content h3 {
+    font-family: 'Courier New', Courier, monospace; /* Explicitly override global font */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: normal;
+    margin-bottom: 4px; /* Reduced from 8px */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    display: inline-block;
+    padding-bottom: 2px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+#screen-content p {
+    font-size: 9px; /* Reduced from 10px */
+    opacity: 0.8;
+    margin-bottom: 8px; /* Reduced from 12px */
+    line-height: 1.4;
+    max-width: 95%;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Button Overhaul - Tactical */
+.btn-primary, .btn-secondary {
+    border: 1px solid var(--hs-accent-color);
+    background: rgba(211, 95, 40, 0.1);
+    color: var(--hs-accent-color);
+    border-radius: 0; /* Squared corners */
+    padding: 4px 12px; /* Reduced from 6px 16px */
+    font-family: 'Courier New', Courier, monospace;
+    text-transform: uppercase;
+    font-size: 10px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+}
+
+.btn-primary:hover, .btn-secondary:hover {
+    background: var(--hs-accent-color);
+    color: #000;
+}
+
+.btn-primary::after {
+    /* Technical marker on button */
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 4px;
+    height: 4px;
+    background: currentColor;
+}
+
+/* Step Specific Visuals - Technical Update */
+.icon-check {
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--hs-accent-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.icon-check::after {
+    content: '';
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    width: 14px;
+    height: 7px;
+    border-left: 2px solid var(--hs-accent-color);
+    border-bottom: 2px solid var(--hs-accent-color);
+    transform: translate(-50%, -60%) rotate(-45deg);
+}
+
+.pulse-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--hs-accent-color);
+    opacity: 0.5;
+    animation: pulse 2s infinite;
+    border: 1px dashed var(--hs-accent-color); /* Dashed for technical feel */
+}
+
+.spinner {
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-top: 2px solid var(--hs-accent-color);
+    border-radius: 50%; /* Keep spinner round or make it square? Round is standard for rotation */
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.intensity-meter {
+    width: 70%;
+    height: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: transparent;
+    border-radius: 0;
+    position: relative;
+    margin: 5px 0;
+    overflow: hidden;
+}
+
+.intensity-bar {
+    height: 100%;
+    background-color: var(--hs-accent-color);
+    transition: width 0.1s;
+}
+
+.intensity-value {
+    margin-top: 2px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+#intensity-bar {
+    background: repeating-linear-gradient(
+        90deg,
+        var(--hs-accent-color),
+        var(--hs-accent-color) 2px,
+        transparent 2px,
+        transparent 4px
+    ); /* Segmented bar look */
+}
+
+.immersion-visual {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px dashed rgba(255, 255, 255, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2px 0; /* Tight margin */
+    position: relative;
+}
+
+.immersion-circle {
+    background: radial-gradient(circle, var(--hs-accent-color) 0%, transparent 70%);
+    box-shadow: none;
+    border: 1px solid var(--hs-accent-color);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#screen-content h1 { font-size: 18px; } /* Reduced from 24px */
+#screen-content h2 { font-size: 16px; } /* Reduced from 20px */
+
+.btn-primary, .btn-secondary {
+    padding: 8px 20px; /* Reduced padding */
+    border-radius: 16px;
+    border: none;
+    font-size: 12px; /* Reduced from 14px */
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.1s, opacity 0.2s;
+}
+
+.btn-primary {
+    background-color: var(--hs-accent-color);
+    color: white;
+    box-shadow: 0 4px 10px rgba(211, 95, 40, 0.3);
+}
+
+.btn-secondary {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.btn-primary:active, .btn-secondary:active {
+    transform: scale(0.95);
+}
+
+.button-group {
+    display: flex;
+    gap: 15px;
+}
+
+/* Visuals */
+.icon-logo {
+    width: 30px; /* Reduced from 40px */
+    height: 30px; /* Reduced from 40px */
+    background-color: var(--hs-accent-color);
+    border-radius: 50%;
+    margin-bottom: 8px; /* Reduced from 10px */
+    box-shadow: 0 0 15px rgba(211, 95, 40, 0.5);
+}
+
+.hand-visual {
+    display: flex;
+    gap: 8px;
+    height: 40px;
+    align-items: flex-end;
+}
+
+.finger {
+    width: 8px;
+    background-color: rgba(255,255,255,0.2);
+    border-radius: 4px;
+}
+
+.finger.f1 { height: 25px; animation: flexFinger 1.5s infinite 0s; }
+.finger.f2 { height: 35px; animation: flexFinger 1.5s infinite 0.2s; }
+.finger.f3 { height: 30px; animation: flexFinger 1.5s infinite 0.4s; }
+.finger.f4 { height: 20px; animation: flexFinger 1.5s infinite 0.6s; }
+
+@keyframes flexFinger {
+    0%, 100% { height: inherit; background-color: rgba(255,255,255,0.2); }
+    50% { height: 10px; background-color: var(--hs-accent-color); }
+}
+
+.pulse-visual {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--hs-accent-color);
+    opacity: 0.5;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(0.8); opacity: 0.3; }
+    50% { transform: scale(1.1); opacity: 0.6; }
+    100% { transform: scale(0.8); opacity: 0.3; }
+}
+
+/* Controls */
+.controls-area {
+  flex: 1;
+  display: flex;
+  gap: 15px;
+}
+
+.control-module {
+  flex: 1;
+  background-color: var(--hs-control-bg);
+  border-radius: 20px;
+  position: relative;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5),
+    0 1px 0 rgba(255, 255, 255, 0.05);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Slider */
+.slider-module {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider-track {
+    width: 12px;
+    height: 90px;
+    background-color: #0d0d0d;
+    border-radius: 6px;
+    position: relative;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.8), 0 1px 0 rgba(255,255,255,0.05);
+    transform: rotate(45deg);
+}
+
+.slider-handle {
+    width: 36px;
+    height: 36px;
+    background-color: var(--hs-accent-color);
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%; /* Start at center */
+    transform: translate(-50%, -50%);
+    box-shadow: 
+        0 4px 8px rgba(0,0,0,0.6),
+        inset 0 2px 5px rgba(255,255,255,0.3),
+        inset 0 -2px 5px rgba(0,0,0,0.2);
+    cursor: grab;
+    z-index: 10;
+}
+
+.slider-handle:active {
+    cursor: grabbing;
+}
+
+/* Knob */
+.knob-module {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.knob-base {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: conic-gradient(from 180deg, #2a2a2a, #1a1a1a, #2a2a2a);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 
+        0 5px 15px rgba(0,0,0,0.4),
+        inset 0 1px 2px rgba(255,255,255,0.05);
+    position: relative;
+}
+
+/* Tick marks around knob */
+.knob-base::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: repeating-conic-gradient(
+        rgba(255,255,255,0.03) 0deg 2deg,
+        transparent 2deg 30deg
+    );
+}
+
+.knob-dial {
+    width: 44px;
+    height: 44px;
+    background-color: var(--hs-accent-color);
+    border-radius: 50%;
+    position: relative;
+    box-shadow: 
+        0 3px 8px rgba(0,0,0,0.5),
+        inset 0 2px 5px rgba(255,255,255,0.3),
+        inset 0 -2px 5px rgba(0,0,0,0.2);
+    cursor: grab;
+    z-index: 10;
+}
+
+.knob-dial:active {
+    cursor: grabbing;
+}
+
+.knob-dial::after {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 6px;
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 50%;
+}

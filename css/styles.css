@@ -1,0 +1,1085 @@
+/* -------------------------------------
+   Reset & Base
+------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  overscroll-behavior: none;
+}
+
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  text-rendering: optimizeSpeed;
+}
+
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img,
+picture {
+  max-width: 100%;
+  display: block;
+  border-radius: 2px;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+body {
+  font-family: "Space Grotesk", sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* gap: 24px; */
+}
+
+main {
+  width: 100%;
+  max-width: 1200px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* -------------------------------------
+   Layout & Navigation
+------------------------------------- */
+header {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  /* border-bottom: 1px solid black; */
+  margin-bottom: 24px;
+  padding: 0 24px;
+  width: 100%;
+  max-width: 1200px;
+}
+nav .links {
+  display: flex;
+  gap: 16px;
+  padding: 0;
+}
+.links li {
+  list-style: none;
+  width: 140px;
+}
+.links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 4px 16px;
+  background: linear-gradient(#fff 2px, #a1a1ff, #568df9, #0043ca);
+  border: 1px solid #0043ca;
+  border-radius: 999px;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+}
+
+/* -------------------------------------
+   Typography
+------------------------------------- */
+h1 {
+  font-family: "Playfair Display", serif;
+  font-weight: 300;
+  text-align: center;
+  text-wrap: balance;
+}
+h2 {
+  font-family: "Playfair Display", serif;
+  font-weight: 300;
+  font-size: 20px;
+  text-wrap: balance;
+}
+h3 {
+  font-size: 16px;
+  font-weight: 400;
+  text-wrap: balance;
+}
+p {
+  line-height: 1.33;
+  text-wrap: pretty;
+}
+.index p,
+.experiments p {
+  max-width: 500px;
+  width: 100%;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1.33;
+  margin: 0 auto;
+  text-align: center;
+}
+.caption {
+  font-size: 12px;
+}
+
+/* -------------------------------------
+   Homepage
+------------------------------------- */
+.index {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.index ul {
+  margin: 0 auto;
+  padding: 0;
+  margin-top: 8px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+.index ul li {
+  list-style: none;
+  color: #0043ca;
+}
+.index ul li a:hover {
+  font-weight: 800;
+  text-decoration: underline;
+}
+
+/* Project grid */
+.work {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+.projects {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 16px;
+  font-family: "Playfair Display", serif;
+  font-weight: 300;
+  font-size: 20px;
+}
+.projects a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  flex: 1 1 0;
+  max-width: 400px;
+}
+.projects-img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  height: auto;
+  align-self: center;
+  object-fit: cover;
+}
+
+/* -------------------------------------
+   Experiments Directory
+------------------------------------- */
+.experiment-cards {
+  margin: 24px auto 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+.experiment-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #050708;
+  background: #e3e3e3;
+  min-height: 280px;
+  text-decoration: none;
+  color: #050708;
+}
+.experiment-card:focus-visible {
+  outline: 2px dashed #050708;
+  outline-offset: 4px;
+}
+.experiment-card-media {
+  padding: 12px;
+  border-bottom: 1px solid #050708;
+  background: #fdfdfd;
+}
+.experiment-card-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+.experiment-card-details {
+  display: flex;
+  flex-direction: column;
+  background: #e3e3e3;
+}
+.experiment-card-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 10px 16px;
+}
+.experiment-card-row + .experiment-card-row {
+  border-top: 1px solid #050708;
+}
+.experiment-card-label {
+  font-weight: 700;
+}
+.experiment-card-value {
+  font-weight: 400;
+}
+
+@media (min-width: 1024px) {
+  .experiment-cards {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Experiment overlay viewer */
+.experiment-overlay {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 24px;
+  z-index: 999;
+}
+.experiment-overlay:target {
+  display: flex;
+}
+.experiment-overlay__content {
+  position: relative;
+  max-width: min(90vw, 800px);
+  width: 100%;
+}
+.experiment-overlay__content img {
+  width: 100%;
+  height: auto;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+.experiment-overlay__close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.65);
+  color: #fff;
+  font-size: 20px;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+}
+.experiment-overlay__close:hover,
+.experiment-overlay__close:focus-visible {
+  background: rgba(0, 0, 0, 0.85);
+}
+
+/* -------------------------------------
+   DNA Theme (Shared)
+------------------------------------- */
+.dna-body {
+  background-color: rgb(196, 255, 181);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.dna-body h1,
+.dna-body h2 {
+  color: rgb(0, 43, 0);
+}
+
+.dna-body p {
+  color: rgb(0, 100, 0);
+}
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  gap: 16px;
+  width: 100%;
+}
+.hero-img {
+  width: 100%;
+  height: auto;
+}
+.hero-overview {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+.hero p {
+  max-width: 400px;
+}
+.case-study .hero p {
+  max-width: none;
+}
+.hero-overview-details {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.hero-overview-details .detail {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+/* Case study layout refinements */
+.case-study main {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 0 24px 96px;
+  gap: 56px;
+}
+.case-study section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.case-study .hero {
+  flex-direction: column;
+  gap: 32px;
+  padding: 0;
+}
+.case-study .hero-figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.case-study .hero-figure figcaption {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.95rem;
+  color: rgba(0, 43, 0, 0.75);
+  line-height: 1.5;
+}
+.case-study .hero-img {
+  max-width: 100%;
+}
+.case-study .hero-overview {
+  flex-direction: column;
+  gap: 28px;
+}
+.case-study .hero-overview .lede {
+  font-size: 1.25rem;
+  line-height: 1.8;
+}
+.case-study .hero-overview-details {
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 32px;
+  border-top: 1px solid rgba(0, 43, 0, 0.2);
+  padding-top: 18px;
+}
+.case-study .hero-overview-details .detail {
+  min-width: 140px;
+}
+.case-study .what-if h1 {
+  max-width: 400px;
+  margin: 0 auto;
+}
+.case-study .framing {
+  gap: 16px;
+}
+.case-study .header-p-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.case-study .header-p-container h2 {
+  font-size: 1.6rem;
+}
+.case-study .header-p-container p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+.case-study .header-p-container .caption {
+  font-size: 12px;
+}
+.case-study .header-subheader {
+  display: flex;
+  flex-direction: column;
+  border: none;
+  padding: 0;
+  background: none;
+  max-width: 100%;
+  gap: 6px;
+}
+.case-study .header-subheader h2 {
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  color: rgba(0, 43, 0, 0.8);
+}
+.case-study .header-subheader h3 {
+  font-size: 2rem;
+  letter-spacing: 0;
+  color: rgb(0, 43, 0);
+  text-transform: none;
+}
+.case-study .dna-ol-list {
+  padding-left: 28px;
+  list-style: decimal;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+.case-study .dna-ol-list li {
+  font-size: 1.2rem;
+  letter-spacing: 0.03em;
+  margin: 8px 0;
+  font-family: "Playfair Display", serif;
+}
+.case-study .dna-ol-list > p {
+  margin: 0;
+  line-height: 1.7;
+}
+.case-study #longevity .viz-card,
+.case-study #energy-viz .viz-card,
+.case-study #gartner .viz-card,
+.case-study #density-viz .viz-card,
+.case-study #pubmed .viz-card {
+  border: 1px solid rgba(0, 43, 0, 0.2);
+  background: #fdfef4;
+  gap: 12px;
+  margin: 12px 0 4px;
+  padding: 18px 26px 20px;
+}
+.case-study #longevity .legend,
+.case-study #energy-viz .legend,
+.case-study #gartner .legend,
+.case-study #density-viz .legend,
+.case-study #pubmed .legend {
+  justify-content: flex-start;
+  gap: 16px;
+}
+.case-study #longevity .chip,
+.case-study #energy-viz .chip,
+.case-study #gartner .chip,
+.case-study #density-viz .chip,
+.case-study #pubmed .chip {
+  border: none;
+  padding: 0;
+  font-size: 0.9rem;
+}
+.case-study #longevity .chip .swatch,
+.case-study #energy-viz .chip .swatch,
+.case-study #gartner .chip .swatch,
+.case-study #density-viz .chip .swatch,
+.case-study #pubmed .chip .swatch {
+  border: none;
+}
+.case-study #longevity .caption,
+.case-study #energy-viz .caption,
+.case-study #gartner .caption,
+.case-study #density-viz .caption,
+.case-study #pubmed .caption {
+  font-size: 0.95rem;
+  color: rgba(0, 43, 0, 0.8);
+  margin-top: 8px;
+}
+.case-study .chart-wrap {
+  margin: 4px 0 8px;
+}
+.dna-body h3 {
+  color: rgb(60, 112, 60);
+}
+
+/* -------------------------------------
+   Visualization Cards (Shared)
+------------------------------------- */
+#longevity,
+#energy-viz,
+#gartner,
+#density-viz,
+#emissions-viz,
+#growth-viz {
+  --g-1: #f4ffe9;
+  --g-2: #d9f4c6;
+  --g-3: #bfe49f;
+  --g-4: #9ad66f;
+  --g-5: #3b8a2f;
+  --text: rgb(0, 43, 0);
+  --muted: rgb(0, 90, 0);
+  --grid: rgba(0, 43, 0, 0.15);
+  margin: 0 auto;
+  --demand-color: #d6cebf;
+  --supply-color: #b23a3a;
+  --shortfall-color: #4caf6a;
+  width: 100%;
+}
+#longevity .viz-card,
+#energy-viz .viz-card,
+#gartner .viz-card,
+#density-viz .viz-card,
+#pubmed .viz-card,
+#emissions-viz .viz-card,
+#growth-viz .viz-card {
+  border: 1px solid #002b00;
+  background: #fdfef4;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border-radius: 0;
+}
+#longevity h2,
+#energy-viz h2,
+#gartner h2,
+#density-viz h2,
+#emissions-viz h2,
+#growth-viz h2 {
+  font-family: "Playfair Display", serif;
+  font-weight: 400;
+  margin: 0;
+}
+#longevity .muted,
+#longevity .caption,
+#energy-viz .muted,
+#energy-viz .caption,
+#gartner .muted,
+#gartner .caption,
+#density-viz .muted,
+#density-viz .caption,
+#emissions-viz .muted,
+#emissions-viz .caption,
+#growth-viz .muted,
+#growth-viz .caption {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 14px;
+}
+#longevity .legend,
+#energy-viz .legend,
+#gartner .legend,
+#density-viz .legend {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 13px;
+}
+#longevity .chip,
+#energy-viz .chip,
+#gartner .chip,
+#density-viz .chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border: 1px solid #002b00;
+}
+#longevity .chip .swatch,
+#energy-viz .chip .swatch,
+#gartner .chip .swatch,
+#density-viz .chip .swatch {
+  width: 14px;
+  height: 14px;
+  border: 1px solid #002b00;
+  border-radius: 2px;
+}
+#longevity .swatch,
+#energy-viz .swatch,
+#gartner .swatch,
+#density-viz .swatch {
+  width: 14px;
+  height: 14px;
+  border: 1px solid #002b00;
+}
+#longevity .swatch.scale,
+#energy-viz .swatch.scale,
+#gartner .swatch.scale,
+#density-viz .swatch.scale {
+  background: linear-gradient(90deg, var(--g-2), var(--g-4));
+}
+#longevity .swatch.dna,
+#energy-viz .swatch.dna,
+#gartner .swatch.dna,
+#density-viz .swatch.dna {
+  background: var(--g-5);
+}
+#longevity .chart-wrap,
+#energy-viz .chart-wrap,
+#gartner .chart-wrap,
+#density-viz .chart-wrap,
+#emissions-viz .chart-wrap,
+#growth-viz .chart-wrap {
+  width: 100%;
+}
+
+#gartner .swatch.demand {
+  background: #d6cebf;
+  border: 1px solid #8d836f;
+}
+#gartner .swatch.supply {
+  background: #b23a3a;
+}
+#gartner .swatch.shortfall {
+  background: #4caf6a;
+}
+#gartner .swatch.prior {
+  width: 18px;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    #002b00 0,
+    #002b00 50%,
+    transparent 50%,
+    transparent 100%
+  );
+  background-size: 6px 2px;
+  border: none;
+}
+
+/* -------------------------------------
+   Density Board Illustration
+------------------------------------- */
+.viz-card .viz-board {
+  position: relative;
+  --board-size: clamp(260px, 55vw, 420px);
+  width: 100%;
+  min-height: calc(var(--board-size) + 120px);
+  background: #fdfef4;
+  border-radius: 0;
+  box-sizing: border-box;
+  font-family: "Space Grotesk", sans-serif;
+  color: #002b00;
+}
+.viz-board .sq {
+  position: absolute;
+  left: 24px;
+  top: 24px;
+  border-radius: 0;
+  background: var(--g-2);
+  border: 1px solid #002b00;
+}
+.viz-board .usb {
+  width: calc(100% - 48px);
+  height: var(--board-size);
+  background: var(--g-1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 16px;
+}
+.viz-board .usb .label {
+  font-size: clamp(1.4rem, 4vw, 2.5rem);
+}
+.viz-board .usb .label b {
+  display: block;
+  font-size: clamp(3rem, 10vw, 6rem);
+  line-height: 1;
+}
+.viz-board .hdd {
+  --ratio: 0.2488067;
+  width: calc((100% - 48px) * var(--ratio));
+  height: calc(var(--board-size) * var(--ratio));
+  background: var(--g-2);
+  display: grid;
+  place-items: center;
+  left: 24px;
+  top: calc(24px + var(--board-size) - var(--board-size) * var(--ratio));
+  padding: 10px;
+  z-index: 2;
+}
+.viz-board .hdd .label {
+  font-size: clamp(0.8rem, 1.5vw, 0.5rem);
+  text-align: center;
+  line-height: 1.2;
+}
+.viz-board .tape {
+  --ratio: 0.0735171;
+  width: calc((100% - 48px) * var(--ratio));
+  height: calc(var(--board-size) * var(--ratio));
+  background: #8fc56f;
+  left: 24px;
+  top: calc(24px + var(--board-size) - var(--board-size) * var(--ratio));
+  border: 1px solid #002b00;
+  z-index: 3;
+}
+.viz-board .tape .label {
+  position: absolute;
+  left: 0;
+  top: 60px;
+  transform: translateY(-50%);
+  font-size: clamp(0.85rem, 1.6vw, 1rem);
+  max-width: 200px;
+  line-height: 1.2;
+  z-index: 4;
+  padding: 2px 4px;
+}
+.viz-board .dna {
+  position: absolute;
+  right: 36px;
+  bottom: 36px;
+  width: 6px;
+  height: 6px;
+  background: #3e8b2a;
+  border-radius: 50%;
+  border: 1px solid #002b00;
+}
+.viz-board .dna::after {
+  content: "";
+  position: absolute;
+  width: 70px;
+  height: 1px;
+  background: #002b00;
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.viz-board .dna-caption {
+  position: absolute;
+  right: calc(36px + 70px + 12px);
+  bottom: 32px;
+  text-align: left;
+  font-size: clamp(0.9rem, 2vw, 1.15rem);
+}
+
+/* -------------------------------------
+   Back to Top Control
+------------------------------------- */
+.back-to-top {
+  position: fixed;
+  bottom: 24px;
+  right: clamp(16px, 4vw, 40px);
+  min-width: 58px;
+  height: 42px;
+  padding: 0 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.18);
+  background: #fcfbf6;
+  color: #18351f;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Playfair Display", serif;
+  font-size: 1rem;
+  line-height: 1;
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px) scale(0.98);
+  transition: opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+.back-to-top:hover,
+.back-to-top:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+}
+.back-to-top:focus-visible {
+  outline: 2px solid rgba(28, 59, 34, 0.4);
+  outline-offset: 4px;
+}
+.back-to-top span {
+  pointer-events: none;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
+}
+.pubmed-tooltip {
+  position: absolute;
+  display: none;
+  background: #fdfef4;
+  border: 1px solid rgba(0, 43, 0, 0.25);
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 0.85rem;
+  font-family: "Space Grotesk", sans-serif;
+  color: rgba(0, 43, 0, 0.9);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+  pointer-events: none;
+  z-index: 1200;
+  background-clip: padding-box;
+}
+.back-to-top.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+/* -------------------------------------
+   Footer
+------------------------------------- */
+.site-footer {
+  width: 100%;
+  max-width: 1200px;
+  padding: 8px 24px;
+  text-align: center;
+  font-family: "Playfair Display", serif;
+  font-size: 18px;
+  margin-top: auto;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 16px;
+  }
+
+  header {
+    padding: 0 16px;
+  }
+
+  .projects {
+    flex-wrap: wrap;
+  }
+
+  .projects a {
+    flex: 1 1 100%;
+  }
+
+  .site-footer {
+    padding: 8px 16px;
+  }
+
+  /* Case Study Mobile Styles */
+  .case-study main {
+    padding: 0 16px 64px;
+    gap: 40px;
+  }
+
+  .case-study .hero-overview {
+    gap: 20px;
+  }
+
+  .case-study .hero-overview .lede {
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+
+  .case-study .hero-overview-details {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .case-study .header-p-container h2 {
+    font-size: 1.3rem;
+  }
+
+  .case-study .header-p-container p {
+    font-size: 1rem;
+  }
+
+  .case-study .what-if h1 {
+    font-size: 1.5rem;
+  }
+
+  /* Viz Cards Mobile */
+  .case-study #longevity .viz-card,
+  .case-study #energy-viz .viz-card,
+  .case-study #gartner .viz-card,
+  .case-study #density-viz .viz-card,
+  .case-study #pubmed .viz-card {
+    padding: 16px;
+    margin: 8px 0;
+  }
+
+  #longevity .viz-card,
+  #energy-viz .viz-card,
+  #gartner .viz-card,
+  #density-viz .viz-card,
+  #pubmed .viz-card,
+  #emissions-viz .viz-card,
+  #growth-viz .viz-card {
+    padding: 16px;
+  }
+
+  /* Legend Mobile */
+  #longevity .legend,
+  #energy-viz .legend,
+  #gartner .legend,
+  #density-viz .legend {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  /* Navigation Mobile */
+  nav .links {
+    gap: 12px;
+  }
+
+  .links li {
+    width: 120px;
+    flex: 0 0 120px;
+  }
+
+  .links a {
+    padding: 4px 14px;
+    font-size: 14px;
+  }
+
+  /* Index Mobile */
+  .index p,
+  .experiments p {
+    font-size: 18px;
+    padding: 0;
+  }
+
+  .index ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* Back to top Mobile */
+  .back-to-top {
+    right: 16px;
+    bottom: 16px;
+  }
+
+  /* Density Board Mobile */
+  .viz-card .viz-board {
+    --board-size: clamp(200px, 70vw, 300px);
+  }
+
+  .viz-board .sq {
+    left: 16px;
+    top: 16px;
+  }
+
+  .viz-board .usb {
+    width: calc(100% - 32px);
+  }
+
+  .viz-board .hdd {
+    left: 16px;
+  }
+
+  .viz-board .tape {
+    left: 16px;
+  }
+
+  .viz-board .dna {
+    right: 24px;
+    bottom: 24px;
+  }
+
+  .viz-board .dna-caption {
+    right: calc(24px + 60px + 8px);
+    bottom: 20px;
+    font-size: 0.85rem;
+  }
+
+  .viz-board .dna::after {
+    width: 50px;
+  }
+
+  /* Experiment Cards Mobile */
+  .experiment-cards {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .experiment-card {
+    min-height: auto;
+  }
+
+  .experiment-card-media {
+    padding: 8px;
+  }
+
+  .experiment-card-img {
+    height: 160px;
+  }
+
+  .experiment-card-row {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
+  /* Header Mobile */
+  header h1 {
+    font-size: 1.75rem;
+  }
+
+  /* Main Mobile Gap */
+  main {
+    gap: 16px;
+  }
+}
+
+/* Extra small devices (under 480px) */
+@media (max-width: 480px) {
+  body {
+    padding: 16px;
+  }
+
+  header {
+    padding: 0;
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  .case-study main {
+    padding: 0 16px 48px;
+    gap: 32px;
+  }
+
+  .case-study .hero-overview .lede {
+    font-size: 1rem;
+  }
+
+  .case-study .header-p-container h2 {
+    font-size: 1.15rem;
+  }
+
+  .links li {
+    width: 100px;
+    flex: 0 0 100px;
+  }
+
+  .links a {
+    padding: 4px 10px;
+    font-size: 13px;
+  }
+}

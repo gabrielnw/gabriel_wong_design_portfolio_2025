@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HapticSense</title>
+
+    <!-- Site styles (case-study) -->
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/hapticsense-utils.css" />
+    <link rel="stylesheet" href="/css/hapticsense-ui.css" />
+
+    <!-- Scripts -->
+    <script src="/js/responsive-layout.js" defer></script>
+    <script src="/js/case-study-navigation.js" defer></script>
+    <script src="/js/hapticsense-ui.js" defer></script>
+
+    <!-- Fonts (case-study pair) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Space+Grotesk:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body id="top" class="hs-body case-study">
+    <header>
+      <h1>hapticsense</h1>
+      <nav>
+        <ul class="links">
+          <li><a href="/index.html">index</a></li>
+          <li><a href="/experiments/">experiments</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="case-study">
+      <section class="hero">
+        <figure class="hero-figure">
+          <img
+            class="hero-img"
+            src="/assets/images/hapticsense/haptic-28.png"
+            alt="HapticSense wrist-worn haptic feedback device prototype"
+          />
+        </figure>
+
+        <div class="hero-overview">
+          <p class="lede">
+            This project explores the use of neuromodulation to stimulate wrist
+            nerves, enabling users to experience natural tactile feedback when
+            interacting with virtual objects. By addressing the limitations of
+            current VR/AR systems, the design reconfigures sensory perception by
+            bridging digital signals with innate human touch.
+          </p>
+          <div class="hero-overview-details">
+            <div class="detail">
+              <h2>Duration</h2>
+              <p>2 Month</p>
+            </div>
+            <div class="detail">
+              <h2>Methods</h2>
+              <p>Speculative Design, Industrial Design, UI/UX Design</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2>CONTEXT</h2>
+        <div class="header-p-container">
+          <h2>Technology Behind Device</h2>
+          <p>
+            The device leverages <strong>neuromodulation through peripheral nerve
+            stimulation (PNS)</strong> to create realistic touch sensations in
+            virtual environments. By applying targeted electrical
+            stimulation to the median and ulnar nerves in the wrist, it
+            triggers sensory feedback in the fingers, mimicking the feel of
+            real objects.
+          </p>
+        </div>
+        <div class="header-p-container">
+          <h2>How It Improves on Existing VR/AR Haptics</h2>
+          <p>
+            Unlike traditional haptic gloves, this approach <strong>bypasses
+            mechanical actuators</strong>, offering a lightweight, precise, and
+            immersive alternative. The system integrates adaptive signal
+            processing to fine-tune stimulation based on user interactions,
+            ensuring seamless and natural touch experiences in AR/VR.
+          </p>
+        </div>
+      </section>
+      <section>
+        <h2>THEORETICAL FOUNDATIONS</h2>
+        <p>
+          This project draws inspiration from key readings on touch and
+          human-computer integration, particularly
+          <span class="italic">
+            Fingerbombing, or ‘Touching is Good’: The Cultural Construction of
+            Technologized Touch
+          </span>
+          by David Parisi and
+          <span class="italic">Man-Computer Symbiosis</span> by J.C.R.
+          Licklider.
+        </p>
+        
+        <div class="header-p-container">
+          <h2>Cultural Construction of Touch</h2>
+          <p>
+            Based on David Parisi's
+            <span class="italic">
+              Fingerbombing, or ‘Touching is Good’: The Cultural Construction
+              of Technologized Touch
+            </span>
+          </p>
+          <p>
+            The history of touch in media suggests that haptic habits are
+            learned, not innate. The transition from button-mashing arcades to
+            the gentle swipes of the smartphone era demonstrates our
+            adaptability.
+          </p>
+          <blockquote class="pull-quote">
+            "New interface technologies reshape perception and bodily habits,
+            creating new forms of 'haptic subjectivity'."
+          </blockquote>
+          <p>
+            Parisi (2008) argues that new interface technologies reshape
+            perception and bodily habits, creating new forms of "haptic
+            subjectivity." This implies that users can be trained to accept and
+            interpret novel sensations—like direct nerve stimulation—if framed
+            correctly.
+          </p>
+          <h3>Relevance to Project</h3>
+          <p>
+            The shift from traditional haptic feedback to neurostimulation
+            redefines how we perceive and feel touch in VR/AR, moving away
+            from mechanical feedback towards a more natural, immersive
+            experience.
+          </p>
+          <ul class="dna-ol-list">
+            <li>
+              Touch isn’t fixed, it’s continually reshaped by technological
+              shifts.
+            </li>
+            <li>
+              HapticSense doesn’t just simulate touch; it redefines what
+              “touch” means in digital environments.
+            </li>
+            <li>
+              By bypassing physical surface interactions and stimulating
+              nerves directly, it proposes a new perceptual paradigm rooted
+              in neuromodulation.
+            </li>
+          </ul>
+        </div>
+
+        <div class="header-p-container">
+          <h2>Man-Computer Symbiosis</h2>
+          <p>
+            Based on J.C.R. Licklider's
+            <span class="italic">Man-Computer Symbiosis</span>
+          </p>
+          <blockquote class="pull-quote">
+            "Licklider envisioned a future where computers seamlessly integrate
+            with human cognition..."
+          </blockquote>
+          <p>
+            Licklider (1960) envisioned a future where computers seamlessly
+            integrate with human cognition, acting as extensions of the self rather
+            than mere tools. HapticSense embodies this by bypassing traditional
+            I/O (screens, keyboards) and interfacing directly with the nervous
+            system, reducing the cognitive load of translation.
+          </p>
+          <h3>Relevance to Project</h3>
+          <p>
+            This vision is embodied in the use of neuromodulation to
+            simulate realistic touch, enabling users to experience virtual
+            objects just like physical ones. It pushes the boundaries of
+            human-computer interaction and redefines sensory augmentation
+            in virtual spaces.
+          </p>
+          <ul class="dna-ol-list">
+            <li>
+              HapticSense envisions bi-directional interaction, where
+              computers don’t just receive input, they speak back through
+              sensation.
+            </li>
+            <li>
+              This positions the body as both interface and medium,
+              bridging Licklider’s dream with speculative design.
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section>
+        <h2>RESEARCH</h2>
+        <p>
+          I explored neuroprosthetic technologies to develop a wrist-worn device
+          that stimulates nerves, enabling users to feel virtual objects.
+          Inspired by research such as the <strong>xTouch platform</strong>, this project examines
+          sensory feedback, neuroprosthetics, and VR integration. Below are key
+          insights that shaped my design.
+        </p>
+        
+        <div class="header-p-container">
+          <h2>1. xTouch: Neuro-Haptic Feedback</h2>
+          <p>
+            The xTouch study demonstrated a <strong>non-invasive neuro-haptic platform</strong>
+            that uses surface electrodes on the wrist to stimulate the median
+            nerve. Unlike invasive methods, xTouch successfully allowed users to
+            classify virtual objects by <strong>size</strong> and <strong>compliance</strong> (softness)
+            purely through haptic feedback. This proves that meaningful tactile
+            information can be transmitted through the wrist without surgical
+            implants.
+          </p>
+          <h3>xTouch: High-Fidelity Haptics</h3>
+          <p>
+            Research by Yang et al. (2021) on "xTouch" demonstrates the
+            feasibility of high-fidelity neuro-haptics. Their work shows that
+            specific electrical waveforms can reliably evoke distinct tactile
+            sensations (pressure, vibration, texture) without invasive surgery.
+          </p>
+          <blockquote class="pull-quote">
+            "Users can distinguish between 'hard' vs 'soft' and 'large' vs
+            'small' objects via nerve signals."
+          </blockquote>
+          <p>
+            Key finding: Users can distinguish between "hard" vs "soft" and
+            "large" vs "small" objects via nerve signals.
+          </p>
+          <ul class="dna-ol-list">
+            <li>
+              <strong>Non-Invasive Feasibility</strong>: Surface electrodes can effectively
+              stimulate nerves to create distinct sensations.
+            </li>
+            <li>
+              <strong>Object Properties</strong>: Users can distinguish between "hard" vs "soft"
+              and "large" vs "small" objects via nerve signals.
+            </li>
+            <li>
+              <strong>Wrist-Based Form Factor</strong>: Validates the concept of a wearable
+              wrist device for VR haptics.
+            </li>
+          </ul>
+        </div>
+
+        <div class="header-p-container">
+          <h2>2. Tactile Feedback in Virtual Reality</h2>
+          <p>
+            Research into VR systems has shown that <strong>combining visual immersion
+            with tactile feedback</strong> significantly enhances the perception of
+            realism (<a href="https://www.researchgate.net/publication/226905855_Physically_touching_and_tasting_virtual_objects_enhances_the_realism_of_virtual_experiences" target="_blank">Hoffman et al., 1998</a>).
+          </p>
+          <h3>Examples</h3>
+          <ul class="dna-ol-list">
+            <li>
+              Physics-based interaction models in VR simulate forces,
+              friction, and textures during object manipulation.
+            </li>
+            <li>
+              When paired with sensory feedback devices, these models can
+              trick the brain into perceiving virtual objects as tangible.
+            </li>
+          </ul>
+          <p>
+            This insight suggests that a wrist-worn device could synchronize
+            nerve stimulation with VR visuals and physics-based simulations to
+            create a seamless experience of interacting with virtual objects.
+          </p>
+          <img
+            src="/assets/images/hapticsense/nasa.webp"
+            alt="NASA haptic feedback research demonstration"
+          />
+        </div>
+
+        <div class="header-p-container">
+          <h2>3. Feasibility of Wrist-Based Nerve Stimulation</h2>
+          <p>
+            While LifeHand relies on surgically implanted electrodes, <strong>non-invasive alternatives</strong> like
+            transcutaneous electrical nerve stimulation (TENS) provide a practical path for wearable devices.
+          </p>
+          <ul class="dna-ol-list">
+            <li>
+              <strong>Speculative Practicality</strong>: Surface electrodes allow for peripheral nerve stimulation <strong>without surgery</strong>, making them ideal for consumer-focused designs.
+            </li>
+            <li>
+              <strong>xTouch Innovation</strong>: Systems like xTouch use <strong>multi-channel transcutaneous stimulation</strong> of the median nerve at the wrist to create precise sensations.
+            </li>
+            <li>
+              <strong>Immersion without Restriction</strong>: By tracking virtual interactions, these methods deliver intuitive feedback <strong>without restrictive hardware</strong>, enhancing realism.
+            </li>
+          </ul>
+          <h3>Challenges to Address</h3>
+          <ul class="dna-ol-list">
+            <li>
+              Mapping wrist nerves accurately to replicate sensations across
+              all fingers.
+            </li>
+            <li>
+              Ensuring low latency for real-time feedback during interactions.
+            </li>
+            <li>
+              Balancing portability and power efficiency in a compact wrist
+              device.
+            </li>
+          </ul>
+          <img
+            src="/assets/images/hapticsense/xtouch.jpg"
+            alt="xTouch neuro-haptic feedback platform"
+          />
+          <p class="caption">
+            Source:
+            <a
+              href="https://www.frontiersin.org/journals/virtual-reality/articles/10.3389/frvir.2022.910379/full"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Frontiers in Virtual Reality</a
+            >
+          </p>
+        </div>
+
+        <div class="header-p-container">
+          <h2>4. Sensor Technology and Artificial Touch</h2>
+          <p>
+            Advances in sensor technology, such as those used in prosthetic
+            hands, offer additional possibilities.
+          </p>
+          <h3>Inspiration</h3>
+          <ul class="dna-ol-list">
+            <li>
+              Sensors capable of detecting pressure, texture, temperature,
+              or wetness could be integrated into the device.
+            </li>
+            <li>
+              These sensors would translate virtual object properties into
+              electrical signals for nerve stimulation.
+            </li>
+          </ul>
+          <p>
+            For example, if a user touches a <strong>rough virtual surface</strong>, the
+            sensors could generate corresponding signals that stimulate the
+            wrist nerves to <strong>mimic the sensation of roughness</strong> on their
+            fingertips.
+          </p>
+          <img
+            src="/assets/images/hapticsense/nasa2.jpg"
+            alt="Advanced sensor technology for artificial touch systems"
+          />
+        </div>
+
+        <div class="header-p-container">
+          <h2>5. User Adaptation and Cognitive Integration</h2>
+          <p>
+            One critical consideration is how users would adapt to artificial
+            sensations. Research indicates that with training, users can
+            <strong>interpret artificial tactile feedback as natural touch</strong>. This
+            adaptation process would be essential for ensuring that the device
+            delivers an intuitive and immersive experience.
+          </p>
+          <img
+            src="/assets/images/hapticsense/vr.jpg"
+            alt="Person using virtual reality headset with haptic feedback"
+          />
+        </div>
+
+        <div class="header-p-container">
+          <h2>Conclusion</h2>
+          <ul class="dna-ol-list">
+            <li>
+              The research phase showed that neuroprosthetic technologies, such as
+              those used in LifeHand, offer inspiration for speculative wearable
+              devices that simulate touch in virtual environments.
+            </li>
+            <li>
+              Integrating peripheral nerve stimulation methods with AR, VR, or MR
+              technologies and advanced sensors could redefine how we experience
+              digital interactions.
+            </li>
+            <li>
+              Emerging non-invasive technologies like xTouch demonstrate practical
+              possibilities by using multi-channel transcutaneous nerve
+              stimulation to provide intuitive haptic feedback without limiting
+              hand mobility.
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section class="what-if">
+        <h1>
+          "Current VR/AR systems fall short in delivering natural, immersive
+          tactile feedback due to the disconnect between digital stimuli and
+          human sensory perception."
+        </h1>
+      </section>
+      <section>
+        <h2>OBJECTIVES</h2>
+        <div class="header-p-container">
+          <h3>Technical</h3>
+          <ul class="dna-ol-list">
+            <li>
+              Develop a wearable device that stimulates targeted nerves
+              (median and ulnar) in the wrist.
+            </li>
+            <li>
+              Integrate adaptive signal processing for precise, low-latency
+              stimulation.
+            </li>
+          </ul>
+        </div>
+        <div class="header-p-container">
+          <h3>User Experience</h3>
+          <ul class="dna-ol-list">
+            <li>
+              Create a natural, immersive tactile experience that mimics real
+              object interaction.
+            </li>
+            <li>
+              Enhance spatial presence, embodiment, and cognitive absorption
+              in VR/AR environments.
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section>
+        <h2>IDEATION</h2>
+        <h2>Sketches</h2>
+        <div class="hs-grid ideation-grid">
+          <img
+            src="/assets/images/hapticsense/ideation-2.jpeg"
+            alt="Early design sketches and ideation drawings for HapticSense device"
+          />
+          <img src="/assets/images/hapticsense/ideation-01.png" alt="Conceptual sketches exploring haptic interface design" />
+          <img src="/assets/images/hapticsense/hapticsense-sketches.webp" alt="Detailed HapticSense device concept sketches and annotations" />
+        </div>
+        <div class="header-p-container">
+          <h2>User Journey</h2>
+          <img src="/assets/images/hapticsense/user-journey-hs.svg" alt="User journey diagram showing HapticSense interaction flow" />
+        </div>
+      </section>
+      <section>
+        <h2>CONCEPT REFINEMENT</h2>
+        <h2>Hardware</h2>
+        <div class="hs-grid nintendo-grid">
+          <img
+            src="/assets/images/hapticsense/haptic-46.png"
+            alt="HapticSense device hardware render showing wrist-mounted design"
+          />
+          <img
+            src="/assets/images/hapticsense/haptic-36.png"
+            alt="HapticSense device technical specification and component layout"
+          />
+          <img
+            src="/assets/images/hapticsense/haptic-38.png"
+            alt="HapticSense device component breakdown and assembly view"
+          />
+          <img
+            src="/assets/images/hapticsense/haptic-42.png"
+            alt="HapticSense device ergonomic design showing user interaction"
+          />
+        </div>
+
+        <h2>Digital Interface</h2>
+        <div class="device-container">
+            <div class="interaction-label">Interactive Prototype</div>
+            <div class="strap top"></div>
+            <div class="case">
+                <div class="button-side">
+                    <svg width="120" height="120" viewBox="0 0 120 120">
+                        <!-- Circle radius 50 (overlaps case), stroke 14, dasharray for segment -->
+                        <circle cx="60" cy="60" r="50" fill="none" stroke="#d35f28" stroke-width="14" stroke-linecap="round" stroke-dasharray="40 300" transform="rotate(-65 60 60)" />
+                    </svg>
+                </div>
+                <div class="screen-area">
+                    <div id="screen-content">
+                        <!-- Step 1: Welcome -->
+                        <div class="screen-step active" id="step-welcome">
+                            <div class="icon-logo"></div>
+                            <h1>Welcome</h1>
+                            <p>Let's begin calibration to personalize your haptic experience.</p>
+                            <button class="btn-primary" id="btn-start">Start Setup</button>
+                        </div>
+
+                        <!-- Step 2: Calibration -->
+                        <div class="screen-step" id="step-calibration">
+                            <h2>Calibration</h2>
+                            <p>Flex each finger individually as highlighted.</p>
+                            <div class="hand-visual">
+                                <div class="finger f1"></div>
+                                <div class="finger f2"></div>
+                                <div class="finger f3"></div>
+                                <div class="finger f4"></div>
+                            </div>
+                            <button class="btn-primary" id="btn-cal-next">Next</button>
+                        </div>
+
+                        <!-- Step 3: Test -->
+                        <div class="screen-step" id="step-test">
+                            <h2>Test Haptics</h2>
+                            <p>Can you feel the pulse?</p>
+                            <div class="pulse-circle"></div>
+                            <div class="button-group">
+                                <button class="btn-secondary" id="btn-test-no">No</button>
+                                <button class="btn-primary" id="btn-test-yes">Yes</button>
+                            </div>
+                        </div>
+
+                        <!-- Step 3b: Recalibrating -->
+                        <div class="screen-step" id="step-recalibrating">
+                            <div class="spinner"></div>
+                            <h2>Recalibrating...</h2>
+                            <p>Please wait.</p>
+                        </div>
+
+                        <!-- Step 4: Complete (Intermediate) -->
+                        <div class="screen-step" id="step-complete">
+                            <div class="icon-check"></div>
+                            <h1>Calibration Done</h1>
+                            <p>Ready for next steps.</p>
+                            <button class="btn-primary" id="btn-complete-next">Continue</button>
+                        </div>
+
+                        <!-- Step 5: Visor Setup (04) -->
+                        <div class="screen-step" id="step-visor">
+                            <div class="icon-visor"></div>
+                            <h2>Visor Setup</h2>
+                            <p>Put on visor for immersive experience or continue without.</p>
+                            <div class="button-group">
+                                <button class="btn-secondary" id="btn-visor-skip">Skip</button>
+                                <button class="btn-primary" id="btn-visor-use">Use Visor</button>
+                            </div>
+                        </div>
+
+                        <!-- Step 6: Haptic Adjustment (05) -->
+                        <div class="screen-step" id="step-haptic">
+                            <h2>Haptic Intensity</h2>
+                            <p>Rotate dial to adjust feedback intensity.</p>
+                            <div class="intensity-meter">
+                                <div class="intensity-bar" id="intensity-bar"></div>
+                                <div class="intensity-value" id="intensity-val">50%</div>
+                            </div>
+                            <button class="btn-primary" id="btn-haptic-next">Next</button>
+                        </div>
+
+                        <!-- Step 7: Immersion Control (06) -->
+                        <div class="screen-step" id="step-immersion">
+                            <h2>Immersion Level</h2>
+                            <p>Slide toggle to control immersion.</p>
+                            <div class="immersion-visual">
+                                <div class="immersion-circle" id="immersion-circle"></div>
+                            </div>
+                            <button class="btn-primary" id="btn-finish">Finish</button>
+                        </div>
+
+                        <!-- Step 8: Finished -->
+                        <div class="screen-step" id="step-finished">
+                            <div class="icon-check"></div>
+                            <h1>Setup Complete</h1>
+                            <p>You are ready to go.</p>
+                            <button class="btn-secondary" id="btn-ready">Start Experience</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="controls-area">
+                    <div class="control-module slider-module">
+                        <div class="slider-track">
+                            <div class="slider-handle"></div>
+                        </div>
+                    </div>
+                    <div class="control-module knob-module">
+                        <div class="knob-base">
+                            <div class="knob-dial"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="strap bottom"></div>
+        </div>
+      </section>
+      <section>
+        <h2>CHANGING BEHAVIOR</h2>
+        <div class="header-p-container">
+          <h2>Nintendo as a Case Study</h2>
+          <p>
+            Nintendo marketed the DS by redefining user interaction through their bold <strong>"Touching is good" campaign</strong>.
+          </p>
+          <ul class="dna-ol-list">
+            <li>
+              <strong>Intuitive Control</strong>: Promoted touch as a direct form of control, with visuals of fingers engaging the screen.
+            </li>
+            <li>
+              <strong>Strategic Framing</strong>: Positioned touch as an <strong>"underappreciated" sense</strong> in modern media that the DS could reconnect users with.
+            </li>
+            <li>
+              <strong>Gamic Touch</strong>: Established a new paradigm where <strong>physical interaction directly shaped gameplay</strong>, declaring "touching the game means controlling the game."
+            </li>
+          </ul>
+          <p class="caption">
+            Source: David Parisi, <a href="https://www.researchgate.net/publication/249623046_Fingerbombing_or_Touching_is_Good_The_Cultural_Construction_of_Technologized_Touch" target="_blank">"Fingerbombing, or 'Touching is Good': The Cultural Construction of Technologized Touch"</a>.
+          </p>
+        </div>
+        <div class="hs-grid nintendo-grid">
+          <img
+            src="/assets/images/hapticsense/ds-ad.png"
+            alt="Nintendo DS advertisement promoting touch as interface interaction"
+          />
+          <img
+            src="/assets/images/hapticsense/ds-ad2.png"
+            alt="Nintendo DS 'Touching is Good' marketing campaign visual"
+          />
+          <img
+            src="/assets/images/hapticsense/ds-ad3.png"
+            alt="Nintendo DS advertisement featuring finger-based game control"
+          />
+          <img
+            src="/assets/images/hapticsense/ds-ad4.png"
+            alt="Nintendo DS touch interface promotional material"
+          />
+        </div>
+        <div class="header-p-container">
+          <h2>The Future of Touch</h2>
+          <p>
+            Building on Nintendo's precedent, this speculative campaign envisions <strong>neuromodulation-based virtual touch</strong>.
+          </p>
+          <ul class="dna-ol-list">
+            <li>
+              <strong>Bi-Directional Exchange</strong>: Unlike traditional interfaces focused on control, this technology allows the <strong>interface to touch back</strong>.
+            </li>
+            <li>
+              <strong>Symbiotic Relationship</strong>: Creates a seamless connection between the user and digital environments.
+            </li>
+            <li>
+              <strong>"Touching is Feeling"</strong>: The campaign slogan emphasizes the transition from passive interaction to <strong>genuine sensory experience</strong> in virtual spaces.
+            </li>
+          </ul>
+          <img
+            src="/assets/images/hapticsense/hs-ad.webp"
+            alt="HapticSense 'Touching is Feeling' speculative advertising campaign"
+          />
+        </div>
+      </section>
+      <section>
+        <h2>NEXT STEPS</h2>
+
+        <div class="header-p-container">
+          <h3>Speculative Design</h3>
+          <ul class="dna-ol-list">
+            <li>
+              Speculate on how this will effect humans perception on touch.
+            </li>
+            <li>What might the implications be?</li>
+          </ul>
+        </div>
+        <div class="header-p-container">
+          <h3>Prototype</h3>
+          <ul class="dna-ol-list">
+            <li>Create physical prototypes of the device</li>
+            <li>Mimick functionality</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer">
+      <p>© 2025 Gabriel Wong</p>
+    </footer>
+
+    <a href="#top" class="back-to-top" aria-label="Back to top">
+      <span aria-hidden="true">Top</span>
+    </a>
+  </body>
+</html>

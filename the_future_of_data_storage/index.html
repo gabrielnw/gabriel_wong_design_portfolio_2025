@@ -1,0 +1,1589 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Space+Grotesk:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/dna-utils.css" />
+  </head>
+  <body id="top" class="dna-body case-study">
+    <header>
+      <h1>the future of data storage</h1>
+      <nav>
+        <ul class="links">
+          <li>
+            <a href="/index.html">index</a>
+          </li>
+          <li>
+            <a href="#">experiments</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section class="hero">
+        <figure class="hero-figure">
+          <img
+            class="hero-img"
+            src="/assets/images/dna/data-hero.webp"
+            alt="Speculative illustration of DNA data storage systems"
+          />
+        </figure>
+        <div class="hero-overview">
+          <p class="lede">
+            This project explores the future of data storage, focusing on the
+            potential of DNA as the primary medium. Through strategic foresight
+            and speculative design, it charts the anticipated rise and diverse
+            applications of DNA in data storage.
+          </p>
+          <div class="hero-overview-details">
+            <div class="detail">
+              <h2>Duration</h2>
+              <p>8 Months</p>
+            </div>
+            <div class="detail">
+              <h2>Methods</h2>
+              <p>Speculative design, strategic foresight</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="what-if">
+        <h1>What if our world’s data moved from data-centres to living DNA?</h1>
+      </section>
+      <section class="framing">
+        <div class="header-p-container">
+          <h2>Today's Situation</h2>
+          <p>
+            Exploding data, fragile media, and energy‑hungry data centers create
+            a long‑term sustainability problem. Even as bit density improves,
+            lifespans and materials dependency limit how much we can practically
+            preserve.
+          </p>
+        </div>
+        <div class="header-p-container">
+          <h2>So What?</h2>
+          <p>
+            We need durable, low-energy, high-density media that can scale
+            across centuries, not upgrade cycles.
+          </p>
+        </div>
+        <section id="gartner" aria-labelledby="gartner-title">
+          <div class="viz-card">
+            <h2 id="gartner-title">Projected demand vs shipped capacity</h2>
+            <p class="muted">
+              Millions of petabytes, 2019–2030. New forecast numbers reveal a
+              widening gap that DNA media could absorb for long-term archives.
+            </p>
+
+            <div
+              class="chart-wrap"
+              id="gartnerChart"
+              role="img"
+              aria-label="Area chart showing shipped storage, demand forecast, prior forecast, and potential shortfall"
+            ></div>
+
+            <div class="legend" aria-hidden="true">
+              <span class="chip"
+                ><span class="swatch supply"></span>Shipped capacity</span
+              >
+              <span class="chip"
+                ><span class="swatch shortfall"></span>Potential shortfall</span
+              >
+              <span class="chip"
+                ><span class="swatch prior"></span>Prior forecast</span
+              >
+            </div>
+
+            <p class="caption">
+              Values reconstructed from the IEEE Spectrum graphic (Gartner data)
+              for the DNA case study. Units in millions of petabytes.
+            </p>
+          </div>
+        </section>
+
+        <div class="header-p-container">
+          <div class="header-subheader">
+            <h2>Opportunity</h2>
+            <h3>Why DNA?</h3>
+          </div>
+        </div>
+        <ol class="dna-ol-list">
+          <li>Density</li>
+          <p>DNA’s molecular encoding stores massive data in tiny volumes.</p>
+          <section id="density-viz" aria-labelledby="density-title">
+            <div class="viz-card">
+              <h2 id="density-title">How much data fits into a gram?</h2>
+              <p class="muted">
+                A single gram of synthetic DNA can hold as much data as entire
+                fleets of conventional media. The areas show how many devices
+                you would need to match that single gram.
+              </p>
+              <div class="chart-wrap">
+                <div
+                  class="viz-board"
+                  role="img"
+                  aria-label="Area comparison: 42 Billion USB sticks, 2.6 Billion hard drives, 227 Million magnetic tapes, and a single gram of DNA."
+                >
+                  <div class="sq usb">
+                    <span class="label"><b>42</b> Billion USB sticks</span>
+                  </div>
+                  <div class="sq hdd">
+                    <span class="label"><b>2.6</b> Billion Hard Drives</span>
+                  </div>
+                  <div class="sq tape">
+                    <span class="label"><b>227</b> Million tapes</span>
+                  </div>
+                  <div class="dna" aria-hidden="true"></div>
+                  <div class="dna-caption">1 gram of DNA</div>
+                </div>
+              </div>
+              <div class="legend" aria-hidden="true">
+                <span class="chip"
+                  ><span class="swatch scale"></span>Conventional media (units
+                  required)</span
+                >
+                <span class="chip"
+                  ><span class="swatch dna"></span>DNA baseline (1 gram)</span
+                >
+              </div>
+              <p class="caption">
+                Equivalents derived from Potomac Institute’s
+                <em>The Future of DNA Data Storage</em> (2021). Assumes 1 gram
+                of DNA ~= capacity of 42B USB sticks.
+              </p>
+            </div>
+          </section>
+
+          <li>Longevity</li>
+          <p>Properly stored DNA can remain readable for centuries.</p>
+          <section id="longevity" aria-labelledby="longevity-title">
+            <div class="viz-card">
+              <h2 id="longevity-title">How long does storage last?</h2>
+              <p class="muted">
+                Estimated lifespans for common storage media versus properly
+                stored synthetic DNA. A symlog axis makes short and very long
+                durations comparable in one view.
+              </p>
+
+              <div
+                class="chart-wrap"
+                id="longevityChart"
+                role="img"
+                aria-label="Estimated longevity of HDD, SSD, magnetic tape, archival optical, and DNA data storage in years"
+              ></div>
+
+              <div class="legend" aria-hidden="true">
+                <span class="chip"
+                  ><span class="swatch scale"></span>Conventional media
+                  (range)</span
+                >
+                <span class="chip"
+                  ><span class="swatch dna"></span>DNA (properly stored)</span
+                >
+              </div>
+
+              <p class="caption">
+                Lifespan estimates synthesized from published research (<em
+                  >Frontiers in Bioengineering & Biotechnology</em
+                >, 2022) and insights from an interview with Dr. Lee Organick.
+                Values are illustrative.
+              </p>
+            </div>
+          </section>
+          <li>Energy</li>
+          <p>
+            Passive storage dramatically reduces energy for long-term archives.
+          </p>
+          <section id="energy-viz" aria-labelledby="energy-title">
+            <div class="viz-card">
+              <h2 id="energy-title">Why passive archives save energy</h2>
+              <p class="muted">
+                Relative operational energy to keep 1 PB readable over time
+                (normalized: HDD = 100). Passive media avoid continuous power
+                and cooling requirements.
+              </p>
+              <div
+                id="energyChart"
+                class="chart-wrap"
+                role="img"
+                aria-label="Relative operational energy of HDD, Tape, and DNA for long-term archives"
+              ></div>
+              <div class="legend" aria-hidden="true">
+                <span class="chip"
+                  ><span class="swatch scale"></span>Active media</span
+                >
+                <span class="chip"
+                  ><span class="swatch dna"></span>Passive DNA archive</span
+                >
+              </div>
+              <p class="caption">
+                Operational energy index (HDD = 100) for illustration only;
+                excludes writes/migrations. Passive DNA scenarios adapted from
+                <em>Frontiers in Bioengineering & Biotechnology</em>, 2022.
+              </p>
+            </div>
+          </section>
+        </ol>
+        <div class="header-p-container">
+          <h2>How Data is Stored in DNA</h2>
+          <p>
+            The workflow mirrors a reversible translation: binary data is
+            algorithmically encoded into nucleotide sequences, strands are
+            synthesized by DNA printers, vials of DNA are shelved as passive
+            media, and future readers sequence the strands to decode the bits
+            back into files. Each stage has dedicated tooling, but the payload
+            never leaves the molecular format once written.
+          </p>
+          <ol class="dna-ol-list">
+            <li>Encode</li>
+            <p>Bits are mapped to A/C/G/T sequences with error-aware codecs.</p>
+            <li>Synthesize</li>
+            <p>DNA foundries write the sequences into physical strands.</p>
+            <li>Store</li>
+            <p>Strands rest in cold, dry capsules that require no power.</p>
+            <li>Sequence & Decode</li>
+            <p>
+              Readers recover the strands, sequence them, and reconstruct files.
+            </p>
+          </ol>
+          <figure>
+            <img
+              src="/assets/images/dna/how-dna.webp"
+              alt="Infographic showing the DNA data storage pipeline from encoding bits into nucleotides through synthesis, storage, and sequencing."
+            />
+            <p class="caption">
+              Conceptual pipeline illustrating how digital files become DNA and
+              back again; adapted from speculative workshop sketches.
+            </p>
+          </figure>
+        </div>
+      <section class="process">
+        <h1>Process</h1>
+        <figure>
+          <img
+            src="/assets/images/dna/process.webp"
+            alt="Process diagram showing the stages of the project"
+          />
+        </figure>
+      </section>
+        <div class="header-p-container">
+          <h2>What Do the Trends Say?</h2>
+        </div>
+        <section id="pubmed" aria-labelledby="pubmed-title">
+          <div class="viz-card">
+            <h2 id="pubmed-title">PubMed mentions of DNA data storage</h2>
+            <p class="muted">
+              Annual publication counts, 1984–2024. Exact-match query executed
+              February 2024.
+            </p>
+            <div class="chart-wrap">
+              <svg
+                id="pubmedChart"
+                role="img"
+                aria-label="Bar chart showing yearly PubMed counts mentioning DNA data storage"
+              ></svg>
+            </div>
+            <p class="caption">
+              Source: PubMed.gov. Query (Title/Abstract scope unless noted):
+              <code
+                >("DNA data storage" OR "DNA-based data storage" OR ("DNA" AND
+                ("data storage" OR "digital storage"))) NOT (biobank OR "sample
+                storage" OR preservation)</code
+              >.
+            </p>
+          </div>
+        </section>
+      <section class="trend-analysis">
+        <h1>Trend Analysis</h1>
+        <figure>
+          <img
+            src="/assets/images/dna/trends-dna.webp"
+            alt="Trend analysis diagram"
+          />
+        </figure>
+        <div class="header-p-container">
+          <h2>Why is this happening?</h2>
+          <p>
+            As humanity increasingly relies on data-producing technology, data
+            output grows exponentially. In turn, this necessitates more data
+            centers, which generate unsustainable levels of carbon emissions.
+          </p>
+        </div>
+        <div id="growth-viz">
+            <div class="viz-card">
+              <h2>Drivers of Data Growth</h2>
+              <div
+                class="chart-wrap"
+                id="growthChart"
+                role="img"
+                aria-label="Diagram showing drivers of data growth: Computing demand, Digital society, AI, IoT, Big Data"
+              ></div>
+              <p class="caption">Conceptual model of data generation factors</p>
+            </div>
+          </div>
+          <div id="emissions-viz">
+            <div class="viz-card">
+              <h2>Total Global Carbon Emissions</h2>
+              <div
+                class="chart-wrap"
+                id="emissionsChart"
+                role="img"
+                aria-label="Bar chart showing Carbon Emissions: Data Centers (3.7%), Aviation (2.4%), Shipping (2.3%)"
+              ></div>
+              <p class="caption">Source: Climatiq</p>
+            </div>
+          </div>
+      </section>
+      <section class="expert-interview">
+        <h1>Expert Interview</h1>
+        <div class="header-p-container">
+          <p>
+            I facilitated a series of interviews with a DNA data storage
+            researcher from CacheDNA. These interviews aimed to understand the
+            direction of DNA data storage in the industry and how she believes
+            it will most likely be used. This gave me a good sense of the
+            probable future of the technology.
+          </p>
+        </div>
+        <div class="takeaway-card">
+          <h3>Key Insights</h3>
+          <ul>
+            <li>
+              While current read & write speeds are slow, advancements are
+              expected to significantly accelerate in the near future.
+            </li>
+            <li>
+              Although sequencing DNA is still costly, prices are steadily
+              dropping, making it more accessible.
+            </li>
+            <li>
+              Innovative methods and materials used in DNA storage are far
+              more sustainable than conventional data storage processes.
+            </li>
+            <li>
+              DNA-based data access is becoming increasingly intuitive, paving
+              the way for wider adoption.
+            </li>
+            <li>
+              DNA offers the remarkable potential for near-permanent data
+              storage, enduring for centuries or longer.
+            </li>
+          </ul>
+        </div>
+        <figure>
+          <img
+            src="/assets/images/dna/cone.webp"
+            alt="Cone of plausibility diagram"
+          />
+        </figure>
+      <section class="scenarios">
+        <h1>Scenarios</h1>
+        <div class="header-p-container">
+          <p>
+            I mapped out four scenarios using Dator's Four Futures framework:
+            Growth, Collapse, Discipline, and Transformative. These scenarios
+            were developed by analyzing current trends and projections while
+            also exploring the potential future of DNA data storage.
+          </p>
+        </div>
+        <figure>
+          <img
+            src="/assets/images/dna/dators.webp"
+            alt="Dator's Four Futures framework diagram"
+          />
+        </figure>
+        <div class="scenario-grid">
+          <!-- Growth -->
+          <div class="scenario-card">
+            <img
+              src="/assets/images/dna/glass.webp"
+              alt="Growth Scenario visualization"
+            />
+            <h3>Growth Scenario</h3>
+            <p>
+              DNA data storage is maturing, leveraging biotech and information
+              science to create secure, long-term archives. Advancements in
+              synthesis and sequencing will make DNA a cost-effective
+              mainstream storage solution.
+            </p>
+          </div>
+          <!-- Collapse -->
+          <div class="scenario-card">
+            <img
+              src="/assets/images/dna/collapse.webp"
+              alt="Collapse Scenario visualization"
+            />
+            <h3>Collapse Scenario</h3>
+            <p>
+              DNA storage struggles face economic and technical hurdles.
+              Meanwhile, data explodes as data centers struggle with climate
+              limitations. A data storage crisis looms, forcing quotas and
+              hindering progress.
+            </p>
+          </div>
+          <!-- Discipline -->
+          <div class="scenario-card">
+            <img
+              src="/assets/images/dna/discipline.webp"
+              alt="Discipline Scenario visualization"
+            />
+            <h3>Discipline Scenario</h3>
+            <p>
+              DNA storage safeguards data and fuels progress. Ethical
+              boundaries ensure responsible use for healthcare, research, and
+              sustainability, prioritizing privacy over surveillance. This
+              future demands societal self-discipline for responsible DNA data
+              utilization.
+            </p>
+          </div>
+          <!-- Transformative -->
+          <div class="scenario-card">
+            <img
+              src="/assets/images/dna/transformative.webp"
+              alt="Transformative Scenario visualization"
+            />
+            <h3>Transformative Scenario</h3>
+            <p>
+              Gene editing unlocks super-fast, affordable DNA storage. Farms
+              become data hubs, storing vast datasets alongside crops. DNA
+              replaces traditional storage, fueling bio-computing,
+              personalized medicine, and decentralized data controlled by
+              individuals.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="world-building">
+        <h1>World Building</h1>
+        <div class="header-p-container">
+          <p>
+            For this project, I used world-building to develop future scenarios
+            that explore emerging trends and guide strategic decisions. I
+            applied the Protopia framework to build on the transformative
+            scenario from Dator’s Four Futures, emphasizing continuous and
+            realistic progress over utopian ideals.
+          </p>
+        </div>
+        <figure>
+          <img
+            src="/assets/images/dna/transformative.webp"
+            alt="Transformative scenario illustration"
+          />
+        </figure>
+        <div class="header-p-container">
+          <h2>The Year 2040</h2>
+          <p>
+            In this envisioned future, DNA data storage emerges as the primary
+            medium, prized for its exceptional density, speed, and longevity.
+            Traditional farmlands are transformed into high-tech data vaults,
+            where genetically modified plants store vast amounts of information.
+            This shift has spurred the rise of innovative tech hubs across the
+            Midwest, reshaping education and job markets while fostering a
+            dynamic interplay between technology and nature.
+          </p>
+        </div>
+      </section>
+      <section class="implication-mapping">
+        <h1>Implication Mapping</h1>
+        <div class="header-p-container">
+          <p>
+            In this case study, implication mapping served as a strategic
+            foresight tool to dissect and visualize the cascading impacts of
+            emerging trends. By charting both direct and indirect effects across
+            technology, society, the economy, the environment, the political, and
+            values, we uncovered hidden opportunities and potential risks.
+          </p>
+        </div>
+        <figure>
+          <img
+            src="/assets/images/dna/implication.webp"
+            alt="Implication mapping diagram"
+          />
+        </figure>
+      </section>
+      <section class="sacrificial-artifacts">
+        <h1>Sacrificial Artifacts</h1>
+        <div class="header-p-container">
+          <p>
+            Sacrificial artifacts serve as intentionally imperfect prototypes that
+            reveal critical trade-offs and hidden assumptions. By challenging
+            conventional approaches and provoking dialogue around the balance
+            between innovation and ethical responsibility, these artifacts
+            illuminate the path toward more resilient, human-centric solutions.
+          </p>
+        </div>
+        <div class="artifact-grid">
+          <!-- Capsule -->
+          <div class="artifact-card">
+            <img
+              src="/assets/images/dna/capsule.webp"
+              alt="DNA Data Storage Capsule artifact"
+            />
+            <div class="content">
+              <h3>DNA Data Storage Capsule</h3>
+              <p>A capsule that stores humanity's collective knowledge.</p>
+              <ul class="feedback-list">
+                <li>
+                  <strong>Expansive Vision:</strong> Consider evolving the concept
+                  into a 'knowledge tree' that visually branches out.
+                </li>
+                <li>
+                  <strong>Collaborative Platform:</strong> Envision an open system
+                  where contributions come from everyone.
+                </li>
+                <li>
+                  <strong>Historical Archive:</strong> Could serve as a primary
+                  source for future historians.
+                </li>
+                <li>
+                  <strong>Feasibility:</strong> Stands out as particularly
+                  practical.
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- Plant -->
+          <div class="artifact-card">
+            <img
+              src="/assets/images/dna/plant.webp"
+              alt="DNA Data Storage Plant artifact"
+            />
+            <div class="content">
+              <h3>DNA Data Storage Plant</h3>
+              <p>
+                Plants that store personal data and react to its "health" by
+                wilting or blooming.
+              </p>
+              <ul class="feedback-list">
+                <li>
+                  <strong>Data & Life Balance:</strong> Address concerns about
+                  plant maintenance and data survival.
+                </li>
+                <li>
+                  <strong>Clarify the Message:</strong> Clearly communicate the
+                  metaphorical intent.
+                </li>
+                <li>
+                  <strong>Embrace Futurism:</strong> Consider grounding some
+                  aspects to make the concept more accessible.
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- Magazine -->
+          <div class="artifact-card">
+            <img
+              src="/assets/images/dna/mag.webp"
+              alt="Magazine from the Future artifact"
+            />
+            <div class="content">
+              <h3>Magazine from the Future</h3>
+              <p>
+                A futuristic edition of Wired magazine exploring the rise of DNA
+                data storage.
+              </p>
+              <ul class="feedback-list">
+                <li>
+                  <strong>Realistic Touch:</strong> Design was convincing and
+                  underscores strong visual appeal.
+                </li>
+                <li>
+                  <strong>Explore New Mediums:</strong> Consider expanding into
+                  more immersive formats like VR/AR.
+                </li>
+                <li>
+                  <strong>Design Alignment:</strong> Emulate Wired's iconic style
+                  more closely.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="final-concept">
+        <h1>Final Concept</h1>
+        <div class="header-p-container">
+          <p>
+            I selected Wired Magazine from the Future as my final prototype
+            because it enabled me to create a cohesive narrative around an
+            envisioned future, integrating diverse concepts into a unified story.
+            This format allowed me to authentically mimic Wired’s editorial style,
+            enhancing believability and impact.
+          </p>
+        </div>
+        <figure>
+          <img
+            src="/assets/images/dna/final.webp"
+            alt="Final concept visualization"
+          />
+        </figure>
+        <div class="header-p-container">
+          <figure>
+            <img
+              src="/assets/images/dna/mag-real.webp"
+              alt="Physical print of the magazine"
+            />
+            <p class="caption">Physical print of the magazine</p>
+          </figure>
+          <figure>
+            <img
+              src="/assets/images/dna/presentation.webp"
+              alt="Presentation of the final concept"
+            />
+            <p class="caption">Capstone presentation</p>
+          </figure>
+        </div>
+        <div class="header-p-container">
+          <p>
+            This project was the culmination of my senior capstone in Industrial
+            Design. Developed through the
+            <a
+              href="https://www.experimentalrealism.com/exre"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Experimental Realism</a
+            >
+            mentorship program, I collaborated with several futures practitioners
+            to explore speculative design methodologies.
+          </p>
+        </div>
+      </section>
+    </main>
+    <div class="pubmed-tooltip" role="presentation"></div>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+    <script>
+      (function () {
+        const years = [2019, 2022, 2025, 2028, 2030];
+        const demandNew = [0.617, 1.5, 6.0, 18.0, 32.6];
+        const demandOld = [0.617, 1.3, 4.0, 10.5, 12.0];
+        const shipped = [0.617, 1.2, 3.0, 8.0, 13.5];
+
+        const el = document.getElementById("gartnerChart");
+        if (!el) return;
+        const width = el.clientWidth || 760;
+        const height = 360;
+        const margin = { top: 20, right: 30, bottom: 60, left: 70 };
+
+        const css = getComputedStyle(document.getElementById("gartner"));
+        const colors = {
+          demand: css.getPropertyValue("--demand-color").trim() || "#d6cebf",
+          supply: css.getPropertyValue("--supply-color").trim() || "#b23a3a",
+          shortfall:
+            css.getPropertyValue("--shortfall-color").trim() || "#4caf6a",
+          prior: "#002b00",
+          axis: css.getPropertyValue("--muted").trim() || "#126012",
+          grid: css.getPropertyValue("--grid").trim() || "rgba(0,43,0,0.15)",
+        };
+
+        const svg = d3
+          .select(el)
+          .append("svg")
+          .attr("viewBox", [0, 0, width, height])
+          .attr("role", "img");
+
+        const x = d3
+          .scaleLinear()
+          .domain([years[0], years[years.length - 1]])
+          .range([margin.left, width - margin.right]);
+
+        const yMax = Math.max(...demandNew) * 1.1;
+        const y = d3
+          .scaleLinear()
+          .domain([0, yMax])
+          .range([height - margin.bottom, margin.top]);
+
+        svg
+          .append("g")
+          .attr("stroke", colors.grid)
+          .selectAll("line")
+          .data(y.ticks(6))
+          .enter()
+          .append("line")
+          .attr("x1", margin.left)
+          .attr("x2", width - margin.right)
+          .attr("y1", (d) => y(d))
+          .attr("y2", (d) => y(d));
+
+        svg
+          .append("g")
+          .attr("transform", `translate(0,${height - margin.bottom})`)
+          .call(d3.axisBottom(x).tickValues(years).tickFormat(d3.format("d")))
+          .call((g) =>
+            g
+              .selectAll("text")
+              .attr("fill", colors.axis)
+              .style("font-family", "'Space Grotesk', sans-serif")
+          )
+          .call((g) => g.selectAll("path,line").attr("stroke", colors.axis));
+
+        svg
+          .append("g")
+          .attr("transform", `translate(${margin.left},0)`)
+          .call(d3.axisLeft(y).ticks(6))
+          .call((g) =>
+            g
+              .selectAll("text")
+              .attr("fill", colors.axis)
+              .style("font-family", "'Space Grotesk', sans-serif")
+          )
+          .call((g) => g.selectAll("path,line").attr("stroke", colors.axis));
+
+        svg
+          .append("text")
+          .attr("transform", "rotate(-90)")
+          .attr("x", -height / 2)
+          .attr("y", 20)
+          .attr("fill", colors.axis)
+          .style("font-family", "'Space Grotesk', sans-serif")
+          .style("font-size", "12px")
+          .text("Petabytes (millions)");
+
+        const area = d3
+          .area()
+          .x((_, i) => x(years[i]))
+          .y0(y(0))
+          .y1((d) => y(d))
+          .curve(d3.curveMonotoneX);
+
+        const shortfall = d3
+          .area()
+          .x((_, i) => x(years[i]))
+          .y0((_, i) => y(shipped[i]))
+          .y1((d) => y(d))
+          .curve(d3.curveMonotoneX);
+
+        const line = d3
+          .line()
+          .x((_, i) => x(years[i]))
+          .y((d) => y(d))
+          .curve(d3.curveMonotoneX);
+
+        svg
+          .append("path")
+          .datum(demandNew)
+          .attr("fill", colors.demand)
+          .attr("d", area);
+
+        svg
+          .append("path")
+          .datum(shipped)
+          .attr("fill", colors.supply)
+          .attr("fill-opacity", 0.9)
+          .attr("d", area);
+
+        svg
+          .append("path")
+          .datum(demandNew)
+          .attr("fill", colors.shortfall)
+          .attr("fill-opacity", 0.85)
+          .attr("d", shortfall);
+
+        // Prior Forecast Line
+        svg
+          .append("path")
+          .datum(demandOld)
+          .attr("fill", "none")
+          .attr("stroke", colors.prior)
+          .attr("stroke-width", 2)
+          .attr("stroke-dasharray", "5,4")
+          .attr("d", line);
+        
+        // Annotations
+        const annotations = [
+            { x: 2026, y: 28, title: "NEW FORECAST", text: ["Potential demand:", "32.6 million petabytes"] },
+            { x: 2024.5, y: 18, title: "PRIOR FORECAST", text: ["Data requirements grow", "at 34 percent, as they did", "from 2013 to 2019"] }
+        ];
+
+        const annotationGroup = svg.append("g").style("font-family", "'Space Grotesk', sans-serif");
+
+        annotations.forEach(a => {
+            const g = annotationGroup.append("g")
+                .attr("transform", `translate(${x(a.x)}, ${y(a.y)})`);
+            
+            g.append("text")
+                .attr("font-weight", "bold")
+                .attr("font-size", "14px")
+                .attr("fill", colors.prior)
+                .text(a.title);
+            
+            a.text.forEach((line, i) => {
+                g.append("text")
+                    .attr("y", 18 + (i * 16))
+                    .attr("font-size", "14px")
+                    .attr("fill", colors.prior)
+                    .text(line);
+            });
+        });
+
+        // Vertical dotted line for Prior Forecast
+        // Interpolate value for 2026 (approx index 2.33)
+        // 2025 is index 2 (4.0), 2028 is index 3 (10.5)
+        // 2026 is 1/3 of the way. 4.0 + (6.5/3) = 6.16
+        const xPos = x(2026);
+        const yStart = y(18); // Bottom of text
+        const yEnd = y(6.2); // Intersection with curve
+        
+        svg.append("line")
+            .attr("x1", xPos)
+            .attr("x2", xPos)
+            .attr("y1", y(18)) // Start from text
+            .attr("y2", yEnd)
+            .attr("stroke", colors.prior)
+            .attr("stroke-width", 1.5)
+            .attr("stroke-dasharray", "2,2");
+
+        svg.append("circle")
+            .attr("cx", xPos)
+            .attr("cy", yEnd)
+            .attr("r", 3)
+            .attr("fill", "#fdfef4")
+            .attr("stroke", colors.prior)
+            .attr("stroke-width", 2);
+
+      })();
+
+      (function () {
+        const data = [
+          { name: "HDD", min: 3, max: 6, shade: 2 },
+          { name: "SSD", min: 5, max: 10, shade: 3 },
+          { name: "LTO tape", min: 15, max: 30, shade: 3 },
+          {
+            name: "Archival optical",
+            min: 25,
+            max: 100,
+            shade: 4,
+            plusMax: true,
+          },
+          {
+            name: "DNA (properly stored)",
+            min: 100,
+            max: 1000,
+            shade: 5,
+            dna: true,
+            modeled: true,
+            plusMin: true,
+            plusMax: true,
+          },
+        ];
+
+        const el = document.getElementById("longevityChart");
+        const W = el.clientWidth || 860;
+        const margin = { top: 20, right: 30, bottom: 90, left: 140 };
+        const rowH = 48;
+        const H = margin.top + margin.bottom + rowH * data.length;
+
+        const css = getComputedStyle(document.getElementById("longevity"));
+        const colors = {
+          g1: css.getPropertyValue("--g-1").trim() || "#f0ffe9",
+          g2: css.getPropertyValue("--g-2").trim() || "#d0f2c3",
+          g3: css.getPropertyValue("--g-3").trim() || "#b0e1a0",
+          g4: css.getPropertyValue("--g-4").trim() || "#8fc56f",
+          g5: css.getPropertyValue("--g-5").trim() || "#3e8b2a",
+          text: css.getPropertyValue("--text").trim() || "#002b00",
+          muted: css.getPropertyValue("--muted").trim() || "#126012",
+          grid: css.getPropertyValue("--grid").trim() || "rgba(0, 43, 0, 0.15)",
+        };
+
+        const shadeMap = {
+          2: colors.g2,
+          3: colors.g3,
+          4: colors.g4,
+          5: colors.g5,
+        };
+
+        const svg = d3
+          .select(el)
+          .append("svg")
+          .attr("viewBox", [0, 0, W, H])
+          .attr("role", "img");
+
+        const x = d3
+          .scaleSymlog()
+          .constant(10)
+          .domain([1, 1000])
+          .range([margin.left, W - margin.right]);
+        const y = d3
+          .scaleBand()
+          .domain(data.map((d) => d.name))
+          .range([margin.top, H - margin.bottom])
+          .padding(0.28);
+
+        const ticks = [5, 10, 25, 50, 100, 250, 500, 1000];
+        svg
+          .append("g")
+          .attr("stroke", colors.grid)
+          .selectAll("line")
+          .data(ticks)
+          .enter()
+          .append("line")
+          .attr("x1", (d) => x(d))
+          .attr("x2", (d) => x(d))
+          .attr("y1", margin.top)
+          .attr("y2", H - margin.bottom);
+
+        const xAxis = svg
+          .append("g")
+          .attr("transform", `translate(0,${H - margin.bottom})`)
+          .call(
+            d3
+              .axisBottom(x)
+              .tickValues(ticks)
+              .tickFormat((d) => d + " yrs")
+          );
+
+        const labels = xAxis
+          .selectAll("text")
+          .attr("fill", colors.muted)
+          .style("font-family", "'Space Grotesk', sans-serif")
+          .style("font-size", "11px")
+          .attr("text-anchor", "end")
+          .attr("dx", "-0.45em")
+          .attr("dy", "0.5em")
+          .attr("transform", "rotate(-35)");
+
+        xAxis.selectAll("path,line").attr("stroke", "none");
+        labels.filter((_, i) => i === 0).attr("dx", "-0.7em");
+
+        svg
+          .append("g")
+          .attr("transform", `translate(${margin.left},0)`)
+          .call(d3.axisLeft(y))
+          .call((g) =>
+            g
+              .selectAll("text")
+              .attr("fill", colors.text)
+              .style("font-family", "'Space Grotesk', sans-serif")
+              .style("font-size", "12px")
+              .attr("text-anchor", "end")
+              .attr("dx", "-0.5em")
+              .style("font-weight", "600")
+          )
+          .call((g) => g.selectAll("path,line").attr("stroke", "none"));
+
+        svg
+          .append("g")
+          .selectAll("rect.range")
+          .data(data)
+          .enter()
+          .append("rect")
+          .attr("x", (d) => x(d.min))
+          .attr("y", (d) => y(d.name))
+          .attr("width", (d) => Math.max(2, x(d.max) - x(d.min)))
+          .attr("height", y.bandwidth())
+          .attr("fill", (d) => shadeMap[d.shade])
+          .attr("opacity", (d) => (d.dna ? 1 : 0.9))
+          .append("title")
+          .text((d) => {
+            const minLabel = `${d.min}${d.plusMin ? "+" : ""}`;
+            const maxLabel = `${d.max}${d.plusMax || d.dna ? "+" : ""}`;
+            const base = `${d.name}: ${minLabel}–${maxLabel} yrs`;
+            return d.modeled ? `${base} (theoretical / modeled)` : base;
+          });
+
+        svg
+          .append("text")
+          .attr("x", W - margin.right)
+          .attr("y", H - 10)
+          .attr("text-anchor", "end")
+          .attr("fill", colors.muted)
+          .style("font-family", "'Space Grotesk', sans-serif")
+          .style("font-size", "12.5px")
+          .text("Estimated lifespan (years — symlog scale)");
+      })();
+
+      (function () {
+        const data = [
+          { name: "HDD (active data center)", value: 100, type: "active" },
+          { name: "LTO tape (cold archive)", value: 20, type: "active" },
+          { name: "DNA (passive, stored)", value: 2, type: "dna" },
+        ];
+
+        const el = document.getElementById("energyChart");
+        const W = el.clientWidth || 760;
+        const margin = { top: 20, right: 24, bottom: 60, left: 150 };
+        const barH = 44;
+        const H = margin.top + margin.bottom + barH * data.length;
+
+        const css = getComputedStyle(document.getElementById("energy-viz"));
+        const colors = {
+          active: css.getPropertyValue("--g-2").trim() || "#d9f4c6",
+          dna: css.getPropertyValue("--g-5").trim() || "#3b8a2f",
+          text: css.getPropertyValue("--text").trim() || "#002b00",
+          muted: css.getPropertyValue("--muted").trim() || "#126012",
+          grid: css.getPropertyValue("--grid").trim() || "rgba(0, 43, 0, 0.15)",
+        };
+
+        const svg = d3
+          .select(el)
+          .append("svg")
+          .attr("viewBox", [0, 0, W, H])
+          .attr("role", "img");
+
+        const x = d3
+          .scaleLinear()
+          .domain([0, d3.max(data, (d) => d.value)])
+          .nice()
+          .range([margin.left, W - margin.right]);
+        const y = d3
+          .scaleBand()
+          .domain(data.map((d) => d.name))
+          .range([margin.top, H - margin.bottom])
+          .padding(0.3);
+
+        svg
+          .append("g")
+          .attr("stroke", colors.grid)
+          .selectAll("line")
+          .data(x.ticks(5))
+          .enter()
+          .append("line")
+          .attr("x1", (d) => x(d))
+          .attr("x2", (d) => x(d))
+          .attr("y1", margin.top)
+          .attr("y2", H - margin.bottom);
+
+        svg
+          .append("g")
+          .attr("transform", `translate(0,${H - margin.bottom})`)
+          .call(
+            d3
+              .axisBottom(x)
+              .ticks(5)
+              .tickFormat((d) => d)
+          )
+          .call((g) =>
+            g
+              .selectAll("text")
+              .attr("fill", colors.muted)
+              .style("font-family", "'Space Grotesk', sans-serif")
+              .style("font-size", "12px")
+          )
+          .call((g) => g.selectAll("path,line").attr("stroke", "none"));
+
+        svg
+          .append("g")
+          .attr("transform", `translate(${margin.left},0)`)
+          .call(d3.axisLeft(y))
+          .call((g) =>
+            g
+              .selectAll("text")
+              .attr("fill", colors.text)
+              .style("font-family", "'Space Grotesk', sans-serif")
+              .style("font-size", "12px")
+              .style("font-weight", "600")
+              .attr("text-anchor", "end")
+              .attr("dx", "-0.5em")
+          )
+          .call((g) => g.selectAll("path,line").attr("stroke", "none"));
+
+        const bars = svg
+          .append("g")
+          .selectAll("rect.bar")
+          .data(data)
+          .enter()
+          .append("rect")
+          .attr("class", "bar")
+          .attr("x", x(0))
+          .attr("y", (d) => y(d.name))
+          .attr("width", (d) => Math.max(2, x(d.value) - x(0)))
+          .attr("height", y.bandwidth())
+          .attr("fill", (d) => (d.type === "dna" ? colors.dna : colors.active));
+
+        bars
+          .append("title")
+          .text((d) => `${d.name}: ${d.value} (relative index, HDD = 100)`);
+
+        svg
+          .append("g")
+          .selectAll("text.val")
+          .data(data)
+          .enter()
+          .append("text")
+          .attr("x", (d) => Math.min(x(d.value) + 8, W - margin.right - 4))
+          .attr("y", (d) => y(d.name) + y.bandwidth() / 2 + 4)
+          .attr("fill", colors.muted)
+          .style("font-family", "'Space Grotesk', sans-serif")
+          .style("font-size", "12px")
+          .text((d) => d.value);
+      })();
+
+      (function () {
+        const data = [
+          { year: 1984, count: 2 },
+          { year: 1989, count: 1 },
+          { year: 1991, count: 1 },
+          { year: 1992, count: 3 },
+          { year: 1994, count: 3 },
+          { year: 1996, count: 1 },
+          { year: 1997, count: 2 },
+          { year: 2001, count: 2 },
+          { year: 2002, count: 4 },
+          { year: 2003, count: 5 },
+          { year: 2005, count: 4 },
+          { year: 2006, count: 5 },
+          { year: 2007, count: 6 },
+          { year: 2008, count: 5 },
+          { year: 2009, count: 2 },
+          { year: 2010, count: 7 },
+          { year: 2011, count: 4 },
+          { year: 2012, count: 8 },
+          { year: 2013, count: 9 },
+          { year: 2014, count: 15 },
+          { year: 2015, count: 10 },
+          { year: 2016, count: 11 },
+          { year: 2017, count: 11 },
+          { year: 2018, count: 13 },
+          { year: 2019, count: 19 },
+          { year: 2020, count: 27 },
+          { year: 2021, count: 43 },
+          { year: 2022, count: 39 },
+          { year: 2023, count: 56 },
+          { year: 2024, count: 70 },
+        ];
+
+        const chartWrap = document.querySelector("#pubmed .chart-wrap");
+        const svg = d3.select("#pubmedChart");
+        const tooltip = d3.select(".pubmed-tooltip");
+        if (!chartWrap || svg.empty()) return;
+
+        const render = () => {
+          const rect = chartWrap.getBoundingClientRect();
+          const styles = getComputedStyle(chartWrap);
+          const paddingX =
+            parseFloat(styles.paddingLeft || "0") +
+            parseFloat(styles.paddingRight || "0");
+
+          const svgWidth = Math.max(320, rect.width - paddingX);
+          const svgHeight = Math.max(320, svgWidth * 0.5);
+
+          svg
+            .attr("width", svgWidth)
+            .attr("height", svgHeight)
+            .attr("viewBox", `0 0 ${svgWidth} ${svgHeight}`);
+
+          svg.selectAll("*").remove();
+
+          const margin = { top: 30, right: 24, bottom: 70, left: 70 };
+          const width = svgWidth - margin.left - margin.right;
+          const height = svgHeight - margin.top - margin.bottom;
+
+          const axisColor = "rgba(0, 43, 0, 0.75)";
+          const gridColor = "rgba(0, 43, 0, 0.12)";
+          const barColor = "#4caf6a";
+          const barHover = "#2f7f45";
+
+          const g = svg
+            .append("g")
+            .attr("transform", `translate(${margin.left},${margin.top})`);
+
+          const x = d3
+            .scaleBand()
+            .domain(data.map((d) => d.year))
+            .range([0, width])
+            .padding(0.15);
+
+          const y = d3
+            .scaleLinear()
+            .domain([0, d3.max(data, (d) => d.count)])
+            .nice()
+            .range([height, 0]);
+
+          const tickSkip = width < 520 ? 4 : 2;
+
+          const xAxis = g
+            .append("g")
+            .attr("transform", `translate(0,${height})`)
+            .call(
+              d3
+                .axisBottom(x)
+                .tickValues(x.domain().filter((_, i) => !(i % tickSkip)))
+                .tickFormat(d3.format("d"))
+            );
+
+          if (width < 520) {
+            xAxis
+              .selectAll("text")
+              .attr("text-anchor", "end")
+              .attr("transform", "rotate(-40)")
+              .attr("dx", "-0.5em")
+              .attr("dy", "0.15em");
+          }
+
+          xAxis
+            .selectAll("text")
+            .attr("fill", axisColor)
+            .style("font-family", "'Space Grotesk', sans-serif");
+          xAxis.selectAll("path,line").attr("stroke", axisColor);
+
+          const yAxis = g.append("g").call(d3.axisLeft(y).ticks(6));
+          yAxis
+            .selectAll("text")
+            .attr("fill", axisColor)
+            .style("font-family", "'Space Grotesk', sans-serif");
+          yAxis.selectAll("path,line").attr("stroke", axisColor);
+
+          g.append("text")
+            .attr("transform", "rotate(-90)")
+            .attr("x", -height / 2)
+            .attr("y", -margin.left + 18)
+            .attr("fill", axisColor)
+            .style("font-family", "'Space Grotesk', sans-serif")
+            .style("font-size", "12px")
+            .text("Articles per year");
+
+          g.append("g")
+            .attr("stroke", gridColor)
+            .selectAll("line")
+            .data(y.ticks(6))
+            .join("line")
+            .attr("x1", 0)
+            .attr("x2", width)
+            .attr("y1", (d) => y(d))
+            .attr("y2", (d) => y(d));
+
+          g.selectAll(".bar")
+            .data(data)
+            .join("rect")
+            .attr("class", "bar")
+            .attr("x", (d) => x(d.year))
+            .attr("y", (d) => y(d.count))
+            .attr("width", x.bandwidth())
+            .attr("height", (d) => height - y(d.count))
+            .attr("fill", barColor)
+            .on("mousemove", (event, d) => {
+              d3.select(event.currentTarget).attr("fill", barHover);
+              if (tooltip.empty()) return;
+              tooltip
+                .style("display", "block")
+                .style("left", event.pageX + 12 + "px")
+                .style("top", event.pageY - 32 + "px")
+                .html(`<strong>${d.year}</strong><br/>${d.count} articles`);
+            })
+            .on("mouseleave", (event) => {
+              d3.select(event.currentTarget).attr("fill", barColor);
+              if (tooltip.empty()) return;
+              tooltip.style("display", "none");
+            });
+        };
+
+        render();
+        window.addEventListener("resize", render, { passive: true });
+      })();
+
+      (function () {
+        const data = [
+          { name: "Data Centers", value: 2.5, extra: 1.2, total: 3.7 },
+          { name: "Aviation", value: 2.4, extra: 0, total: 2.4 },
+          { name: "Shipping", value: 2.3, extra: 0, total: 2.3 },
+        ];
+
+        const el = document.getElementById("emissionsChart");
+        if (!el) return;
+        
+        // Use ResizeObserver to make it responsive
+        const render = () => {
+          const W = el.clientWidth || 400;
+          const H = 300;
+          const margin = { top: 30, right: 20, bottom: 40, left: 40 };
+
+          el.innerHTML = ""; // Clear previous
+
+          const css = getComputedStyle(document.getElementById("emissions-viz"));
+          const colors = {
+            base: css.getPropertyValue("--g-5").trim() || "#3b8a2f",
+            extra: css.getPropertyValue("--supply-color").trim() || "#b23a3a",
+            text: css.getPropertyValue("--text").trim() || "#002b00",
+            muted: css.getPropertyValue("--muted").trim() || "#126012",
+            grid: css.getPropertyValue("--grid").trim() || "rgba(0, 43, 0, 0.15)",
+          };
+
+          const svg = d3
+            .select(el)
+            .append("svg")
+            .attr("viewBox", [0, 0, W, H])
+            .attr("role", "img");
+
+          const x = d3
+            .scaleBand()
+            .domain(data.map((d) => d.name))
+            .range([margin.left, W - margin.right])
+            .padding(0.4);
+
+          const y = d3
+            .scaleLinear()
+            .domain([0, 4])
+            .range([H - margin.bottom, margin.top]);
+
+          // Grid
+          svg
+            .append("g")
+            .attr("stroke", colors.grid)
+            .selectAll("line")
+            .data(y.ticks(5))
+            .join("line")
+            .attr("x1", margin.left)
+            .attr("x2", W - margin.right)
+            .attr("y1", (d) => y(d))
+            .attr("y2", (d) => y(d));
+
+          // Bars (Base)
+          svg
+            .append("g")
+            .selectAll("rect.base")
+            .data(data)
+            .join("rect")
+            .attr("x", (d) => x(d.name))
+            .attr("y", (d) => y(d.value))
+            .attr("height", (d) => y(0) - y(d.value))
+            .attr("width", x.bandwidth())
+            .attr("fill", colors.base);
+
+          // Bars (Extra)
+          svg
+            .append("g")
+            .selectAll("rect.extra")
+            .data(data.filter((d) => d.extra > 0))
+            .join("rect")
+            .attr("x", (d) => x(d.name))
+            .attr("y", (d) => y(d.total))
+            .attr("height", (d) => y(d.value) - y(d.total))
+            .attr("width", x.bandwidth())
+            .attr("fill", colors.extra)
+            .attr("opacity", 0.9);
+
+          // Labels (Top)
+          svg
+            .append("g")
+            .selectAll("text.label")
+            .data(data)
+            .join("text")
+            .attr("x", (d) => x(d.name) + x.bandwidth() / 2)
+            .attr("y", (d) => y(d.total) - 8)
+            .attr("text-anchor", "middle")
+            .attr("fill", colors.text)
+            .style("font-family", "'Space Grotesk', sans-serif")
+            .style("font-size", "14px")
+            .style("font-weight", "bold")
+            .text((d) => d.total + "%");
+
+          // Inner Label for Data Centers
+          svg
+            .append("text")
+            .attr("x", x("Data Centers") + x.bandwidth() / 2)
+            .attr("y", y(1.25)) // Approx middle of 2.5
+            .attr("text-anchor", "middle")
+            .attr("fill", "#fff")
+            .style("font-family", "'Space Grotesk', sans-serif")
+            .style("font-size", "12px")
+            .text("2.5%");
+
+          // X Axis
+          svg
+            .append("g")
+            .attr("transform", `translate(0,${H - margin.bottom})`)
+            .call(d3.axisBottom(x))
+            .call((g) => g.select(".domain").remove())
+            .call((g) => g.selectAll("line").remove())
+            .selectAll("text")
+            .attr("fill", colors.text)
+            .style("font-family", "'Space Grotesk', sans-serif")
+            .style("font-size", "12px");
+
+          // Y Axis
+          svg
+            .append("g")
+            .attr("transform", `translate(${margin.left},0)`)
+            .call(d3.axisLeft(y).ticks(5).tickFormat((d) => d + "%"))
+            .call((g) => g.select(".domain").remove())
+            .call((g) => g.selectAll("line").remove())
+            .selectAll("text")
+            .attr("fill", colors.muted)
+            .style("font-family", "'Space Grotesk', sans-serif");
+        };
+
+        render();
+        window.addEventListener("resize", render, { passive: true });
+      })();
+
+      (function () {
+        // Force Directed Graph for Growth Drivers
+        const nodes = [
+          { id: "main", text: ["Exponential growth in", "data generation is", "fueled by increasing", "demand for computing", "power."], r: 70, type: "main" },
+          { id: "society", text: ["Digitalized", "Society"], r: 45, type: "driver" },
+          { id: "ai", text: ["Artificial", "Intelligence"], r: 40, type: "driver" },
+          { id: "iot", text: ["IoT"], r: 35, type: "driver" },
+          { id: "bigdata", text: ["Big Data"], r: 40, type: "driver" }
+        ];
+
+        const links = [
+          { source: "society", target: "main" },
+          { source: "ai", target: "main" },
+          { source: "iot", target: "main" },
+          { source: "bigdata", target: "main" },
+          // Interconnections between drivers
+          { source: "ai", target: "bigdata" },
+          { source: "iot", target: "society" },
+          { source: "iot", target: "ai" },
+          { source: "iot", target: "bigdata" },
+          { source: "society", target: "ai" },
+          { source: "society", target: "bigdata" }
+        ];
+
+        const el = document.getElementById("growthChart");
+        if (!el) return;
+
+        const render = () => {
+          const W = el.clientWidth || 400;
+          const H = 400; // Taller for movement
+          
+          el.innerHTML = "";
+
+          const css = getComputedStyle(document.getElementById("growth-viz"));
+          const colors = {
+            stroke: css.getPropertyValue("--text").trim() || "#002b00",
+            text: css.getPropertyValue("--text").trim() || "#002b00",
+            fillMain: "var(--g-2)",
+            fillDriver: "var(--g-1)",
+            link: "rgba(0, 43, 0, 0.2)"
+          };
+
+          const svg = d3
+            .select(el)
+            .append("svg")
+            .attr("viewBox", [0, 0, W, H])
+            .attr("role", "img")
+            .style("cursor", "grab");
+
+          const simulation = d3.forceSimulation(nodes)
+            .force("link", d3.forceLink(links).id(d => d.id).distance(90))
+            .force("charge", d3.forceManyBody().strength(-200))
+            .force("center", d3.forceCenter(W / 2, H / 2))
+            .force("collide", d3.forceCollide().radius(d => d.r + 10).iterations(2));
+
+          // Links
+          const link = svg.append("g")
+            .attr("stroke", colors.link)
+            .attr("stroke-width", 1.5)
+            .selectAll("line")
+            .data(links)
+            .join("line");
+
+          // Nodes Group
+          const node = svg.append("g")
+            .selectAll("g")
+            .data(nodes)
+            .join("g")
+            .call(drag(simulation));
+
+          // Node Circles
+          node.append("circle")
+            .attr("r", d => d.r)
+            .attr("fill", d => d.type === "main" ? colors.fillMain : colors.fillDriver)
+            .attr("stroke", colors.stroke)
+            .attr("stroke-width", 1.5)
+            .attr("opacity", 0.9);
+
+          // Node Text
+          node.each(function(d) {
+            const g = d3.select(this);
+            const fontSize = d.r < 45 ? 11 : 13;
+            const lineHeight = fontSize * 1.1;
+            
+            d.text.forEach((line, i) => {
+              g.append("text")
+                .attr("dy", (i - (d.text.length - 1) / 2) * lineHeight + 4)
+                .attr("text-anchor", "middle")
+                .attr("fill", colors.text)
+                .style("font-family", "'Space Grotesk', sans-serif")
+                .style("font-size", fontSize + "px")
+                .style("font-weight", d.type === "main" ? "500" : "400")
+                .style("pointer-events", "none") // Let drag pass through text
+                .text(line);
+            });
+          });
+
+          simulation.on("tick", () => {
+            // Constrain nodes to be within the SVG box
+            node.attr("transform", d => {
+              d.x = Math.max(d.r + 2, Math.min(W - d.r - 2, d.x));
+              d.y = Math.max(d.r + 2, Math.min(H - d.r - 2, d.y));
+              return `translate(${d.x},${d.y})`;
+            });
+
+            link
+              .attr("x1", d => d.source.x)
+              .attr("y1", d => d.source.y)
+              .attr("x2", d => d.target.x)
+              .attr("y2", d => d.target.y);
+          });
+
+          function drag(simulation) {
+            function dragstarted(event) {
+              if (!event.active) simulation.alphaTarget(0.3).restart();
+              event.subject.fx = event.subject.x;
+              event.subject.fy = event.subject.y;
+              svg.style("cursor", "grabbing");
+            }
+
+            function dragged(event) {
+              event.subject.fx = event.x;
+              event.subject.fy = event.y;
+            }
+
+            function dragended(event) {
+              if (!event.active) simulation.alphaTarget(0);
+              event.subject.fx = null;
+              event.subject.fy = null;
+              svg.style("cursor", "grab");
+            }
+
+            return d3.drag()
+              .on("start", dragstarted)
+              .on("drag", dragged)
+              .on("end", dragended);
+          }
+        };
+
+        render();
+        // Debounced resize for performance
+        let timeout;
+        window.addEventListener("resize", () => {
+          clearTimeout(timeout);
+          timeout = setTimeout(render, 200);
+        }, { passive: true });
+      })();
+    </script>
+    <footer class="site-footer" aria-label="Site footer">
+      <p>© 2025 Gabriel Wong</p>
+    </footer>
+    <a href="#top" class="back-to-top" aria-label="Back to top">
+      <span aria-hidden="true">Top</span>
+    </a>
+    <script>
+      (function () {
+        const control = document.querySelector(".back-to-top");
+        if (!control) return;
+
+        const threshold = 320;
+        const toggleVisibility = () => {
+          if (window.scrollY > threshold) {
+            control.classList.add("is-visible");
+          } else {
+            control.classList.remove("is-visible");
+          }
+        };
+
+        window.addEventListener("scroll", toggleVisibility, { passive: true });
+        toggleVisibility();
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,227 @@
+/* DNA Case Study Utilities */
+
+.dna-body main h1 {
+  text-align: left;
+}
+
+.dna-body .what-if h1 {
+  text-align: center;
+}
+
+/* Scenarios Grid */
+.scenario-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.scenario-card {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 43, 0, 0.1);
+  padding: 24px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.scenario-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 43, 0, 0.05);
+}
+
+.scenario-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.scenario-card h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.4rem;
+  color: rgb(0, 43, 0);
+  margin: 0;
+}
+
+.scenario-card p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgba(0, 43, 0, 0.8);
+}
+
+/* Artifacts Grid */
+.artifact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  margin-top: 32px;
+}
+
+.artifact-card {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  background: #fdfef4;
+  border: 1px solid rgba(0, 43, 0, 0.1);
+  padding: 32px;
+}
+
+@media (min-width: 768px) {
+  .artifact-card {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  .artifact-card img {
+    width: 40%;
+    min-width: 300px;
+  }
+  .artifact-card .content {
+    flex: 1;
+  }
+}
+
+.artifact-card h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+}
+
+.artifact-card .feedback-list {
+  margin-top: 16px;
+  padding-left: 20px;
+  list-style: disc;
+}
+
+.artifact-card .feedback-list li {
+  margin-bottom: 8px;
+  line-height: 1.5;
+  color: rgba(0, 43, 0, 0.8);
+}
+
+.artifact-card .feedback-list li strong {
+  color: rgb(0, 43, 0);
+  font-weight: 600;
+}
+
+/* Expert Interview Card */
+.takeaway-card {
+  background: #e8f5e9; /* Light green tint */
+  border-left: 4px solid #3e8b2a;
+  padding: 24px;
+  margin: 24px 0;
+}
+
+.takeaway-card h3 {
+  color: #1b5e20;
+  margin-bottom: 16px;
+}
+
+.takeaway-card ul {
+  padding-left: 20px;
+  list-style: disc;
+}
+
+.takeaway-card li {
+  margin-bottom: 8px;
+  color: #2e7d32;
+}
+
+/* Trend Analysis */
+.trend-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.trend-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+/* Pull Quote (Shared style if not in global) */
+.pull-quote {
+  font-family: "Playfair Display", serif;
+  font-size: 1.8rem;
+  font-style: italic;
+  color: rgb(0, 43, 0);
+  border-left: 4px solid #3e8b2a;
+  padding: 12px 24px;
+  margin: 32px 0;
+  background: rgba(62, 139, 42, 0.05);
+  border-radius: 0 8px 8px 0;
+  line-height: 1.4;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  /* Scenarios Grid Mobile */
+  .scenario-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .scenario-card {
+    padding: 16px;
+  }
+
+  .scenario-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .scenario-card p {
+    font-size: 0.9rem;
+  }
+
+  /* Artifact Cards Mobile */
+  .artifact-card {
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .artifact-card h3 {
+    font-size: 1.4rem;
+  }
+
+  /* Takeaway Card Mobile */
+  .takeaway-card {
+    padding: 16px;
+    margin: 16px 0;
+  }
+
+  .takeaway-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .takeaway-card ul {
+    padding-left: 16px;
+  }
+
+  /* Trend Grid Mobile */
+  .trend-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  /* Pull Quote Mobile */
+  .pull-quote {
+    font-size: 1.4rem;
+    padding: 12px 16px;
+    margin: 24px 0;
+  }
+
+  /* DNA Body Mobile */
+  .dna-body main h1 {
+    font-size: 1.5rem;
+  }
+
+  .dna-body .what-if h1 {
+    font-size: 1.4rem;
+  }
+}
