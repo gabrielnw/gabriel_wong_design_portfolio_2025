@@ -1,5 +1,5 @@
 /* gabrielwong.co — one stylesheet for the whole site.
-   Layout: a single 640px column (C) with line-drawn figure plates (A).
+   Layout: a single 640px column; the homepage and figures run wider.
    Spacing follows an 8px scale; type follows the scale below. */
 
 :root {
@@ -13,9 +13,9 @@
   --panel: #f4f5f8; /* quiet fill used instead of outlines */
 
   /* type */
-  --sans: "Hanken Grotesk", system-ui, -apple-system, sans-serif;
-  --serif: "Source Serif 4", Georgia, serif;
-  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  /* Archivo for headlines, labels and interface; Newsreader for reading */
+  --sans: "Archivo", system-ui, -apple-system, sans-serif;
+  --serif: "Newsreader", Georgia, serif;
   --step--1: 0.8125rem; /* 13px */
   --step-0: 1rem;       /* 16px */
   --step-1: 1.1875rem;  /* 19px */
@@ -55,7 +55,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: var(--paper);
   color: var(--ink);
-  font: 400 var(--step-0) / 1.65 var(--sans);
+  font: 400 1.125rem / 1.6 var(--serif);
   padding: var(--s4) max(var(--s2), env(safe-area-inset-left)) var(--s5);
 }
 
@@ -128,10 +128,21 @@ p {
   gap: var(--s4);
 }
 
-.mono {
-  font: 500 0.6875rem / 1.4 var(--mono);
-  letter-spacing: 0.06em;
+/* small interface text: nav, labels, captions' numbers */
+.ui {
+  font: 500 0.8125rem / 1.4 var(--sans);
+  font-stretch: 112%;
+}
+
+/* the display voice: wide Archivo capitals */
+.intro h1,
+.case-head h1,
+.section > h2.ui {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-stretch: 125%;
   text-transform: uppercase;
+  letter-spacing: 0;
 }
 
 .site-header {
@@ -171,31 +182,11 @@ p {
   color: var(--mark);
 }
 
-/* figure plate: a box of graph paper that holds a line diagram or an image */
+/* quiet frame for experiment images */
 .plate {
-  border: 1px solid var(--rule);
-  background-color: var(--paper);
-  background-image:
-    linear-gradient(var(--grid) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
-  background-size: 8px 8px;
+  background: var(--panel);
   aspect-ratio: 4 / 3;
   overflow: hidden;
-}
-
-.plate svg {
-  width: 100%;
-  height: 100%;
-}
-
-.plate .line {
-  fill: none;
-  stroke: var(--ink);
-  stroke-width: 1.2;
-}
-
-.plate .dot {
-  fill: var(--mark);
 }
 
 /* ---------- homepage ---------- */
@@ -206,12 +197,8 @@ p {
 }
 
 .intro h1 {
-  font: 400 var(--step-2) / 1.25 var(--serif);
-}
-
-.intro h1 span {
-  color: var(--ink-soft);
-  font-style: italic;
+  font-size: clamp(1.5rem, 6vw, 2.25rem);
+  line-height: 1.05;
 }
 
 .intro p {
@@ -219,70 +206,77 @@ p {
   max-width: 54ch;
 }
 
-.work {
-  display: grid;
-  gap: var(--s1);
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
 }
 
+/* the work leads: real images in a two-column grid */
 .work ol {
   list-style: none;
   margin: 0;
   padding: 0;
-}
-
-.work li {
-  border-top: 1px solid var(--rule);
-}
-
-.work li:last-child {
-  border-bottom: 1px solid var(--rule);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--s5) var(--s3);
+  width: min(var(--wide), 100vw - 2 * var(--s2));
+  margin-inline: calc((var(--column) - min(var(--wide), 100vw - 2 * var(--s2))) / 2);
 }
 
 .work a {
   display: grid;
-  grid-template-columns: 96px minmax(0, 1fr) auto;
-  gap: var(--s3);
-  align-items: center;
-  padding: var(--s2) 0;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 4px var(--s2);
   text-decoration: none;
 }
 
+.work .shot {
+  grid-column: 1 / -1;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: var(--panel);
+  margin-bottom: var(--s1);
+  transition: opacity 0.2s ease;
+}
+
 @media (hover: hover) {
+  .work a:hover .shot {
+    opacity: 0.88;
+  }
   .work a:hover .title {
     color: var(--mark);
   }
 }
 
 .work .title {
-  font-weight: 600;
+  display: block;
+  font: 700 var(--step-0) / 1.4 var(--sans);
+  font-stretch: 112%;
 }
 
 .work .summary {
   display: block;
   color: var(--ink-soft);
-  font-size: 0.9375rem;
+  font-size: 1rem;
   line-height: 1.5;
 }
 
-.work .meta {
-  display: block;
-  margin-top: 6px;
-  color: var(--ink-soft);
-}
-
 .work .year {
-  font: 400 var(--step--1) var(--mono);
+  font: 400 var(--step--1) / 1.9 var(--sans);
   color: var(--ink-soft);
   font-variant-numeric: tabular-nums;
 }
 
-@media (max-width: 520px) {
-  .work a {
-    grid-template-columns: 72px minmax(0, 1fr);
-    gap: var(--s2);
-  }
-  .work .year {
-    display: none;
+@media (max-width: 672px) {
+  .work ol {
+    grid-template-columns: 1fr;
+    width: 100%;
+    margin-inline: 0;
   }
 }
 
@@ -294,13 +288,11 @@ p {
 }
 
 .case-head h1 {
-  font: 600 var(--step-3) / 1.1 var(--sans);
-  letter-spacing: -0.01em;
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  line-height: 1.05;
 }
 
 .abstract {
-  border-left: 2px solid var(--mark);
-  padding-left: var(--s2);
   display: grid;
   gap: 6px;
 }
@@ -342,8 +334,8 @@ p {
   gap: var(--s2);
 }
 
-.section > .mono {
-  color: var(--ink-soft);
+.section > h2.ui {
+  font-size: var(--step-0);
 }
 
 .section p {
@@ -372,15 +364,14 @@ p {
 }
 
 .fig figcaption {
-  font-size: var(--step--1);
+  font-size: 0.9375rem;
   line-height: 1.5;
   color: var(--ink-soft);
 }
 
 .fig figcaption b {
   color: var(--mark);
-  font: 500 0.6875rem var(--mono);
-  letter-spacing: 0.06em;
+  font: 600 0.75rem var(--sans);
   margin-right: var(--s1);
 }
 
@@ -428,8 +419,7 @@ p {
 
 .questions li::before {
   content: "Q" counter(q);
-  font: 500 0.6875rem / 2.4 var(--mono);
-  letter-spacing: 0.06em;
+  font: 600 0.75rem / 2.4 var(--sans);
   color: var(--mark);
 }
 
@@ -476,7 +466,7 @@ p {
 }
 
 .cv li span:first-child {
-  font: 400 var(--step--1) var(--mono);
+  font: 400 var(--step--1) var(--sans);
   color: var(--ink-soft);
   font-variant-numeric: tabular-nums;
 }
@@ -506,7 +496,6 @@ p {
 
 .experiments .plate {
   aspect-ratio: 1;
-  padding: var(--s1);
 }
 
 .experiments img {
@@ -517,7 +506,7 @@ p {
 
 @media (hover: hover) {
   .experiments a:hover .plate {
-    border-color: var(--mark);
+    opacity: 0.88;
   }
 }
 
@@ -528,8 +517,7 @@ p {
 
 .experiments .caption b {
   color: var(--mark);
-  font: 500 0.6875rem var(--mono);
-  letter-spacing: 0.06em;
+  font: 600 0.75rem var(--sans);
   margin-right: var(--s1);
 }
 

@@ -9,14 +9,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;1,8..60,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/css/dna-utils.css" />
     <link rel="stylesheet" href="/css/full.css" />
   </head>
   <body id="top" class="dna-body case-study full">
-    <header class="site-header mono">
+    <header class="site-header ui">
       <a href="/the_future_of_data_storage/">← Short version</a>
       <span>03 · Full process</span>
     </header>
@@ -714,7 +714,7 @@
             g
               .selectAll("text")
               .attr("fill", colors.axis)
-              .style("font-family", "'IBM Plex Mono', monospace")
+              .style("font-family", "Archivo, sans-serif")
           )
           .call((g) => g.selectAll("path,line").attr("stroke", colors.axis));
 
@@ -726,7 +726,7 @@
             g
               .selectAll("text")
               .attr("fill", colors.axis)
-              .style("font-family", "'IBM Plex Mono', monospace")
+              .style("font-family", "Archivo, sans-serif")
           )
           .call((g) => g.selectAll("path,line").attr("stroke", colors.axis));
 
@@ -736,7 +736,7 @@
           .attr("x", -height / 2)
           .attr("y", 20)
           .attr("fill", colors.axis)
-          .style("font-family", "'IBM Plex Mono', monospace")
+          .style("font-family", "Archivo, sans-serif")
           .style("font-size", "12px")
           .text("Petabytes (millions)");
 
@@ -796,7 +796,7 @@
             { x: 2024.5, y: 18, title: "PRIOR FORECAST", text: ["Data requirements grow", "at 34 percent, as they did", "from 2013 to 2019"] }
         ];
 
-        const annotationGroup = svg.append("g").style("font-family", "'IBM Plex Mono', monospace");
+        const annotationGroup = svg.append("g").style("font-family", "Archivo, sans-serif");
 
         annotations.forEach(a => {
             const g = annotationGroup.append("g")
@@ -936,7 +936,7 @@
         const labels = xAxis
           .selectAll("text")
           .attr("fill", colors.muted)
-          .style("font-family", "'IBM Plex Mono', monospace")
+          .style("font-family", "Archivo, sans-serif")
           .style("font-size", "11px")
           .attr("text-anchor", "end")
           .attr("dx", "-0.45em")
@@ -954,7 +954,7 @@
             g
               .selectAll("text")
               .attr("fill", colors.text)
-              .style("font-family", "'IBM Plex Mono', monospace")
+              .style("font-family", "Archivo, sans-serif")
               .style("font-size", "12px")
               .attr("text-anchor", "end")
               .attr("dx", "-0.5em")
@@ -988,7 +988,7 @@
           .attr("y", H - 10)
           .attr("text-anchor", "end")
           .attr("fill", colors.muted)
-          .style("font-family", "'IBM Plex Mono', monospace")
+          .style("font-family", "Archivo, sans-serif")
           .style("font-size", "12.5px")
           .text("Estimated lifespan (years — symlog scale)");
       })();
@@ -1057,7 +1057,7 @@
             g
               .selectAll("text")
               .attr("fill", colors.muted)
-              .style("font-family", "'IBM Plex Mono', monospace")
+              .style("font-family", "Archivo, sans-serif")
               .style("font-size", "12px")
           )
           .call((g) => g.selectAll("path,line").attr("stroke", "none"));
@@ -1070,7 +1070,7 @@
             g
               .selectAll("text")
               .attr("fill", colors.text)
-              .style("font-family", "'IBM Plex Mono', monospace")
+              .style("font-family", "Archivo, sans-serif")
               .style("font-size", "12px")
               .style("font-weight", "600")
               .attr("text-anchor", "end")
@@ -1104,7 +1104,7 @@
           .attr("x", (d) => Math.min(x(d.value) + 8, W - margin.right - 4))
           .attr("y", (d) => y(d.name) + y.bandwidth() / 2 + 4)
           .attr("fill", colors.muted)
-          .style("font-family", "'IBM Plex Mono', monospace")
+          .style("font-family", "Archivo, sans-serif")
           .style("font-size", "12px")
           .text((d) => d.value);
       })();
@@ -1214,14 +1214,14 @@
           xAxis
             .selectAll("text")
             .attr("fill", axisColor)
-            .style("font-family", "'IBM Plex Mono', monospace");
+            .style("font-family", "Archivo, sans-serif");
           xAxis.selectAll("path,line").attr("stroke", axisColor);
 
           const yAxis = g.append("g").call(d3.axisLeft(y).ticks(6));
           yAxis
             .selectAll("text")
             .attr("fill", axisColor)
-            .style("font-family", "'IBM Plex Mono', monospace");
+            .style("font-family", "Archivo, sans-serif");
           yAxis.selectAll("path,line").attr("stroke", axisColor);
 
           g.append("text")
@@ -1229,7 +1229,7 @@
             .attr("x", -height / 2)
             .attr("y", -margin.left + 18)
             .attr("fill", axisColor)
-            .style("font-family", "'IBM Plex Mono', monospace")
+            .style("font-family", "Archivo, sans-serif")
             .style("font-size", "12px")
             .text("Articles per year");
 
@@ -1363,7 +1363,7 @@
             .attr("y", (d) => y(d.total) - 8)
             .attr("text-anchor", "middle")
             .attr("fill", colors.text)
-            .style("font-family", "'IBM Plex Mono', monospace")
+            .style("font-family", "Archivo, sans-serif")
             .style("font-size", "14px")
             .style("font-weight", "bold")
             .text((d) => d.total + "%");
@@ -1375,7 +1375,7 @@
             .attr("y", y(1.25)) // Approx middle of 2.5
             .attr("text-anchor", "middle")
             .attr("fill", "#fff")
-            .style("font-family", "'IBM Plex Mono', monospace")
+            .style("font-family", "Archivo, sans-serif")
             .style("font-size", "12px")
             .text("2.5%");
 
@@ -1388,7 +1388,7 @@
             .call((g) => g.selectAll("line").remove())
             .selectAll("text")
             .attr("fill", colors.text)
-            .style("font-family", "'IBM Plex Mono', monospace")
+            .style("font-family", "Archivo, sans-serif")
             .style("font-size", "12px");
 
           // Y Axis
@@ -1400,7 +1400,7 @@
             .call((g) => g.selectAll("line").remove())
             .selectAll("text")
             .attr("fill", colors.muted)
-            .style("font-family", "'IBM Plex Mono', monospace");
+            .style("font-family", "Archivo, sans-serif");
         };
 
         render();
@@ -1496,7 +1496,7 @@
                 .attr("dy", (i - (d.text.length - 1) / 2) * lineHeight + 4)
                 .attr("text-anchor", "middle")
                 .attr("fill", colors.text)
-                .style("font-family", "'IBM Plex Mono', monospace")
+                .style("font-family", "Archivo, sans-serif")
                 .style("font-size", fontSize + "px")
                 .style("font-weight", d.type === "main" ? "500" : "400")
                 .style("pointer-events", "none") // Let drag pass through text
@@ -1555,7 +1555,7 @@
         }, { passive: true });
       })();
     </script>
-    <footer class="site-footer mono">
+    <footer class="site-footer ui">
       <a href="/">© 2026 Gabriel Wong</a>
       <a href="mailto:gabrielnwong@gmail.com">gabrielnwong@gmail.com</a>
     </footer>
