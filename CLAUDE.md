@@ -20,10 +20,10 @@ Each project lives in its own directory with an `index.html`:
 
 Each project has a short case study at `/<project>/` (overview, facts, question, process, outcome; uses `/css/site.css`) and the full write-up at `/<project>/full/` (site.css + full.css + the project's utils).
 
-- `/macos_timeline/` — macOS Timeline (Fig. 01)
-- `/hapticsense/` — HapticSense (Fig. 02); `/hapticsense_ui/` holds its UI prototype styles
-- `/the_future_of_data_storage/` — DNA data storage (Fig. 03)
-- `/tai/` — Tuskegee Airmen Inc. (Fig. 04)
+- `/macos_timeline/` — macOS Timeline (01)
+- `/hapticsense/` — HapticSense (02); `/hapticsense_ui/` holds its UI prototype styles
+- `/the_future_of_data_storage/` — DNA data storage (03)
+- `/tai/` — Tuskegee Airmen Inc. (04)
 - `/experiments/` — Experiments grid
 
 ## Tech Stack
