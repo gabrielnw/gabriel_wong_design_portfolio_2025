@@ -33,6 +33,6 @@ Each project has a short case study at `/<project>/` (abstract, facts, question,
 
 ## Conventions
 
-- CSS uses absolute paths from root (e.g., `/css/styles.css`)
+- CSS uses absolute paths from root (e.g., `/css/site.css`)
 - Each case study has its own `-utils.css` file for project-specific styles
 - Images stored under `/assets/images/<project-name>/`
