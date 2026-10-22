@@ -43,8 +43,8 @@
             through place: folders, directories, desktops. Human memory, however,
             works differently; it recalls context, moments, and experiences. By
             replacing spatial navigation with a scrubbable timeline, users can
-            revisit any point in their digital history, seeing exactly what was on
-            screen, what music was playing, and which files were open, then resume
+            revisit any point in their digital history, seeing which files were
+            open, which apps were in use and what music was playing, then resume
             or branch from that moment.
           </p>
           <div class="hero-overview-details">
@@ -59,6 +59,10 @@
             <div class="detail">
               <h2>Team</h2>
               <p>Team of 2</p>
+            </div>
+            <div class="detail">
+              <h2>Context</h2>
+              <p>End of File, a course on the future of the digital document</p>
             </div>
           </div>
         </div>
@@ -104,45 +108,51 @@
       <section>
         <h2>THEORETICAL FOUNDATION</h2>
         <div class="header-p-container">
-          <h3>Human Memory &amp; Temporal Encoding</h3>
+          <h3>Memory Is Tied to Time and Context</h3>
           <p>
-            The central premise of macOS Timeline is grounded in Tulving's (1972)
-            foundational distinction between episodic and semantic memory.
-            Tulving established that humans encode experiences temporally,
-            remembering when things happened relative to other events rather than
-            categorically. This finding directly motivates replacing hierarchical
-            folder navigation with a time-ordered interface. Where traditional
-            file systems require users to remember <em>where</em> they stored
-            something, a timeline interface aligns with how memory actually
-            works: recalling the <em>moment</em> a file was created or last
-            used, rather than its location.
+            Tulving (1972) separated <em>episodic</em> memory, our memory of
+            personally experienced events, each anchored to a time and a place,
+            from <em>semantic</em> memory of facts. Remembering a piece of work
+            ("the draft I wrote the night before the review") is closer to the
+            first kind, yet folders ask for the second: a category decided at
+            the moment of saving.
           </p>
           <p>
-            Godden and Baddeley's (1975) research on context-dependent memory
-            further supports the intersection search feature. Their finding that
-            information is recalled better when the retrieval context matches the
-            encoding context explains why searching by co-occurring events (the
-            app open alongside a document, the song playing during a session) is
-            more cognitively natural than keyword-only search.
+            Godden and Baddeley (1975) showed that recall improves when the
+            context at retrieval matches the context at learning. That is the
+            basis for the intersection search: cueing the app, the song or the
+            meeting that surrounded a document gives memory more to work with
+            than a filename alone.
           </p>
         </div>
         <div class="header-p-container">
-          <h3>The Limits of Spatial File Organization</h3>
+          <h3>How People Actually Keep Files</h3>
           <p>
-            Malone's (1983) study of how people organize their desktops found
-            that even users who deliberately create folder hierarchies resort to
-            temporal memory when searching for files, recalling items by
-            <em>when</em> they worked on them rather than <em>where</em> they
-            stored them. This tension between spatial organization and temporal
-            recall is precisely the problem macOS Timeline addresses.
+            Malone (1983) found that people keep both tidy <em>files</em> and
+            loose <em>piles</em>, because classifying things is hard, and that
+            piles do useful work as reminders of what still needs attention. A
+            pile is roughly ordered by time, with the latest on top, which is the
+            behaviour Timeline turns into a system.
           </p>
           <p>
-            Jones, Bruce, and Dumais (2001) extended this finding to web
-            browsing, observing that users frequently cannot remember where they
-            filed things and default to temporal cues. Together, these studies
-            establish that the folder metaphor is not a natural cognitive fit for
-            most users, and that time-based retrieval is a more reliable mental
-            model.
+            The research also pulls the other way. Barreau and Nardi (1995)
+            found that people return to files by browsing to where they put
+            them, using location itself as a reminder, and Bergman et al. (2008)
+            found that this preference for navigating over searching held even
+            as search got better. A time-based system has to respect that: the
+            timeline needs to be something you can browse and scrub through,
+            not only a search box.
+          </p>
+        </div>
+        <div class="header-p-container">
+          <h3>Earlier Attempts</h3>
+          <p>
+            Organising files by time is not new. Lifestreams (Freeman and
+            Gelernter, 1996) replaced folders with a single time-ordered stream
+            of documents, and Windows 10's Timeline (2018) showed recent
+            activity by date. Both treat time as a list to scroll. This project
+            adds two things on top: documents that keep their own history, and
+            links that form from how files are used together.
           </p>
         </div>
       </section>
@@ -268,9 +278,9 @@
             approach. It works with <strong>metadata only</strong>: which app was
             in focus, which file was open, what song was playing, and when. No
             screen content is captured, stored, or analyzed. The result is a
-            lightweight temporal index rather than a surveillance log, offering
-            the same navigational benefits of time-based retrieval without
-            exposing private information.
+            lightweight temporal index rather than a surveillance log. Metadata
+            can still be revealing, but it captures far less than a recording of
+            the screen.
           </p>
         </div>
       </section>
@@ -279,13 +289,24 @@
         <h2>REFERENCES</h2>
         <div class="header-p-container">
           <p>
+            Barreau, D., &amp; Nardi, B. A. (1995). Finding and reminding: File
+            organization from the desktop. <em>ACM SIGCHI Bulletin</em>, 27(3),
+            39–43.
+          </p>
+          <p>
+            Bergman, O., Beyth-Marom, R., Nachmias, R., Gradovitch, N., &amp;
+            Whittaker, S. (2008). Improved search engines and navigation
+            preference in personal information management. <em>ACM
+            Transactions on Information Systems</em>, 26(4).
+          </p>
+          <p>
+            Freeman, E., &amp; Gelernter, D. (1996). Lifestreams: A storage
+            model for personal data. <em>ACM SIGMOD Record</em>, 25(1), 80–86.
+          </p>
+          <p>
             Godden, D. R., &amp; Baddeley, A. D. (1975). Context-dependent
             memory in two natural environments: On land and underwater.
             <em>British Journal of Psychology</em>, 66(3), 325–331.
-          </p>
-          <p>
-            Jones, W., Bruce, H., &amp; Dumais, S. (2001). Keeping found things
-            found on the web. <em>Proceedings of CIKM '01</em>.
           </p>
           <p>
             Malone, T. W. (1983). How people organize their desktops.
