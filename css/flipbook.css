@@ -9,7 +9,6 @@
 .fb-stage {
   position: relative;
   aspect-ratio: 1190 / 842; /* two A4 pages side by side */
-  perspective: 2400px;
   cursor: pointer;
   user-select: none;
   touch-action: pan-y;
@@ -76,6 +75,7 @@
   width: 50%;
   height: 100%;
   z-index: 2;
+  transform: perspective(2400px) rotateY(0deg);
   transform-style: preserve-3d;
   transition: transform 0.6s ease-in-out;
 }

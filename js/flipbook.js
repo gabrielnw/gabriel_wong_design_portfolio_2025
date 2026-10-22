@@ -99,7 +99,7 @@
       root.dataset.at = atState(target);
 
       leaf.getBoundingClientRect(); // apply the start state before turning
-      leaf.style.transform = dir > 0 ? "rotateY(-180deg)" : "rotateY(180deg)";
+      leaf.style.transform = "perspective(2400px) rotateY(" + (dir > 0 ? -180 : 180) + "deg)";
 
       let finished = false;
       const finish = () => {
