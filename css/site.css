@@ -137,8 +137,7 @@ p {
 
 /* the display voice: wide Archivo capitals */
 .intro h1,
-.case-head h1,
-.section > h2.ui {
+.case-head h1 {
   font-family: var(--sans);
   font-weight: 800;
   font-stretch: 125%;
@@ -337,8 +336,10 @@ p {
   gap: var(--s2);
 }
 
+/* section headings: plain sentence case */
 .section > h2.ui {
-  font-size: var(--step-0);
+  font: 700 1.5rem / 1.2 var(--sans);
+  font-stretch: 112%;
 }
 
 .section p {

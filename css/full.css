@@ -52,12 +52,12 @@ body.full h1 {
   text-align: left;
 }
 
-/* section labels */
+/* section headings: plain sentence case, so they read as written */
 body.full main h2 {
-  font: 800 var(--step-0) / 1.4 var(--sans);
-  font-stretch: 125%;
+  font: 700 1.5rem / 1.2 var(--sans);
+  font-stretch: 112%;
   letter-spacing: 0;
-  text-transform: uppercase;
+  text-transform: none;
   color: var(--ink);
   background: none;
   padding: 0;
