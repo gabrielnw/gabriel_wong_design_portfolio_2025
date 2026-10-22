@@ -82,6 +82,27 @@ body.full a {
   color: var(--mark);
 }
 
+/* link buttons (TAI prototype): ink on paper, sized to their label */
+body.full a.btn-primary {
+  justify-self: start;
+  display: inline-block;
+  margin-top: var(--s1);
+  padding: 10px 16px;
+  border-radius: 2px;
+  background: var(--ink);
+  color: var(--paper);
+  font: 600 0.9375rem / 1.4 var(--sans);
+  font-stretch: 112%;
+  text-decoration: none;
+}
+
+@media (hover: hover) {
+  body.full a.btn-primary:hover {
+    background: var(--ink-soft);
+    color: var(--paper);
+  }
+}
+
 body.full section {
   display: grid;
   gap: var(--s2);
