@@ -324,6 +324,8 @@ p {
 
 .fig img {
   width: 100%;
+  max-height: 85vh;
+  object-fit: contain;
 }
 
 .fig.hero img {
@@ -421,5 +423,55 @@ p {
 @media (prefers-reduced-motion: no-preference) {
   a {
     transition: color 0.15s ease;
+  }
+}
+
+/* ---------- experiments ---------- */
+
+.experiments {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--s4) var(--s3);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.experiments a {
+  display: grid;
+  gap: var(--s1);
+  text-decoration: none;
+}
+
+.experiments .plate {
+  aspect-ratio: 1;
+  padding: var(--s1);
+}
+
+.experiments img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.experiments a:hover .plate {
+  border-color: var(--mark);
+}
+
+.experiments .caption {
+  font-size: var(--step--1);
+  color: var(--ink-soft);
+}
+
+.experiments .caption b {
+  color: var(--mark);
+  font: 500 0.6875rem var(--mono);
+  letter-spacing: 0.06em;
+  margin-right: var(--s1);
+}
+
+@media (max-width: 520px) {
+  .experiments {
+    grid-template-columns: 1fr;
   }
 }

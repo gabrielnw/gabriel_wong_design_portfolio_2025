@@ -1,314 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <title>macOS Timeline · Gabriel Wong</title>
+    <meta name="description" content="A time-based alternative to folders: find files by when and in what context you worked on them." />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>macOS Timeline</title>
-
-    <!-- Site styles (case-study) -->
-    <link rel="stylesheet" href="/css/styles.css" />
-
-    <!-- Scripts -->
-    <script src="/js/case-study-navigation.js" defer></script>
-
-    <!-- Fonts (case-study pair) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Space+Grotesk:wght@300..700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;1,8..60,400&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="/css/site.css" />
   </head>
-  <body id="top" class="case-study">
-    <header>
-      <h1>macos timeline</h1>
-      <nav>
-        <ul class="links">
-          <li><a href="/index.html">index</a></li>
-          <li><a href="/experiments/">experiments</a></li>
-        </ul>
-      </nav>
-    </header>
-    <main class="case-study">
-      <section class="hero">
-        <figure class="hero-figure">
-          <img
-            class="hero-img"
-            src="/assets/images/macos_timeline/hero.webp"
-            alt="macOS Timeline interface concept showing a time-based file navigation system"
-          />
+  <body>
+    <div class="page">
+      <header class="site-header mono">
+        <a href="/">← Gabriel Wong</a>
+        <span>Fig. 01</span>
+      </header>
+
+      <main class="page">
+        <section class="case-head">
+          <h1>macOS Timeline</h1>
+          <div class="abstract">
+            <span class="mono label">Abstract</span>
+            <p>
+              An alternative to the folder. You scrub back through your computer's history and find files by when, and alongside what, you worked on them, not where you saved them.
+            </p>
+          </div>
+          <dl class="facts">
+            <div><dt class="mono">Year</dt><dd>2026</dd></div>
+            <div><dt class="mono">Length</dt><dd>3 months</dd></div>
+            <div><dt class="mono">Team</dt><dd>2 people</dd></div>
+            <div><dt class="mono">Methods</dt><dd>Speculative, interaction and UI design</dd></div>
+          </dl>
+          <p class="further">
+            <a href="/macos_timeline/full/">Read the full process</a>
+            <a href="https://www.youtube.com/watch?v=x3EiIYGCGZ4">Watch the video</a>
+          </p>
+        </section>
+
+        <figure class="fig wide hero">
+          <img src="/assets/images/macos_timeline/hero.webp" alt="macOS Timeline interface with a scrubbable timeline of files" />
+          <figcaption><b>FIG. 1.1</b>The timeline replaces the Finder window.</figcaption>
         </figure>
 
-        <div class="hero-overview">
-          <p class="lede">
-            macOS Timeline proposes a time-based interface as an alternative to
-            the traditional file system. Documents have long been accessed
-            through place: folders, directories, desktops. Human memory, however,
-            works differently; it recalls context, moments, and experiences. By
-            replacing spatial navigation with a scrubbable timeline, users can
-            revisit any point in their digital history, seeing exactly what was on
-            screen, what music was playing, and which files were open, then resume
-            or branch from that moment.
+        <section class="section">
+          <h2 class="mono">Question</h2>
+          <p>
+            People remember their work by moments and context: what they were doing, with which app, around which meeting. Computers make them remember places instead. Related files end up scattered across folders, versions multiply, and the path of the work disappears.
           </p>
-          <div class="hero-overview-details">
-            <div class="detail">
-              <h2>Duration</h2>
-              <p>3 Months</p>
-            </div>
-            <div class="detail">
-              <h2>Methods</h2>
-              <p>Speculative Design, Interaction Design, UI Design</p>
-            </div>
-            <div class="detail">
-              <h2>Team</h2>
-              <p>Team of 2</p>
-            </div>
-          </div>
-        </div>
-      </section>
+          <p>
+            Memory research backs this up. Tulving (1972) showed that we encode experiences in time, and Malone (1983) found that even people who build careful folder trees fall back on "when did I work on this?" to find things. So what would a file system built around time look like?
+          </p>
+        </section>
+        <section class="section">
+          <h2 class="mono">Process</h2>
+          <p>
+            We sketched many ways to move through time on a desktop, then narrowed them to three ideas.
+          </p>
+        <figure class="fig">
+          <img src="/assets/images/macos_timeline/Ideation-1.webp" alt="Early sketches of timeline-based file navigation" loading="lazy" />
+          <figcaption><b>FIG. 1.2</b>Early sketches of a scrubbable desktop.</figcaption>
+        </figure>
+          <p>
+            <strong>Documents as living things.</strong> One document holds all of its versions and branches, so you can see how an idea developed instead of hunting through "final_v3" copies.
+          </p>
+        <figure class="fig">
+          <img src="/assets/images/macos_timeline/living-entities-1.webp" alt="A single document showing its version history" loading="lazy" />
+          <figcaption><b>FIG. 1.3</b>A document keeps its whole history in one place.</figcaption>
+        </figure>
+          <p>
+            <strong>Contextual linking.</strong> Files that are opened together become linked, and the links grow stronger with use, so projects group themselves.
+          </p>
+        <figure class="fig">
+          <img src="/assets/images/macos_timeline/contextual-linking.webp" alt="Files connected by how often they are used together" loading="lazy" />
+          <figcaption><b>FIG. 1.4</b>Links form from use, not from folders.</figcaption>
+        </figure>
+          <p>
+            <strong>Search through context.</strong> You find a file by stacking what you remember: the app you had open, the song that was playing, the meeting it was for.
+          </p>
+        <figure class="fig">
+          <img src="/assets/images/macos_timeline/context-search-1.webp" alt="Search interface stacking contextual filters" loading="lazy" />
+          <figcaption><b>FIG. 1.5</b>Each filter you add narrows the results.</figcaption>
+        </figure>
+        </section>
+        <section class="section">
+          <h2 class="mono">Outcome</h2>
+          <p>
+            A working UI concept and video. Unlike Microsoft Recall, which screenshots everything on screen, Timeline only records metadata (which app, which file, which song, and when), so it builds an index of your time without recording what you looked at.
+          </p>
+        </section>
 
-      <section>
-        <h2>PROBLEM STATEMENT</h2>
-        <div class="header-p-container">
-          <p>
-            Digital files are traditionally organized by place: folders,
-            directories, and storage locations. Yet human memory does not work
-            this way. People remember context, moments, and experiences — not
-            physical or digital locations.
-          </p>
-        </div>
-        <div class="header-p-container">
-          <h3>Several Recurring Challenges</h3>
-          <ol class="case-list">
-            <li>
-              Files exist in isolation with no clear links between related
-              content.
-            </li>
-            <li>
-              Related files are scattered across folders, apps, and formats.
-            </li>
-            <li>
-              Versioning creates chaos, with multiple copies and inconsistent
-              naming making it hard to track progress.
-            </li>
-            <li>
-              The creative process disappears — iteration, exploration, and
-              decision-making leave no visible trace, making it difficult to
-              revisit or understand past work.
-            </li>
-            <li>
-              Together, these issues make revisiting files slow, confusing, and
-              disconnected from how people actually remember their work.
-            </li>
-          </ol>
-        </div>
-      </section>
+        <nav class="next mono" aria-label="More projects">
+          <a href="/">← All work</a>
+          <a href="/hapticsense/">HapticSense →</a>
+        </nav>
+      </main>
 
-      <section>
-        <h2>THEORETICAL FOUNDATION</h2>
-        <div class="header-p-container">
-          <h3>Human Memory &amp; Temporal Encoding</h3>
-          <p>
-            The central premise of macOS Timeline is grounded in Tulving's (1972)
-            foundational distinction between episodic and semantic memory.
-            Tulving established that humans encode experiences temporally,
-            remembering when things happened relative to other events rather than
-            categorically. This finding directly motivates replacing hierarchical
-            folder navigation with a time-ordered interface. Where traditional
-            file systems require users to remember <em>where</em> they stored
-            something, a timeline interface aligns with how memory actually
-            works: recalling the <em>moment</em> a file was created or last
-            used, rather than its location.
-          </p>
-          <p>
-            Godden and Baddeley's (1975) research on context-dependent memory
-            further supports the intersection search feature. Their finding that
-            information is recalled better when the retrieval context matches the
-            encoding context explains why searching by co-occurring events (the
-            app open alongside a document, the song playing during a session) is
-            more cognitively natural than keyword-only search.
-          </p>
-        </div>
-        <div class="header-p-container">
-          <h3>The Limits of Spatial File Organization</h3>
-          <p>
-            Malone's (1983) study of how people organize their desktops found
-            that even users who deliberately create folder hierarchies resort to
-            temporal memory when searching for files, recalling items by
-            <em>when</em> they worked on them rather than <em>where</em> they
-            stored them. This tension between spatial organization and temporal
-            recall is precisely the problem macOS Timeline addresses.
-          </p>
-          <p>
-            Jones, Bruce, and Dumais (2001) extended this finding to web
-            browsing, observing that users frequently cannot remember where they
-            filed things and default to temporal cues. Together, these studies
-            establish that the folder metaphor is not a natural cognitive fit for
-            most users, and that time-based retrieval is a more reliable mental
-            model.
-          </p>
-        </div>
-      </section>
-
-      <section>
-        <h2>IDEATION</h2>
-        <img loading="lazy"
-          src="/assets/images/macos_timeline/Ideation-1.webp"
-          alt="Early ideation sketches exploring timeline-based file navigation"
-        />
-        <img loading="lazy"
-          src="/assets/images/macos_timeline/Ideation-2.webp"
-          alt="Ideation sketches exploring contextual file linking"
-        />
-        <img loading="lazy"
-          src="/assets/images/macos_timeline/Ideation-5.webp"
-          alt="Ideation sketches exploring scrubbable timeline interactions"
-        />
-        <img loading="lazy"
-          src="/assets/images/macos_timeline/Ideation-3.webp"
-          alt="Ideation sketches for interface layout and navigation patterns"
-        />
-        <img loading="lazy"
-          src="/assets/images/macos_timeline/Ideation-4.webp"
-          alt="Ideation sketches for metadata-based search interface"
-        />
-      </section>
-
-      <section>
-        <h2>CONCEPT</h2>
-
-        <div class="header-p-container">
-          <h3>1. Documents as Living Entities</h3>
-          <p>
-            Each document is treated as a continuous, living object, containing
-            all versions, edits, and branches in a single place. Rather than
-            creating multiple files for iterations, a document evolves over time,
-            preserving the creative process. Users can view the document's full
-            history, see how ideas developed, revisit past ideas, compare changes
-            without losing context.
-          </p>
-        </div>
-        <img loading="lazy"
-          src="/assets/images/macos_timeline/living-entities-1.webp"
-          alt="Documents as Living Entities — showing version history within a single document"
-        />
-        <img loading="lazy"
-          src="/assets/images/macos_timeline/living-entities-2.webp"
-          alt="Documents as Living Entities — timeline view of document evolution"
-        />
-        <img loading="lazy"
-          src="/assets/images/macos_timeline/living-entities-3.webp"
-          alt="Documents as Living Entities — branching and version comparison view"
-        />
-
-        <div class="header-p-container">
-          <h3>2. Contextual Linking</h3>
-          <p>
-            Instead of relying on folders or manual organization, documents form
-            connections based on how they are used together. Each time two or
-            more files are opened or edited in the same context, a link is
-            created and strengthened over time. These relationships allow
-            documents to self-group naturally, reflecting real workflows rather
-            than artificial folder structures. The grouped files exist in dynamic
-            spaces that emerge from activity and shared metadata, making it easy
-            to discover related content, navigate projects intuitively, and see
-            the relationships between files that were previously invisible.
-          </p>
-        </div>
-        <img loading="lazy"
-          src="/assets/images/macos_timeline/contextual-linking.webp"
-          alt="Contextual Linking — files forming connections based on usage patterns"
-        />
-
-        <div class="header-p-container">
-          <h3>3. Search Through Context</h3>
-          <p>
-            Your memory works by context, not filenames. Intersectional Search
-            lets you find any document by stacking filters: the app you had open,
-            the song you were listening to, or the meeting it was tied to. The
-            more context you add, the more precise your results.
-          </p>
-        </div>
-        <img loading="lazy"
-          src="/assets/images/macos_timeline/context-search-1.webp"
-          alt="Intersectional Search — stacking contextual filters to find documents"
-        />
-        <img loading="lazy"
-          src="/assets/images/macos_timeline/context-search-2.webp"
-          alt="Intersectional Search — narrowing results with additional context"
-        />
-        <img loading="lazy"
-          src="/assets/images/macos_timeline/context-search-3.webp"
-          alt="Intersectional Search — full timeline view with contextual metadata"
-        />
-      </section>
-
-      <section>
-        <h2>VIDEO</h2>
-        <div class="video-embed">
-          <iframe
-            width="100%"
-            height="auto"
-            src="https://www.youtube.com/embed/x3EiIYGCGZ4"
-            title="macOS Timeline"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
-        </div>
-      </section>
-
-      <section>
-        <h2>PRIVACY NOTE</h2>
-        <div class="header-p-container">
-          <p>
-            A common first reaction is to compare this to Microsoft's Recall,
-            which continuously screenshots user activity and processes it through
-            an on-device AI model. That approach creates a searchable visual
-            record of everything on screen, including passwords, private
-            messages, and sensitive documents, raising serious privacy and
-            security concerns. This project takes a fundamentally different
-            approach. It works with <strong>metadata only</strong>: which app was
-            in focus, which file was open, what song was playing, and when. No
-            screen content is captured, stored, or analyzed. The result is a
-            lightweight temporal index rather than a surveillance log, offering
-            the same navigational benefits of time-based retrieval without
-            exposing private information.
-          </p>
-        </div>
-      </section>
-
-      <section>
-        <h2>REFERENCES</h2>
-        <div class="header-p-container">
-          <p>
-            Godden, D. R., &amp; Baddeley, A. D. (1975). Context-dependent
-            memory in two natural environments: On land and underwater.
-            <em>British Journal of Psychology</em>, 66(3), 325–331.
-          </p>
-          <p>
-            Jones, W., Bruce, H., &amp; Dumais, S. (2001). Keeping found things
-            found on the web. <em>Proceedings of CIKM '01</em>.
-          </p>
-          <p>
-            Malone, T. W. (1983). How people organize their desktops.
-            <em>ACM Transactions on Office Information Systems</em>, 1(1),
-            99–112.
-          </p>
-          <p>
-            Tulving, E. (1972). Episodic and semantic memory. In E. Tulving
-            &amp; W. Donaldson (Eds.),
-            <em>Organization of Memory</em>. Academic Press.
-          </p>
-        </div>
-      </section>
-    </main>
-    <footer class="site-footer" aria-label="Site footer">
-      <p>&copy; 2025 Gabriel Wong</p>
-    </footer>
-
-    <a href="#top" class="back-to-top" aria-label="Back to top">
-      <span aria-hidden="true">Top</span>
-    </a>
+      <footer class="site-footer mono">
+        <span>© 2026 Gabriel Wong</span>
+        <a href="mailto:gabrielnwong@gmail.com">gabrielnwong@gmail.com</a>
+      </footer>
+    </div>
   </body>
 </html>
