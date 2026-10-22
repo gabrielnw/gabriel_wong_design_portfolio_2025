@@ -1,97 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <title>Gabriel Wong</title>
+    <meta name="description" content="Gabriel Wong is a designer working between futures studies and human–computer interaction." />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gabriel Wong</title>
-    <link rel="stylesheet" href="/css/styles.css" />
-    <script src="/js/carousel.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Space+Grotesk:wght@300..700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;1,8..60,400&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="/css/site.css" />
   </head>
   <body>
-    <header>
-      <h1>index</h1>
-      <nav>
-        <ul class="links">
-          <li>
-            <a href="#">index</a>
-          </li>
-          <li>
-            <a href="/experiments/">experiments</a>
-          </li>
-        </ul>
-      </nav>
-    </header>
-    <main>
-      <section class="index">
-        <p>
-          Gabriel is a designer interested in the future currently studying
-          their masters in speculative software at Potsdam University of Applied
-          Sciences.
-        </p>
-        <ul>
-          <li>
-            <a href="mailto:gabrielnwong@gmail.com" target="_blank">Email</a>
-          </li>
-          <li>
-            <a href="https://www.linkedin.com/in/-gabriel-/" target="_blank"
-              >LinkedIn</a
-            >
-          </li>
-        </ul>
-      </section>
-      <section class="work">
-        <div class="carousel">
-          <div class="carousel-scene">
-            <div class="carousel-ring">
-              <a href="/macos_timeline/" class="carousel-card">
-                <img
-                  class="projects-img"
-                  src="/assets/images/project-4-case-study.webp"
-                  alt="macOS Timeline concept preview"
-                />
-                <span>macos timeline</span>
+    <div class="page">
+      <header class="site-header mono">
+        <a href="/" aria-current="page">Gabriel Wong</a>
+        <nav>
+          <a href="/about/">About</a>
+          <a href="/experiments/">Experiments</a>
+          <a href="mailto:gabrielnwong@gmail.com">Email</a>
+        </nav>
+      </header>
+
+      <main class="page">
+        <section class="intro">
+          <h1>Gabriel Wong <span>designs for futures of human–computer interaction.</span></h1>
+          <p>
+            I'm in a double master's in Speculative Software at FH Potsdam and
+            Taipei Tech. My thesis studies how people perceive light-pattern
+            communication on amorphous robots made from different materials.
+            I'm open to HCI research assistant roles for summer 2027.
+          </p>
+        </section>
+
+        <section class="work" aria-labelledby="work-label">
+          <h2 id="work-label" class="mono label">Work</h2>
+          <ol>
+            <!-- Thesis: uncomment once there is a page for it.
+            <li>
+              <a href="/thesis/">
+                <div class="plate" aria-hidden="true">
+                  <svg viewBox="0 0 120 90"><path class="line" d="M30 60 C22 40 40 22 60 26 C82 20 100 38 92 58 C86 72 40 74 30 60 Z" /><circle class="dot" cx="48" cy="46" r="2.5" /><circle class="dot" cx="60" cy="42" r="2.5" opacity=".6" /><circle class="dot" cx="72" cy="46" r="2.5" opacity=".3" /></svg>
+                </div>
+                <span>
+                  <span class="title">Master's thesis</span>
+                  <span class="summary">How people read light patterns on soft, amorphous robots made of different materials.</span>
+                  <span class="meta mono">Fig. 00 · HCI · in progress</span>
+                </span>
+                <span class="year">2026</span>
               </a>
-              <a href="/the_future_of_data_storage/" class="carousel-card">
-                <img
-                  class="projects-img"
-                  src="/assets/images/project-1-case-study.webp"
-                  alt="The Future of Data Storage case study preview"
-                />
-                <span>the future of data storage</span>
+            </li>
+            -->
+            <li>
+              <a href="/macos_timeline/">
+                <div class="plate" aria-hidden="true">
+                  <svg viewBox="0 0 120 90"><path class="line" d="M14 64h92M28 64v-14M48 64v-26M68 64v-18M88 64v-34" /><circle class="dot" cx="88" cy="30" r="3" /></svg>
+                </div>
+                <span>
+                  <span class="title">macOS Timeline</span>
+                  <span class="summary">Time as the main way to find anything on your computer.</span>
+                  <span class="meta mono">Fig. 01 · HCI concept</span>
+                </span>
+                <span class="year">2026</span>
               </a>
-              <a href="/hapticsense/" class="carousel-card">
-                <img
-                  class="projects-img"
-                  src="/assets/images/project-2-case-study.webp"
-                  alt="HapticSense project mockup"
-                />
-                <span>hapticsense</span>
+            </li>
+            <li>
+              <a href="/hapticsense/">
+                <div class="plate" aria-hidden="true">
+                  <svg viewBox="0 0 120 90"><rect class="line" x="30" y="32" width="60" height="26" rx="13" /><circle class="line" cx="60" cy="45" r="6" /><path class="line" d="M10 45h20M90 45h20" stroke-dasharray="2 3" /><circle class="dot" cx="60" cy="45" r="2" /></svg>
+                </div>
+                <span>
+                  <span class="title">HapticSense</span>
+                  <span class="summary">Feeling virtual objects through a neuromodulation wristband.</span>
+                  <span class="meta mono">Fig. 02 · hardware + UI</span>
+                </span>
+                <span class="year">2025</span>
               </a>
-              <a href="/tai/" class="carousel-card">
-                <img
-                  class="projects-img"
-                  src="/assets/images/project-3-case-study.webp"
-                  alt="Tuskegee Airmen Inc. site redesign preview"
-                />
-                <span>tuskegee airmen inc.</span>
+            </li>
+            <li>
+              <a href="/the_future_of_data_storage/">
+                <div class="plate" aria-hidden="true">
+                  <svg viewBox="0 0 120 90"><path class="line" d="M14 45 L106 14 M14 45 L106 76 M14 45 L106 34 M14 45 L106 56" /><circle class="dot" cx="14" cy="45" r="3" /></svg>
+                </div>
+                <span>
+                  <span class="title">The Future of Data Storage</span>
+                  <span class="summary">Four scenarios for a world that keeps its data in DNA.</span>
+                  <span class="meta mono">Fig. 03 · foresight</span>
+                </span>
+                <span class="year">2024</span>
               </a>
-            </div>
-          </div>
-          <div class="carousel-nav">
-            <button class="carousel-btn" data-dir="-1" aria-label="Previous project">&larr;</button>
-            <button class="carousel-btn" data-dir="1" aria-label="Next project">&rarr;</button>
-          </div>
-        </div>
-      </section>
-    </main>
-    <footer class="site-footer" aria-label="Site footer">
-      <p>© 2025 Gabriel Wong</p>
-    </footer>
+            </li>
+            <li>
+              <a href="/tai/">
+                <div class="plate" aria-hidden="true">
+                  <svg viewBox="0 0 120 90"><path class="line" d="M50 12h20v12H50zM18 52h20v12H18zM50 52h20v12H50zM82 52h20v12H82zM60 24v14M28 38h64M28 38v14M60 38v14M92 38v14" /><rect class="dot" x="50" y="12" width="20" height="12" /></svg>
+                </div>
+                <span>
+                  <span class="title">Tuskegee Airmen Inc.</span>
+                  <span class="summary">Restructuring a nonprofit's website so people find things 40% faster.</span>
+                  <span class="meta mono">Fig. 04 · UX · team of 6</span>
+                </span>
+                <span class="year">2023</span>
+              </a>
+            </li>
+          </ol>
+        </section>
+      </main>
+
+      <footer class="site-footer mono">
+        <span>© 2026 Gabriel Wong</span>
+        <a href="https://www.linkedin.com/in/-gabriel-/">LinkedIn</a>
+      </footer>
+    </div>
   </body>
 </html>
