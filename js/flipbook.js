@@ -4,12 +4,12 @@
   function init(root) {
     const total = Number(root.dataset.pages);
     const src = (n) => root.dataset.src.replace("{n}", String(n).padStart(2, "0"));
-    const book = root.querySelector(".fb-book");
-    const left = root.querySelector(".fb-left");
-    const right = root.querySelector(".fb-right");
-    const prevBtn = root.querySelector(".fb-prev");
-    const nextBtn = root.querySelector(".fb-next");
-    const count = root.querySelector(".fb-count");
+    const book = root.querySelector(".mag-book");
+    const left = root.querySelector(".mag-left");
+    const right = root.querySelector(".mag-right");
+    const prevBtn = root.querySelector(".mag-prev");
+    const nextBtn = root.querySelector(".mag-next");
+    const count = root.querySelector(".mag-count");
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
     // spread 0 is the cover alone on the right; spread s shows pages 2s and 2s+1
@@ -84,9 +84,9 @@
 
       // the turning leaf shows the current page on its front and the new page on its back
       const leaf = document.createElement("div");
-      leaf.className = "fb-leaf " + (dir > 0 ? "to-next" : "to-prev");
+      leaf.className = "mag-leaf " + (dir > 0 ? "to-next" : "to-prev");
       leaf.innerHTML =
-        '<div class="fb-face front"><img alt=""></div><div class="fb-face back"><img alt=""></div>';
+        '<div class="mag-face front"><img alt=""></div><div class="mag-face back"><img alt=""></div>';
       leaf.querySelector(".front img").src = src(dir > 0 ? curR : curL);
       leaf.querySelector(".back img").src = src(dir > 0 ? newL : newR);
 
@@ -137,7 +137,7 @@
     });
 
     // click a side to turn that way; swipe on touch screens
-    const stage = root.querySelector(".fb-stage");
+    const stage = root.querySelector(".mag-stage");
     let startX = null;
     stage.addEventListener("pointerdown", (e) => {
       startX = e.clientX;
