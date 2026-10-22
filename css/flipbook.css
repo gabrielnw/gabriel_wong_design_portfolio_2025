@@ -119,8 +119,10 @@
   cursor: pointer;
 }
 
-.mag-controls button:hover:not(:disabled) {
-  border-color: var(--ink);
+@media (hover: hover) {
+  .mag-controls button:hover:not(:disabled) {
+    border-color: var(--ink);
+  }
 }
 
 .mag-controls button:disabled {

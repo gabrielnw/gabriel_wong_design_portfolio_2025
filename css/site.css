@@ -41,10 +41,17 @@
 
 html {
   -webkit-text-size-adjust: 100%;
+  color-scheme: light;
+  background: var(--paper); /* scrolling past the edge shows paper, not white */
+  overscroll-behavior: none; /* no rubber-band bounce at the top and bottom */
+  scrollbar-gutter: stable; /* pages don't shift sideways when a scrollbar appears */
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
   margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   background: var(--paper);
   color: var(--ink);
   font: 400 var(--step-0) / 1.65 var(--sans);
@@ -65,8 +72,33 @@ a {
   text-underline-offset: 3px;
 }
 
-a:hover {
-  color: var(--mark);
+a,
+button {
+  touch-action: manipulation; /* no double-tap zoom delay */
+}
+
+/* hover colours only where there is a pointer, so taps don't leave links red */
+@media (hover: hover) {
+  a:hover {
+    color: var(--mark);
+  }
+}
+
+/* quick crossfade between pages in browsers that support it */
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.18s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+  }
 }
 
 :focus-visible {
@@ -107,6 +139,8 @@ p {
   flex-wrap: wrap;
   gap: var(--s1) var(--s3);
   color: var(--ink-soft);
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .site-header a {
@@ -212,8 +246,10 @@ p {
   text-decoration: none;
 }
 
-.work a:hover .title {
-  color: var(--mark);
+@media (hover: hover) {
+  .work a:hover .title {
+    color: var(--mark);
+  }
 }
 
 .work .title {
@@ -478,8 +514,10 @@ p {
   object-fit: cover;
 }
 
-.experiments a:hover .plate {
-  border-color: var(--mark);
+@media (hover: hover) {
+  .experiments a:hover .plate {
+    border-color: var(--mark);
+  }
 }
 
 .experiments .caption {

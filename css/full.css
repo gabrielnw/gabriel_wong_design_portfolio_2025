@@ -279,9 +279,11 @@ body.full .video-embed iframe {
   pointer-events: auto;
 }
 
-.back-to-top:hover {
-  color: var(--mark);
-  border-color: var(--mark);
+@media (hover: hover) {
+  .back-to-top:hover {
+    color: var(--mark);
+    border-color: var(--mark);
+  }
 }
 
 @media (prefers-reduced-motion: no-preference) {
