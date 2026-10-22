@@ -1,173 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <title>Experiments · Gabriel Wong</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Experiments</title>
-    <link rel="stylesheet" href="/css/styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Space+Grotesk:wght@300..700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;1,8..60,400&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="/css/site.css" />
   </head>
   <body>
-    <header>
-      <h1>experiments</h1>
-      <nav>
-        <ul class="links">
-          <li>
-            <a href="/index.html">index</a>
-          </li>
-          <li>
-            <a href="#">experiments</a>
-          </li>
-        </ul>
-      </nav>
-    </header>
-    <main>
-      <section class="experiments">
-        <p>A collection of experiments using various web tools and code.</p>
-        <div class="experiment-cards">
-          <a class="experiment-card" href="#experiment-001">
-            <div class="experiment-card-media">
-              <img loading="lazy"
-                class="experiment-card-img"
-                src="/assets/images/experiments/experiment-1.webp"
-                alt="Experiment 001 thumbnail"
-              />
-            </div>
-            <div class="experiment-card-details">
-              <div class="experiment-card-row">
-                <span class="experiment-card-label">project</span>
-                <span class="experiment-card-value">experiment_001</span>
-              </div>
-              <div class="experiment-card-row">
-                <span class="experiment-card-label">tool</span>
-                <span class="experiment-card-value">Processing</span>
-              </div>
-            </div>
-          </a>
-          <a class="experiment-card" href="#experiment-002">
-            <div class="experiment-card-media">
-              <img loading="lazy"
-                class="experiment-card-img"
-                src="/assets/images/experiments/experiment-2.webp"
-                alt="Experiment 002 thumbnail"
-              />
-            </div>
-            <div class="experiment-card-details">
-              <div class="experiment-card-row">
-                <span class="experiment-card-label">project</span>
-                <span class="experiment-card-value">experiment_002</span>
-              </div>
-              <div class="experiment-card-row">
-                <span class="experiment-card-label">tool</span>
-                <span class="experiment-card-value">Processing</span>
-              </div>
-            </div>
-          </a>
-          <a class="experiment-card" href="#experiment-003">
-            <div class="experiment-card-media">
-              <img loading="lazy"
-                class="experiment-card-img"
-                src="/assets/images/experiments/experiment-3.webp"
-                alt="Experiment 003 thumbnail"
-              />
-            </div>
-            <div class="experiment-card-details">
-              <div class="experiment-card-row">
-                <span class="experiment-card-label">project</span>
-                <span class="experiment-card-value">experiment_003</span>
-              </div>
-              <div class="experiment-card-row">
-                <span class="experiment-card-label">tool</span>
-                <span class="experiment-card-value">Processing</span>
-              </div>
-            </div>
-          </a>
-          <a class="experiment-card" href="#experiment-004">
-            <div class="experiment-card-media">
-              <img loading="lazy"
-                class="experiment-card-img"
-                src="/assets/images/experiments/experiment-4.webp"
-                alt="Experiment 004 thumbnail"
-              />
-            </div>
-            <div class="experiment-card-details">
-              <div class="experiment-card-row">
-                <span class="experiment-card-label">project</span>
-                <span class="experiment-card-value">experiment_004</span>
-              </div>
-              <div class="experiment-card-row">
-                <span class="experiment-card-label">tool</span>
-                <span class="experiment-card-value">Processing</span>
-              </div>
-            </div>
-          </a>
-        </div>
-        <div id="experiment-001" class="experiment-overlay" aria-live="polite">
-          <div class="experiment-overlay__content">
-            <img loading="lazy"
-              src="/assets/images/experiments/experiment-1.webp"
-              alt="Experiment 001 full-size preview"
-            />
-            <a
-              class="experiment-overlay__close"
-              href="#"
-              aria-label="Close preview"
-              >×</a
-            >
-          </div>
-        </div>
-        <div id="experiment-002" class="experiment-overlay" aria-live="polite">
-          <div class="experiment-overlay__content">
-            <img loading="lazy"
-              src="/assets/images/experiments/experiment-2.webp"
-              alt="Experiment 002 full-size preview"
-            />
-            <a
-              class="experiment-overlay__close"
-              href="#"
-              aria-label="Close preview"
-              >×</a
-            >
-          </div>
-        </div>
-        <div id="experiment-003" class="experiment-overlay" aria-live="polite">
-          <div class="experiment-overlay__content">
-            <img loading="lazy"
-              src="/assets/images/experiments/experiment-3.webp"
-              alt="Experiment 003 full-size preview"
-            />
-            <a
-              class="experiment-overlay__close"
-              href="#"
-              aria-label="Close preview"
-              >×</a
-            >
-          </div>
-        </div>
-        <div id="experiment-004" class="experiment-overlay" aria-live="polite">
-          <div class="experiment-overlay__content">
-            <img loading="lazy"
-              src="/assets/images/experiments/experiment-4.webp"
-              alt="Experiment 004 full-size preview"
-            />
-            <a
-              class="experiment-overlay__close"
-              href="#"
-              aria-label="Close preview"
-              >×</a
-            >
-          </div>
-        </div>
-      </section>
-    </main>
+    <div class="page">
+      <header class="site-header mono">
+        <a href="/">Gabriel Wong</a>
+        <nav>
+          <a href="/about/">About</a>
+          <a href="/experiments/" aria-current="page">Experiments</a>
+          <a href="mailto:gabrielnwong@gmail.com">Email</a>
+        </nav>
+      </header>
 
-    <footer class="site-footer" aria-label="Site footer">
-      <p>© 2025 Gabriel Wong</p>
-    </footer>
+      <main class="page">
+        <section class="intro">
+          <h1>Experiments</h1>
+          <p>Small studies in code and generative tools. Click one to see it full size.</p>
+        </section>
+
+        <section aria-label="Experiments">
+          <ol class="experiments">
+            <li>
+              <a href="/assets/images/experiments/experiment-1.webp">
+                <div class="plate"><img src="/assets/images/experiments/experiment-1.webp" alt="Experiment 001, made in Processing" loading="lazy" /></div>
+                <span class="caption"><b>EXP. 001</b>Processing</span>
+              </a>
+            </li>
+            <li>
+              <a href="/assets/images/experiments/experiment-2.webp">
+                <div class="plate"><img src="/assets/images/experiments/experiment-2.webp" alt="Experiment 002, made in Processing" loading="lazy" /></div>
+                <span class="caption"><b>EXP. 002</b>Processing</span>
+              </a>
+            </li>
+            <li>
+              <a href="/assets/images/experiments/experiment-3.webp">
+                <div class="plate"><img src="/assets/images/experiments/experiment-3.webp" alt="Experiment 003, made in Processing" loading="lazy" /></div>
+                <span class="caption"><b>EXP. 003</b>Processing</span>
+              </a>
+            </li>
+            <li>
+              <a href="/assets/images/experiments/experiment-4.webp">
+                <div class="plate"><img src="/assets/images/experiments/experiment-4.webp" alt="Experiment 004, made in Processing" loading="lazy" /></div>
+                <span class="caption"><b>EXP. 004</b>Processing</span>
+              </a>
+            </li>
+          </ol>
+        </section>
+      </main>
+
+      <footer class="site-footer mono">
+        <span>© 2026 Gabriel Wong</span>
+        <a href="https://www.linkedin.com/in/-gabriel-/">LinkedIn</a>
+      </footer>
+    </div>
   </body>
 </html>

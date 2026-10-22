@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tuskegee Airmen Inc.</title>
+
+    <!-- Site styles (case-study) -->
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/tai-utils.css" />
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/d3@7" defer></script>
+    <script src="/js/case-study-navigation.js" defer></script>
+
+    <!-- Fonts (case-study pair) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body id="top" class="tai-body case-study">
+    <header>
+      <h1>tuskegee airmen inc.</h1>
+      <nav>
+        <ul class="links">
+          <li><a href="/index.html">index</a></li>
+          <li><a href="/experiments/">experiments</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section class="hero">
+        <figure class="hero-figure">
+          <img
+            class="hero-img"
+            src="/assets/images/tai/tai-hero.webp"
+            alt="Tuskegee Airmen Inc. website redesign hero image"
+          />
+        </figure>
+        <div class="hero-overview">
+          <p class="lede">
+            Tuskegee Airmen Inc. (TAI) is a nonprofit organization dedicated to
+            preserving the legacy of African Americans who served in the Army
+            Air Corps during WWII. Our redesign focused on enhancing clarity,
+            usability, and creating graphic assets to strengthen their social
+            media presence.
+          </p>
+          <div class="hero-overview-details">
+            <div class="detail">
+              <h2>Duration</h2>
+              <p>4 Months</p>
+            </div>
+            <div class="detail">
+              <h2>Methods</h2>
+              <p>UX/UI Design, Social Media</p>
+            </div>
+            <div class="detail">
+              <h2>Role</h2>
+              <p>Designer</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Context Section -->
+      <section>
+        <h2>CONTEXT</h2>
+        <div class="header-p-container">
+          <h3>Challenge</h3>
+          <p>
+            The website was overloaded with information but lacked clear
+            organization. Navigation was challenging for older, less tech-savvy
+            users. In addition, the site did not effectively engage younger
+            audiences, limiting overall communication.
+          </p>
+        </div>
+        <div class="header-p-container">
+          <h3>Solution</h3>
+          <p>
+            We redesigned the website with an intuitive structure and clear
+            visual hierarchy. Key improvements included streamlined navigation,
+            enhanced accessibility features, and a consistent visual hierarchy.
+            We also developed graphic assets for social media to improve
+            audience engagement.
+          </p>
+          <a
+            target="_blank"
+            class="btn-primary"
+            href="https://www.figma.com/proto/VeqsgeRKIANEKipE70Ak5d/Tuskegee-Airmen?node-id=2594-30330&starting-point-node-id=2594%3A30330"
+            >View Prototype 🔗</a
+          >
+        </div>
+      </section>
+
+      <!-- Impact Section -->
+      <section>
+        <h2>IMPACT</h2>
+        <div class="tai-grid">
+          <div class="tai-card">
+            <h3>40% Decrease</h3>
+            <p>in website navigation time</p>
+          </div>
+          <div class="tai-card">
+            <h3>80% Agreement</h3>
+            <p>on main navigation structure from users</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Research Section -->
+      <section>
+        <h2>RESEARCH</h2>
+        <p>
+          We validated the problem with competitive analysis, user surveys, and
+          card sorting exercises. This helped us focus on the most impactful
+          areas for improvement.
+        </p>
+
+        <div class="header-p-container">
+          <h3>Competitive Analysis</h3>
+          <p>
+            Analyzing similar nonprofit websites revealed effective navigation
+            and content flow strategies. We also looked at educational
+            nonprofits for modern UI inspirations.
+          </p>
+          <div class="tai-grid">
+            <img loading="lazy" src="/assets/images/tai/hope.webp" alt="Competitive analysis: Hope website" />
+            <img loading="lazy" src="/assets/images/tai/laws.webp" alt="Competitive analysis: Laws website" />
+            <img loading="lazy" src="/assets/images/tai/wreaths.webp" alt="Competitive analysis: Wreaths website" />
+            <img loading="lazy" src="/assets/images/tai/teach.webp" alt="Competitive analysis: Teach website" />
+          </div>
+        </div>
+
+        <div class="header-p-container">
+          <h3>User Surveys</h3>
+          <p>
+            We surveyed users across various age groups. The feedback
+            highlighted unclear paths for actions such as donating or signing
+            up, which discouraged engagement.
+          </p>
+          <div class="tai-chart-container">
+            <h3>Likelihood to Engage (Donate/Volunteer)</h3>
+            <div id="surveyChart" class="d3-chart"></div>
+            <p class="caption">Based on 10 user responses. 1 = Unlikely, 5 = Likely.</p>
+          </div>
+        </div>
+
+        <div class="header-p-container">
+          <h3>Card Sorting</h3>
+          <p>
+            Card sorting with board members revealed low agreement on subpage
+            organization. We consolidated redundant tabs to achieve a more
+            intuitive sitemap.
+          </p>
+          <img loading="lazy" src="/assets/images/tai/sorting.webp" alt="Card sorting exercise results" />
+        </div>
+      </section>
+
+      <!-- Pre-Design Phase Section -->
+      <section>
+        <h2>PRE-DESIGN PHASE</h2>
+        <div class="header-p-container">
+          <h3>Sitemap Development</h3>
+          <p>
+            After analyzing user feedback and the current site structure, we
+            developed a new sitemap. Our approach included conducting a thorough
+            content audit, brainstorming sessions on Figjam, and integrating
+            survey insights into design proposals.
+          </p>
+          <img loading="lazy" src="/assets/images/tai/old-site.webp" alt="Screenshot of the old website homepage" />
+        </div>
+
+        <div class="header-p-container">
+          <h3>New Structure</h3>
+          <p>
+            We reorganized content into four main tabs: About, Programs, Press,
+            and Get Involved, consolidating redundant pages. This simplified the
+            navigation structure significantly.
+          </p>
+          <div class="tai-grid">
+            <img loading="lazy" src="/assets/images/tai/old-site-map.webp" alt="Old sitemap structure" />
+            <img loading="lazy" src="/assets/images/tai/site-map.webp" alt="New sitemap structure" />
+          </div>
+        </div>
+      </section>
+
+      <!-- Design Phase Section -->
+      <section>
+        <h2>DESIGN PHASE</h2>
+        <p>
+          With the new sitemap approved, we built a style guide and design
+          system in Figma.
+        </p>
+
+        <div class="header-p-container">
+          <h3>Style Guide</h3>
+          <p>
+            Our style guide used TAI’s brand colors and introduced a new font
+            for improved readability. The red, white, and blue palette was
+            retained, with red as an accent, to honor the organization’s
+            heritage. Accessibility was verified using A11Y’s Validator Tool.
+          </p>
+          
+          <!-- Coded Style Guide -->
+          <div class="style-guide-container">
+            <div class="style-guide-section">
+              <h3>Color Palette</h3>
+              <div class="color-grid">
+                <div class="color-swatch tai-bg-grey">
+                  <span>#7A7A7A</span>
+                </div>
+                <div class="color-swatch tai-bg-navy">
+                  <span>#1C2C63</span>
+                </div>
+                <div class="color-swatch tai-bg-light-grey">
+                  <span>#D9D9D9</span>
+                </div>
+                <div class="color-swatch tai-bg-dark-grey">
+                  <span>#696666</span>
+                </div>
+                <div class="color-swatch tai-bg-red">
+                  <span>#FF2020</span>
+                </div>
+                <div class="color-swatch tai-bg-white">
+                  <span>#FFFFFF</span>
+                </div>
+                <div class="color-swatch tai-bg-dark-red">
+                  <span>#AA2020</span>
+                </div>
+                <div class="color-swatch tai-bg-black">
+                  <span>#1A1B18</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="style-guide-section">
+              <h3>Typography</h3>
+              <div class="typography-showcase">
+                <div class="type-item">
+                  <p class="type-label">Display Large - Chakra Petch 57/64</p>
+                  <p class="type-sample chakra-display-lg">Tuskegee Airmen</p>
+                </div>
+                <div class="type-item">
+                  <p class="type-label">Display Semi-Bold - Chakra Petch 45/52</p>
+                  <p class="type-sample chakra-display-sb">Tuskegee Airmen</p>
+                </div>
+                <div class="type-item">
+                  <p class="type-label">Headline Large - Chakra Petch 32/40</p>
+                  <p class="type-sample chakra-headline-lg">Tuskegee Airmen</p>
+                </div>
+                <div class="type-item">
+                  <p class="type-label">Sub Header Large - Poppins 22/28</p>
+                  <p class="type-sample poppins-subheader-lg">Tuskegee Airmen</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="header-p-container">
+          <h3>Iterating Design Concepts</h3>
+          <p>
+            Designers worked on desktop and mobile layouts concurrently. We
+            prioritized visual consistency, readability, and simplifying key
+            user journeys like signups and donations.
+          </p>
+        </div>
+
+        <div class="header-p-container">
+          <h3>Signup Process Redesign</h3>
+          <p>
+            The original member signup process required multiple steps. We
+            streamlined it into a single, clear call-to-action. The redesigned
+            "Get Involved" tab now directs users to MemberPlanet with one click.
+          </p>
+          <div class="tai-grid">
+            <img loading="lazy" src="/assets/images/tai/signup.webp" alt="Original signup process flow" />
+            <img loading="lazy" src="/assets/images/tai/signup-after.webp" alt="Redesigned signup process flow" />
+          </div>
+        </div>
+
+        <div class="header-p-container">
+          <h3>Programs Page Redesign</h3>
+          <p>
+            Previously, programs were presented in dense text blocks with little
+            hierarchy. The new Overviews page uses media, banners, and improved
+            spacing to showcase Programs, Scholarships, and Awards effectively.
+          </p>
+          <div class="tai-grid">
+            <img loading="lazy" src="/assets/images/tai/programs-before.webp" alt="Programs page before redesign" />
+            <img loading="lazy" src="/assets/images/tai/programs-after.webp" alt="Programs page after redesign" />
+          </div>
+        </div>
+
+        <div class="header-p-container">
+          <h3>Landing Page</h3>
+          <p>
+            Additional banners highlight individual programs and yearly
+            accomplishments.
+          </p>
+          <img loading="lazy" src="/assets/images/tai/landing-desktop.webp" alt="Redesigned landing page desktop view" />
+        </div>
+
+        <div class="header-p-container">
+          <h3>User Testing</h3>
+          <p>
+            After creating a medium-fidelity prototype, we conducted user
+            testing with timed tasks. Results showed a 40% faster navigation
+            time, allowing us to fine-tune the high-fidelity designs.
+          </p>
+          <!-- Coded User Testing Chart -->
+          <div class="tai-chart-container">
+            <h3>User Testing Results (Time on Task)</h3>
+            <div class="chart-legend">
+              <div class="legend-item"><span class="swatch tai-bg-navy"></span> Current Website</div>
+              <div class="legend-item"><span class="swatch tai-bg-dark-red"></span> New Proposal</div>
+            </div>
+            <div class="tai-chart">
+              <!-- Y-Axis -->
+              <div class="chart-y-axis">
+                <span>60s</span>
+                <span>40s</span>
+                <span>20s</span>
+                <span>0s</span>
+              </div>
+              <!-- Bars -->
+              <div class="chart-bars">
+                <!-- Contact Us -->
+                <div class="bar-group">
+                  <div class="bars-wrapper">
+                    <div class="bar navy" style="height: 13%;"></div> <!-- ~8s -->
+                    <div class="bar red" style="height: 6%;"></div>   <!-- ~4s -->
+                  </div>
+                  <span class="x-label">Contact Us</span>
+                </div>
+                <!-- Donations -->
+                <div class="bar-group">
+                  <div class="bars-wrapper">
+                    <div class="bar navy" style="height: 30%;"></div> <!-- ~18s -->
+                    <div class="bar red" style="height: 18%;"></div>  <!-- ~11s -->
+                  </div>
+                  <span class="x-label">Donations</span>
+                </div>
+                <!-- Find an Airman -->
+                <div class="bar-group">
+                  <div class="bars-wrapper">
+                    <div class="bar navy" style="height: 66%;"></div> <!-- ~40s -->
+                    <div class="bar red" style="height: 25%;"></div>  <!-- ~15s -->
+                  </div>
+                  <span class="x-label">Find an Airman</span>
+                </div>
+                <!-- Member Signups -->
+                <div class="bar-group">
+                  <div class="bars-wrapper">
+                    <div class="bar navy" style="height: 50%;"></div> <!-- ~30s -->
+                    <div class="bar red" style="height: 21%;"></div>  <!-- ~13s -->
+                  </div>
+                  <span class="x-label">Member Signups</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Social Media Section -->
+      <section>
+        <h2>SOCIAL MEDIA</h2>
+        <p>
+          To jumpstart TAI’s social media initiatives, we focused on consistent
+          branding and creating a Social Media Handbook with a content calendar
+          and best practices.
+        </p>
+
+        <div class="header-p-container">
+          <h3>Templates</h3>
+          <p>
+            Our team brainstormed content topics and created templates on Canva
+            for event announcements and photos.
+          </p>
+          <div class="tai-grid">
+            <img loading="lazy" src="/assets/images/tai/events_ig.webp" alt="Instagram event announcement template" />
+            <img loading="lazy" src="/assets/images/tai/events.webp" alt="Event photo template" />
+          </div>
+          <a
+            target="_blank"
+            class="btn-primary"
+            href="https://www.gabrielwong.co/tai/Tuskegee%20Airmen%20Inc%20Case%20Study%20ad5ce61418ca4e34b71bc74a522d44d9/TAI_Social_Media_Plan_(2).pdf"
+            >Social Media Handbook 🔗</a
+          >
+        </div>
+      </section>
+
+      <!-- Results Section -->
+      <section>
+        <h2>RESULTS</h2>
+        <div class="tai-results-grid">
+          <div class="tai-card">
+            <h3>Improved Navigation</h3>
+            <p>
+              Redesigned information architecture made it easier for users to
+              find what they need.
+            </p>
+          </div>
+          <div class="tai-card">
+            <h3>Accessibility</h3>
+            <p>
+              Ensured the website met WCAG guidelines, improving usability for
+              all users.
+            </p>
+          </div>
+          <div class="tai-card">
+            <h3>Responsive</h3>
+            <p>
+              The site is now fully optimized for desktop, tablet, and mobile
+              devices.
+            </p>
+          </div>
+        </div>
+        <div class="header-p-container">
+          <h3>Next Steps</h3>
+          <p>
+            With the design vision established, TAI can now move forward with
+            development. Future steps include refining the user experience based
+            on post-launch feedback, implementing a content strategy for regular
+            updates, and monitoring performance metrics.
+          </p>
+        </div>
+      </section>
+
+      <!-- Meet the Team Section -->
+      <section>
+        <h2>MEET THE TEAM</h2>
+        <div class="tai-grid">
+          <div class="tai-card">
+            <h3>Clara Truong</h3>
+            <p>Design/Product Manager</p>
+          </div>
+          <div class="tai-card">
+            <h3>Tyson Cheung</h3>
+            <p>Designer</p>
+          </div>
+          <div class="tai-card">
+            <h3>Apoorva Makarla</h3>
+            <p>Designer</p>
+          </div>
+          <div class="tai-card">
+            <h3>Caleb Moran</h3>
+            <p>Designer</p>
+          </div>
+          <div class="tai-card">
+            <h3>Steve Sheng</h3>
+            <p>Designer</p>
+          </div>
+          <div class="tai-card">
+            <h3>Gabriel Wong</h3>
+            <p>Designer</p>
+          </div>
+        </div>
+        <p>
+          We’d like to thank Develop for Good, especially Mary, Amanda, and our
+          Project Lead Wesley, for this collaborative experience. Special thanks
+          to our mentor, Jack Wang, for his invaluable guidance.
+        </p>
+        <img loading="lazy" src="/assets/images/tai/team.webp" alt="TAI Design Team photo" />
+      </section>
+    </main>
+
+    <footer class="site-footer" aria-label="Site footer">
+      <p>© 2025 Gabriel Wong</p>
+    </footer>
+
+    <a href="#top" class="back-to-top" aria-label="Back to top">
+      <span aria-hidden="true">Top</span>
+    </a>
+
+    <script>
+      (function () {
+        // Data from user survey
+        const data = [
+          { score: "1", count: 4, label: "40%" },
+          { score: "2", count: 4, label: "40%" },
+          { score: "3", count: 2, label: "20%" },
+          { score: "4", count: 0, label: "0%" },
+          { score: "5", count: 0, label: "0%" },
+        ];
+
+        const el = document.getElementById("surveyChart");
+        // Use container width or default
+        const width = el.clientWidth || 600;
+        const height = 300;
+        const margin = { top: 30, right: 20, bottom: 40, left: 40 };
+
+        const svg = d3
+          .select(el)
+          .append("svg")
+          .attr("viewBox", [0, 0, width, height])
+          .attr("role", "img")
+          .attr("aria-label", "Bar chart showing user likelihood to engage");
+
+        // X Axis
+        const x = d3
+          .scaleBand()
+          .domain(data.map((d) => d.score))
+          .range([margin.left, width - margin.right])
+          .padding(0.3);
+
+        // Y Axis
+        const y = d3
+          .scaleLinear()
+          .domain([0, 5]) // Max count is 4, so 5 gives some headroom
+          .range([height - margin.bottom, margin.top]);
+
+        // Colors
+        const barColor = "#1C2C63"; // TAI Navy
+        const textColor = "#666";
+        const gridColor = "#eee";
+
+        // Grid lines
+        svg
+          .append("g")
+          .attr("stroke", gridColor)
+          .selectAll("line")
+          .data(y.ticks(5))
+          .join("line")
+          .attr("x1", margin.left)
+          .attr("x2", width - margin.right)
+          .attr("y1", (d) => y(d))
+          .attr("y2", (d) => y(d));
+
+        // Bars
+        svg
+          .append("g")
+          .attr("fill", barColor)
+          .selectAll("rect")
+          .data(data)
+          .join("rect")
+          .attr("x", (d) => x(d.score))
+          .attr("y", (d) => y(d.count))
+          .attr("height", (d) => y(0) - y(d.count))
+          .attr("width", x.bandwidth())
+          .attr("rx", 4); // Rounded top corners
+
+        // Labels on top of bars
+        svg
+          .append("g")
+          .attr("fill", "white")
+          .attr("text-anchor", "middle")
+          .attr("font-family", "'Space Grotesk', sans-serif")
+          .attr("font-size", "12px")
+          .selectAll("text")
+          .data(data)
+          .join("text")
+          .attr("x", (d) => x(d.score) + x.bandwidth() / 2)
+          .attr("y", (d) => y(d.count) + 20) // Position inside bar
+          .text((d) => (d.count > 0 ? d.count : "")); // Only show count if > 0
+
+        // Percentage labels above bars (optional, or inside if space permits)
+        // Let's put percentages above the bars for clarity
+        svg
+          .append("g")
+          .attr("fill", textColor)
+          .attr("text-anchor", "middle")
+          .attr("font-family", "'Space Grotesk', sans-serif")
+          .attr("font-size", "12px")
+          .selectAll("text")
+          .data(data)
+          .join("text")
+          .attr("x", (d) => x(d.score) + x.bandwidth() / 2)
+          .attr("y", (d) => y(d.count) - 8)
+          .text((d) => d.label);
+
+        // X Axis
+        svg
+          .append("g")
+          .attr("transform", `translate(0,${height - margin.bottom})`)
+          .call(d3.axisBottom(x).tickSize(0))
+          .call((g) => g.select(".domain").remove())
+          .call((g) =>
+            g
+              .selectAll("text")
+              .attr("fill", textColor)
+              .attr("font-family", "'Space Grotesk', sans-serif")
+              .attr("font-size", "14px")
+              .attr("dy", "1em")
+          );
+
+        // Y Axis (Hidden or Minimal)
+        svg
+          .append("g")
+          .attr("transform", `translate(${margin.left},0)`)
+          .call(d3.axisLeft(y).ticks(5).tickSize(0))
+          .call((g) => g.select(".domain").remove())
+          .call((g) =>
+            g
+              .selectAll("text")
+              .attr("fill", textColor)
+              .attr("font-family", "'Space Grotesk', sans-serif")
+          );
+      })();
+    </script>
+  </body>
+</html>
