@@ -40,11 +40,7 @@
         <div class="hero-overview">
           <p class="lede">
             macOS Timeline proposes a time-based interface as an alternative to
-            the traditional file system. Documents have long been accessed
-            through place: folders, directories, desktops. Human memory, however,
-            works differently; it recalls context, moments, and experiences. By
-            replacing spatial navigation with a scrubbable timeline, users can
-            revisit any point in their digital history, seeing which files were
+            the traditional file system. Files have always been found by where they live: folders, directories, the desktop. But people usually remember a file by when they worked on it and what else was going on. With a timeline you can scrub, you can go back to any point in your digital history, seeing which files were
             open, which apps were in use and what music was playing, then resume
             or branch from that moment.
           </p>
@@ -73,14 +69,11 @@
         <h2>PROBLEM STATEMENT</h2>
         <div class="header-p-container">
           <p>
-            Digital files are traditionally organized by place: folders,
-            directories, and storage locations. Yet human memory does not work
-            this way. People remember context, moments, and experiences — not
-            physical or digital locations.
+            Files are organized by place: folders, directories, drives. That works when you remember where you saved something. Often you don't, but you do remember roughly when it was, which app you were in, or what you were working on next to it.
           </p>
         </div>
         <div class="header-p-container">
-          <h3>Several Recurring Challenges</h3>
+          <h3>What Goes Wrong</h3>
           <ol class="case-list">
             <li>
               Files exist in isolation with no clear links between related
@@ -90,17 +83,10 @@
               Related files are scattered across folders, apps, and formats.
             </li>
             <li>
-              Versioning creates chaos, with multiple copies and inconsistent
-              naming making it hard to track progress.
+              Versions pile up as copies with names like final, final-2 and final-real.
             </li>
             <li>
-              The creative process disappears — iteration, exploration, and
-              decision-making leave no visible trace, making it difficult to
-              revisit or understand past work.
-            </li>
-            <li>
-              Together, these issues make revisiting files slow, confusing, and
-              disconnected from how people actually remember their work.
+              Earlier versions get overwritten, so there is no record of how a piece of work got to where it is.
             </li>
           </ol>
         </div>
@@ -194,12 +180,7 @@
         <div class="header-p-container">
           <h3>1. Documents as Living Entities</h3>
           <p>
-            Each document is treated as a continuous, living object, containing
-            all versions, edits, and branches in a single place. Rather than
-            creating multiple files for iterations, a document evolves over time,
-            preserving the creative process. Users can view the document's full
-            history, see how ideas developed, revisit past ideas, compare changes
-            without losing context.
+            Each document keeps every version, edit and branch inside itself instead of being saved as separate copies. You can scroll back through its history, see how it changed, pick up an older idea, or compare two versions side by side.
           </p>
         </div>
         <img loading="lazy"
@@ -221,12 +202,7 @@
             Instead of relying on folders or manual organization, documents form
             connections based on how they are used together. Each time two or
             more files are opened or edited in the same context, a link is
-            created and strengthened over time. These relationships allow
-            documents to self-group naturally, reflecting real workflows rather
-            than artificial folder structures. The grouped files exist in dynamic
-            spaces that emerge from activity and shared metadata, making it easy
-            to discover related content, navigate projects intuitively, and see
-            the relationships between files that were previously invisible.
+            created and strengthened over time. Files that keep getting used together end up grouped together without anyone making a folder for them. Open one, and the others you usually have open with it are right there.
           </p>
         </div>
         <img loading="lazy"
@@ -237,7 +213,7 @@
         <div class="header-p-container">
           <h3>3. Search Through Context</h3>
           <p>
-            Your memory works by context, not filenames. Intersectional Search
+            Intersectional Search
             lets you find any document by stacking filters: the app you had open,
             the song you were listening to, or the meeting it was tied to. The
             more context you add, the more precise your results.
@@ -281,11 +257,8 @@
             an on-device AI model. That approach creates a searchable visual
             record of everything on screen, including passwords, private
             messages, and sensitive documents, raising serious privacy and
-            security concerns. This project takes a fundamentally different
-            approach. It works with <strong>metadata only</strong>: which app was
-            in focus, which file was open, what song was playing, and when. No
-            screen content is captured, stored, or analyzed. The result is a
-            lightweight temporal index rather than a surveillance log. Metadata
+            security concerns. This project only works with <strong>metadata only</strong>: which app was
+            in focus, which file was open, what song was playing, and when. Nothing on the screen is captured or stored. Metadata
             can still be revealing, but it captures far less than a recording of
             the screen.
           </p>
