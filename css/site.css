@@ -50,6 +50,7 @@ html {
 
 body {
   margin: 0;
+  overscroll-behavior: none; /* some browsers read it from body, not html */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: var(--paper);
