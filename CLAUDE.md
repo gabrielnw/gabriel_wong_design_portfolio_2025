@@ -9,7 +9,7 @@ Personal design portfolio for Gabriel Wong, hosted at gabrielwong.co via GitHub 
 - `/index.html` — Homepage: bio and a list of projects, each with a line-drawn figure plate
 - `/about/` — About page
 - `/css/site.css` — New stylesheet (notebook-index redesign) used by the homepage, About and short case studies
-- `/css/styles.css` — Old stylesheet, still used by the full case study pages until they are restyled; project-specific styles in `*-utils.css` files
+- `/css/full.css` — Extra styles for the full case study pages (`/<project>/full/`), loaded after site.css and the project's `*-utils.css` (charts, specimens, prototype)
 - `/js/` — Scripts used by the full case studies: back-to-top control, HapticSense UI prototype
 - `/assets/images/` — Project images organized by project folder
 
@@ -17,7 +17,7 @@ Personal design portfolio for Gabriel Wong, hosted at gabrielwong.co via GitHub 
 
 Each project lives in its own directory with an `index.html`:
 
-Each project has a short case study at `/<project>/` (abstract, facts, question, process, outcome; uses `/css/site.css`) and the full write-up at `/<project>/full/` (old styles).
+Each project has a short case study at `/<project>/` (abstract, facts, question, process, outcome; uses `/css/site.css`) and the full write-up at `/<project>/full/` (site.css + full.css + the project's utils).
 
 - `/macos_timeline/` — macOS Timeline (Fig. 01)
 - `/hapticsense/` — HapticSense (Fig. 02); `/hapticsense_ui/` holds its UI prototype styles
@@ -28,7 +28,7 @@ Each project has a short case study at `/<project>/` (abstract, facts, question,
 ## Tech Stack
 
 - Vanilla HTML/CSS/JS (no framework or build step)
-- Fonts: Hanken Grotesk, Source Serif 4, IBM Plex Mono (new pages); Playfair Display, Space Grotesk (old pages)
+- Fonts: Hanken Grotesk, Source Serif 4, IBM Plex Mono; the TAI full page also loads Chakra Petch and Poppins for its type specimen
 - Hosting: GitHub Pages with custom domain (gabrielwong.co)
 
 ## Conventions
