@@ -179,7 +179,7 @@ body.full .pull-quote {
 body.full .what-if {
   margin: 0;
   padding: var(--s4) 0;
-  border-block: 1px solid var(--ink);
+  border-block: 1px solid var(--rule);
   border-radius: 0;
   background: none;
   color: var(--ink);
@@ -208,14 +208,14 @@ body.full .nintendo-grid img {
   border: 1px solid var(--rule);
 }
 
-/* project cards keep their content but share one frame */
+/* project cards keep their content but share one quiet fill */
 body.full .tai-card,
 body.full .scenario-card,
 body.full .artifact-card,
 body.full .tai-chart-container,
 body.full .style-guide-section {
-  background: var(--paper);
-  border: 1px solid var(--ink);
+  background: var(--panel);
+  border: 0;
   border-radius: 0;
   box-shadow: none;
 }
@@ -246,7 +246,6 @@ body.full .video-embed {
   position: relative;
   width: 100%;
   padding-bottom: 56.25%;
-  border: 1px solid var(--ink);
 }
 
 body.full .video-embed iframe {
@@ -316,8 +315,7 @@ body.full .video-embed iframe {
 }
 
 .viz-section .viz-card {
-  border: 1px solid var(--ink);
-  background: var(--paper);
+  background: var(--panel);
   padding: var(--s3);
   display: grid;
   gap: var(--s2);
@@ -381,7 +379,7 @@ body.full .video-embed iframe {
   --board-size: clamp(200px, 55vw, 380px);
   width: 100%;
   min-height: calc(var(--board-size) + 120px);
-  background: var(--paper);
+  background: transparent;
   color: var(--ink);
 }
 

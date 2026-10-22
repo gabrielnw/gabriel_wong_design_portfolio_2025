@@ -10,6 +10,7 @@
   --rule: #e6e8ee;
   --grid: #eceff5;
   --mark: #d2462f;
+  --panel: #f4f5f8; /* quiet fill used instead of outlines */
 
   /* type */
   --sans: "Hanken Grotesk", system-ui, -apple-system, sans-serif;
@@ -137,7 +138,7 @@ p {
 
 /* figure plate: a box of graph paper that holds a line diagram or an image */
 .plate {
-  border: 1px solid var(--ink);
+  border: 1px solid var(--rule);
   background-color: var(--paper);
   background-image:
     linear-gradient(var(--grid) 1px, transparent 1px),
@@ -402,10 +403,6 @@ p {
   grid-template-columns: 160px minmax(0, 1fr);
   gap: var(--s3);
   align-items: start;
-}
-
-.about img {
-  border: 1px solid var(--ink);
 }
 
 .about .text {
