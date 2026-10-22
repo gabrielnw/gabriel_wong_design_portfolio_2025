@@ -40,7 +40,7 @@
 }
 
 .scenario-card h3 {
-  font-family: "Playfair Display", serif;
+  font-family: var(--sans);
   font-size: 1.4rem;
   color: var(--color-dna-heading);
   margin: 0;
@@ -80,7 +80,7 @@
 }
 
 .artifact-card h3 {
-  font-family: "Playfair Display", serif;
+  font-family: var(--sans);
   font-size: 1.8rem;
   margin-bottom: 8px;
 }

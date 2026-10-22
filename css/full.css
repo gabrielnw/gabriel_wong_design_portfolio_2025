@@ -1,0 +1,494 @@
+/* Full case study pages (/<project>/full/).
+   Loaded after site.css and the project's *-utils.css. It maps the long
+   pages' existing markup onto the notebook-index look and keeps the
+   project charts and specimens working. */
+
+/* the project stylesheets tint the page background; the full pages
+   share the paper background with the rest of the site */
+body.full.case-study {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+body.full > header,
+body.full > main,
+body.full > footer {
+  width: 100%;
+  max-width: var(--column);
+  margin-inline: auto;
+}
+
+body.full > main {
+  display: grid;
+  gap: var(--s5);
+  padding-top: var(--s4);
+  padding-bottom: var(--s5);
+}
+
+body.full > footer {
+  margin-top: 0;
+}
+
+/* one type system for everything the projects' own stylesheets restyle */
+body.full h1,
+body.full h2,
+body.full h3,
+body.full h4,
+body.full p,
+body.full li {
+  color: inherit;
+  font-family: var(--sans);
+}
+
+body.full h1 {
+  font: 600 var(--step-3) / 1.1 var(--sans);
+  letter-spacing: -0.01em;
+  text-align: left;
+}
+
+/* section labels */
+body.full main h2 {
+  font: 500 0.6875rem / 1.4 var(--mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--mark);
+  background: none;
+  padding: 0;
+  border-radius: 0;
+}
+
+body.full h3 {
+  font-size: var(--step-1);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+body.full p,
+body.full li {
+  font-size: var(--step-0);
+  line-height: 1.7;
+  max-width: 62ch;
+}
+
+body.full a {
+  color: var(--mark);
+}
+
+body.full section {
+  display: grid;
+  gap: var(--s2);
+}
+
+body.full img {
+  width: 100%;
+  height: auto;
+  border-radius: 0;
+}
+
+body.full .caption,
+body.full figcaption {
+  font-size: var(--step--1);
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
+/* hero */
+body.full .hero {
+  display: grid;
+  gap: var(--s3);
+}
+
+body.full .hero-figure {
+  margin: 0;
+}
+
+body.full .hero-overview {
+  display: grid;
+  gap: var(--s3);
+}
+
+body.full .hero-overview .lede {
+  border-left: 2px solid var(--mark);
+  padding-left: var(--s2);
+  font: 400 var(--step-1) / 1.5 var(--serif);
+  max-width: none;
+}
+
+body.full .hero-overview-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: var(--s2);
+  padding: var(--s2) 0;
+  border-block: 1px solid var(--rule);
+}
+
+body.full .hero-overview-details .detail {
+  display: grid;
+  align-content: start;
+  gap: 4px;
+  min-width: 0;
+}
+
+body.full .hero-overview-details h2 {
+  color: var(--ink-soft);
+}
+
+body.full .hero-overview-details p {
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+
+/* text blocks */
+body.full .header-p-container {
+  display: grid;
+  gap: var(--s1);
+}
+
+body.full .header-p-container + .header-p-container {
+  margin-top: var(--s2);
+}
+
+body.full .case-list {
+  margin: 0;
+  padding-left: 1.25em;
+  display: grid;
+  gap: var(--s1);
+  list-style: disc;
+}
+
+body.full .case-list li {
+  font-size: var(--step-0);
+  letter-spacing: 0;
+  margin: 0;
+}
+
+body.full .case-list li::marker {
+  color: var(--mark);
+}
+
+body.full .pull-quote {
+  margin: var(--s2) 0;
+  padding: 0 0 0 var(--s2);
+  border-left: 2px solid var(--mark);
+  border-radius: 0;
+  background: none;
+  font: italic 400 var(--step-1) / 1.5 var(--serif);
+  color: var(--ink);
+}
+
+body.full .what-if {
+  margin: 0;
+  padding: var(--s4) 0;
+  border-block: 1px solid var(--ink);
+  border-radius: 0;
+  background: none;
+  color: var(--ink);
+  text-align: left;
+}
+
+body.full .what-if h2 {
+  font: italic 400 var(--step-2) / 1.3 var(--serif);
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--ink);
+  background: none;
+  padding: 0;
+  max-width: none;
+}
+
+/* grids of images inside the long pages */
+body.full .hs-grid,
+body.full .tai-grid {
+  gap: var(--s2);
+}
+
+body.full .ideation-grid img,
+body.full .nintendo-grid img {
+  border-radius: 0;
+  border: 1px solid var(--rule);
+}
+
+/* project cards keep their content but share one frame */
+body.full .tai-card,
+body.full .scenario-card,
+body.full .artifact-card,
+body.full .tai-chart-container,
+body.full .style-guide-section {
+  background: var(--paper);
+  border: 1px solid var(--ink);
+  border-radius: 0;
+  box-shadow: none;
+}
+
+body.full .artifact-card {
+  display: grid;
+  gap: var(--s2);
+  padding: var(--s3);
+}
+
+body.full .artifact-card img {
+  width: 100%;
+  min-width: 0;
+}
+
+body.full .artifact-card h3 {
+  font-size: var(--step-1);
+  margin: 0;
+}
+
+body.full .artifact-card p,
+body.full .artifact-card li,
+body.full .scenario-card p {
+  color: var(--ink-soft);
+}
+
+body.full .video-embed {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  border: 1px solid var(--ink);
+}
+
+body.full .video-embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* back to top */
+.back-to-top {
+  position: fixed;
+  right: max(var(--s2), env(safe-area-inset-right));
+  bottom: max(var(--s2), env(safe-area-inset-bottom));
+  padding: 6px 10px;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  color: var(--ink);
+  font: 500 0.6875rem / 1.4 var(--mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.back-to-top.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.back-to-top:hover {
+  color: var(--mark);
+  border-color: var(--mark);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .back-to-top {
+    transition: opacity 0.2s ease;
+  }
+}
+
+/* ---------- DNA charts (moved from the old styles.css) ---------- */
+
+.dna-body,
+.viz-section {
+  --color-dna-heading: rgb(0, 43, 0);
+  --color-dna-heading-hex: #002b00;
+  --color-dna-body: rgb(0, 100, 0);
+  --color-dna-muted: rgba(0, 43, 0, 0.8);
+  --color-dna-card-bg: #fdfef4;
+  --color-dna-border: rgba(0, 43, 0, 0.2);
+  --g-1: #f4ffe9;
+  --g-2: #d9f4c6;
+  --g-3: #bfe49f;
+  --g-4: #9ad66f;
+  --g-5: #3b8a2f;
+  --text: var(--ink);
+  --muted: var(--ink-soft);
+  --grid: var(--rule);
+  --demand-color: #d6cebf;
+  --supply-color: #b23a3a;
+  --shortfall-color: #4caf6a;
+  width: 100%;
+}
+
+.viz-section .viz-card {
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  padding: var(--s3);
+  display: grid;
+  gap: var(--s2);
+}
+
+.viz-section .legend {
+  display: flex;
+  gap: var(--s2);
+  flex-wrap: wrap;
+  font-size: var(--step--1);
+}
+
+.viz-section .chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.viz-section .swatch {
+  width: 14px;
+  height: 14px;
+  border: 1px solid var(--ink);
+}
+
+.viz-section .swatch.scale {
+  background: linear-gradient(90deg, var(--g-2), var(--g-4));
+}
+
+.viz-section .swatch.dna {
+  background: var(--g-5);
+}
+
+.viz-section .chart-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+#gartner .swatch.demand {
+  background: #d6cebf;
+  border-color: #8d836f;
+}
+
+#gartner .swatch.supply {
+  background: #b23a3a;
+}
+
+#gartner .swatch.shortfall {
+  background: #4caf6a;
+}
+
+#gartner .swatch.prior {
+  width: 18px;
+  height: 2px;
+  border: 0;
+  background: linear-gradient(90deg, var(--ink) 0 50%, transparent 50% 100%);
+  background-size: 6px 2px;
+}
+
+.viz-card .viz-board {
+  position: relative;
+  --board-size: clamp(200px, 55vw, 380px);
+  width: 100%;
+  min-height: calc(var(--board-size) + 120px);
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.viz-board .sq {
+  position: absolute;
+  left: var(--s3);
+  top: var(--s3);
+  background: var(--g-2);
+  border: 1px solid var(--ink);
+}
+
+.viz-board .usb {
+  width: calc(100% - 48px);
+  height: var(--board-size);
+  background: var(--g-1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--s2);
+}
+
+.viz-board .usb .label {
+  font-size: clamp(1.2rem, 4vw, 2rem);
+}
+
+.viz-board .usb .label b {
+  display: block;
+  font-size: clamp(2.5rem, 9vw, 5rem);
+  line-height: 1;
+}
+
+.viz-board .hdd {
+  --ratio: 0.2488067;
+  width: calc((100% - 48px) * var(--ratio));
+  height: calc(var(--board-size) * var(--ratio));
+  background: var(--g-2);
+  display: grid;
+  place-items: center;
+  top: calc(24px + var(--board-size) - var(--board-size) * var(--ratio));
+  padding: 10px;
+  z-index: 2;
+}
+
+.viz-board .hdd .label {
+  font-size: 0.75rem;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.viz-board .tape {
+  --ratio: 0.0735171;
+  width: calc((100% - 48px) * var(--ratio));
+  height: calc(var(--board-size) * var(--ratio));
+  background: #8fc56f;
+  top: calc(24px + var(--board-size) - var(--board-size) * var(--ratio));
+  z-index: 3;
+}
+
+.viz-board .tape .label {
+  position: absolute;
+  left: 0;
+  top: 60px;
+  transform: translateY(-50%);
+  font-size: 0.875rem;
+  max-width: 200px;
+  line-height: 1.2;
+  z-index: 4;
+  padding: 2px 4px;
+}
+
+.viz-board .dna {
+  position: absolute;
+  right: 36px;
+  bottom: 36px;
+  width: 6px;
+  height: 6px;
+  background: var(--g-5);
+  border-radius: 50%;
+  border: 1px solid var(--ink);
+}
+
+.viz-board .dna::after {
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 1px;
+  background: var(--ink);
+  right: 100%;
+  top: 50%;
+}
+
+.viz-board .dna-caption {
+  position: absolute;
+  right: calc(36px + 60px + 12px);
+  bottom: 32px;
+  font-size: 0.9375rem;
+}
+
+.pubmed-tooltip {
+  position: absolute;
+  display: none;
+  background: var(--paper);
+  border: 1px solid var(--ink);
+  padding: 6px 10px;
+  font-size: var(--step--1);
+  color: var(--ink);
+  pointer-events: none;
+  z-index: 12;
+}
