@@ -1,0 +1,178 @@
+/* Magazine reader: two-page spreads with a page-turn, one page on narrow screens.
+   Used by /the_future_of_data_storage/ with js/flipbook.js. */
+
+.flipbook {
+  display: grid;
+  gap: var(--s2);
+}
+
+.fb-stage {
+  position: relative;
+  aspect-ratio: 1190 / 842; /* two A4 pages side by side */
+  perspective: 2400px;
+  cursor: pointer;
+  user-select: none;
+  touch-action: pan-y;
+}
+
+.fb-book {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  transition: transform 0.6s ease-in-out;
+}
+
+/* center the single cover or back page while it stands alone */
+.flipbook[data-at="cover"] .fb-book {
+  transform: translateX(-25%);
+}
+
+.flipbook[data-at="end"] .fb-book {
+  transform: translateX(25%);
+}
+
+.fb-page,
+.fb-face {
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(28, 42, 74, 0.18);
+}
+
+.fb-page.is-blank {
+  visibility: hidden;
+}
+
+.flipbook img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  object-fit: cover;
+  -webkit-user-drag: none;
+}
+
+/* soft shading at the spine */
+.fb-left::after,
+.fb-right::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.fb-left::after {
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.18), transparent 8%);
+}
+
+.fb-right::after {
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.18), transparent 8%);
+}
+
+.fb-leaf {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  z-index: 2;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease-in-out;
+}
+
+.fb-leaf.to-next {
+  left: 50%;
+  transform-origin: left center;
+}
+
+.fb-leaf.to-prev {
+  left: 0;
+  transform-origin: right center;
+}
+
+.fb-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+}
+
+.fb-face.back {
+  transform: rotateY(180deg);
+}
+
+.fb-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s3);
+  font: 400 var(--step--1) var(--mono);
+  color: var(--ink-soft);
+}
+
+.fb-controls button {
+  font: inherit;
+  color: var(--ink);
+  background: none;
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  padding: 4px 12px;
+  cursor: pointer;
+}
+
+.fb-controls button:hover:not(:disabled) {
+  border-color: var(--ink);
+}
+
+.fb-controls button:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.fb-count {
+  min-width: 9ch;
+  text-align: center;
+}
+
+.flipbook:focus-visible {
+  outline: 2px solid var(--mark);
+  outline-offset: 4px;
+}
+
+/* one page at a time on narrow screens */
+.flipbook.is-single .fb-stage {
+  aspect-ratio: 595 / 842;
+}
+
+.flipbook.is-single .fb-book {
+  grid-template-columns: 1fr;
+  transform: none;
+}
+
+.flipbook.is-single .fb-left {
+  display: none;
+}
+
+.flipbook.is-single .fb-right::after {
+  display: none;
+}
+
+.flipbook.is-single .fb-right img {
+  animation: fb-fade 0.25s ease-out;
+}
+
+@keyframes fb-fade {
+  from {
+    opacity: 0.4;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fb-book,
+  .fb-leaf {
+    transition: none;
+  }
+
+  .flipbook.is-single .fb-right img {
+    animation: none;
+  }
+}

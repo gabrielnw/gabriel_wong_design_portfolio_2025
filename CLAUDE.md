@@ -10,6 +10,7 @@ Personal design portfolio for Gabriel Wong, hosted at gabrielwong.co via GitHub 
 - `/about/` — About page
 - `/css/site.css` — New stylesheet (notebook-index redesign) used by the homepage, About and short case studies
 - `/css/full.css` — Extra styles for the full case study pages (`/<project>/full/`), loaded after site.css and the project's `*-utils.css` (charts, specimens, prototype)
+- `/css/flipbook.css` + `/js/flipbook.js` — Page-turning magazine reader on the Data Storage short case study; pages are pre-rendered WebPs in `/assets/images/dna/mag/`
 - `/js/` — Scripts used by the full case studies: back-to-top control, HapticSense UI prototype
 - `/assets/images/` — Project images organized by project folder
 

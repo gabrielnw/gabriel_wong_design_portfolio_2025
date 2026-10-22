@@ -12,6 +12,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/css/site.css" />
+    <link rel="stylesheet" href="/css/flipbook.css" />
   </head>
   <body>
     <div class="page">
@@ -95,8 +96,20 @@
             subscriptions.
           </p>
         <figure class="fig wide">
-          <img src="/assets/images/dna/mag-pages.webp" alt="Five pages from the magazine: the Data Farm cover, an algae fuel ad, the User Plant Interface article, the Data Farm Odyssey of Gavin Moore, and The Heartland's Data Harvest" loading="lazy" />
-          <figcaption><b>FIG. 3.5</b>Cover, an ad, and three features from the issue.</figcaption>
+          <div class="flipbook" data-pages="48" data-src="/assets/images/dna/mag/p{n}.webp" tabindex="0" aria-label="Magazine reader. Use the left and right arrow keys to turn pages.">
+            <div class="fb-stage">
+              <div class="fb-book">
+                <div class="fb-page fb-left is-blank"><img alt="" /></div>
+                <div class="fb-page fb-right"><img src="/assets/images/dna/mag/p01.webp" alt="Page 1" /></div>
+              </div>
+            </div>
+            <div class="fb-controls">
+              <button type="button" class="fb-prev" aria-label="Previous page">←</button>
+              <span class="fb-count" aria-live="polite">1 / 48</span>
+              <button type="button" class="fb-next" aria-label="Next page">→</button>
+            </div>
+          </div>
+          <figcaption><b>FIG. 3.5</b>The full issue. Click a page, swipe, or use the arrow keys to turn it.</figcaption>
         </figure>
           <p>
             Developed through the Experimental Realism mentorship program with futures practitioners.
@@ -114,5 +127,6 @@
         <a href="mailto:gabrielnwong@gmail.com">gabrielnwong@gmail.com</a>
       </footer>
     </div>
+    <script src="/js/flipbook.js" defer></script>
   </body>
 </html>
