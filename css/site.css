@@ -3,14 +3,14 @@
    Spacing follows an 8px scale; type follows the scale below. */
 
 :root {
-  /* color */
-  --paper: #fdfdfb;
-  --ink: #1c2a4a;
-  --ink-soft: #5d667c;
-  --rule: #e6e8ee;
-  --grid: #eceff5;
-  --mark: #d2462f;
-  --panel: #f4f5f8; /* quiet fill used instead of outlines */
+  /* color: warm grey paper and black ink; the project images bring the colour */
+  --paper: #f2f1ed;
+  --ink: #141414;
+  --ink-soft: #66645f;
+  --rule: #dcdad4;
+  --grid: #e4e2dc;
+  --mark: #141414; /* accent: links, labels, caption numbers */
+  --panel: #e7e5e0; /* quiet fill used instead of outlines */
 
   /* type */
   /* Archivo for headlines, labels and interface; Newsreader for reading */
@@ -82,6 +82,7 @@ button {
 @media (hover: hover) {
   a:hover {
     color: var(--mark);
+    text-decoration-thickness: 2px;
   }
 }
 
@@ -249,7 +250,9 @@ p {
     opacity: 0.88;
   }
   .work a:hover .title {
-    color: var(--mark);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
   }
 }
 
