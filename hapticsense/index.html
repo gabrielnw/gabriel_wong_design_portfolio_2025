@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <title>HapticSense · Gabriel Wong</title>
-    <meta name="description" content="A wrist-worn neuromodulation device that lets you feel virtual objects in VR." />
+    <meta name="description" content="A speculative wristband that lets you feel virtual objects in VR, and the calibration interface that sets it up." />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -26,15 +26,19 @@
           <div class="abstract">
             <span class="mono label">Abstract</span>
             <p>
-              A wrist-worn device that stimulates the nerves in your wrist so
-              you can feel virtual objects in VR and AR, without gloves or
-              mechanical actuators.
+              A speculative wristband that stimulates a nerve in your wrist so
+              you feel sensations in your fingers when you touch virtual
+              objects in VR and AR, without gloves. I
+              designed the device and its calibration interface, and built a
+              clickable prototype of the setup flow.
             </p>
           </div>
           <dl class="facts">
             <div><dt class="mono">Year</dt><dd>2024</dd></div>
             <div><dt class="mono">Length</dt><dd>2 months</dd></div>
-            <div><dt class="mono">Methods</dt><dd>Speculative, industrial and UI design</dd></div>
+            <div><dt class="mono">Role</dt><dd>Solo</dd></div>
+            <div><dt class="mono">Tools</dt><dd>Fusion 360, Blender, paper sketches</dd></div>
+            <div><dt class="mono">Status</dt><dd>Concept, not yet user-tested</dd></div>
           </dl>
           <p class="further">
             <a href="/hapticsense/full/">Read the full process</a>
@@ -44,63 +48,103 @@
 
         <figure class="fig wide hero">
           <img src="/assets/images/hapticsense/haptic-28.webp" alt="HapticSense wristband prototype render" />
-          <figcaption><b>FIG. 2.1</b>The final wristband concept.</figcaption>
+          <figcaption><b>FIG. 2.1</b>The wristband concept.</figcaption>
         </figure>
 
         <section class="section">
           <h2 class="mono">Question</h2>
           <p>
-            VR looks real, but touching things in it doesn't feel like
-            anything. Haptic gloves are bulky and still miss the feel of an
-            object. Could touch come from the wrist instead?
+            VR looks convincing, but touching things in it feels like nothing.
+            Haptic gloves are bulky and still miss what an object feels like.
+            Could the sense of touch come from the wrist instead of the
+            fingertips?
           </p>
           <p>
-            Research such as the xTouch platform shows that surface electrodes
-            on the wrist can stimulate the median nerve well enough for people
-            to tell hard from soft and large from small objects. HapticSense
-            asks what a consumer device built on that would be like to use.
+            The project started in <em>The Interface</em>, an art history course,
+            where I read David Parisi on how touch is culturally learned and
+            J.C.R. Licklider on human–computer symbiosis. If people learned to
+            swipe and pinch, they can learn to read a new kind of touch. The
+            question became what a device that teaches it would look like.
           </p>
         </section>
 
         <section class="section">
-          <h2 class="mono">Process</h2>
+          <h2 class="mono">Research</h2>
           <p>
-            I started with sketches of where the electrodes, sensors and battery
-            could sit around the wrist, then mapped a user journey from putting
-            the band on to the first touch in VR.
+            In the xTouch study (Shell et al., 2022), surface electrodes at the
+            wrist stimulated the median nerve, and participants felt the
+            result in their hand. Seven people used it to sort virtual objects
+            by size and softness: 64% correct against 17% chance, with size
+            far easier to judge than softness. The study didn't measure what
+            the sensation feels like, and it notes the nerve can shift as the
+            wrist moves.
+          </p>
+          <p>
+            That set the constraints: electrodes over the median nerve, with
+            the ulnar nerve as a speculative extension to reach the other
+            fingers; intensity kept below the level that twitches muscles; and
+            a band that stays in place as the wrist moves.
           </p>
           <figure class="fig">
             <img src="/assets/images/hapticsense/hapticsense-sketches.webp" alt="Annotated sketches of the HapticSense device" loading="lazy" />
-            <figcaption><b>FIG. 2.2</b>Sketches placing electrodes over the median and ulnar nerves.</figcaption>
+            <figcaption><b>FIG. 2.2</b>Paper sketches placing electrodes, sensors and battery around the wrist.</figcaption>
           </figure>
-          <figure class="fig">
-            <img src="/assets/images/hapticsense/user-journey-hs.webp" alt="User journey for HapticSense, from setup to use" loading="lazy" />
-            <figcaption><b>FIG. 2.3</b>User journey from first fitting to everyday use.</figcaption>
-          </figure>
-          <p>
-            Nerve stimulation feels different for every body, so calibration
-            became the core of the interface. The setup flow has people flex
-            each finger, confirm they feel a test pulse, and tune intensity and
-            immersion.
-          </p>
         </section>
 
         <section class="section">
-          <h2 class="mono">Outcome</h2>
+          <h2 class="mono">Interface</h2>
           <p>
-            A hardware concept shown in renders and a clickable eight-step
-            setup prototype. Alongside it, a look at how Nintendo's "Touching
-            is good" campaign taught people a new kind of touch, as a model for
-            introducing an unfamiliar sensation.
+            Nerve stimulation feels different on every body and shifts as the
+            band moves, so the hardest design problem is not the band but the
+            first five minutes. I
+            designed the setup as a calibration conversation: the band asks you
+            to flex each finger, sends a test pulse and asks if you felt it, and
+            recalibrates if you didn't. Then you set intensity with a physical
+            dial and immersion with a slider.
           </p>
           <figure class="fig wide">
-            <img src="/assets/images/hapticsense/labeled-final-haptic.webp" alt="The HapticSense wristband with its mesh strap" loading="lazy" />
-            <figcaption><b>FIG. 2.4</b>The final device on its mesh strap.</figcaption>
+            <img src="/assets/images/hapticsense/setup-flow.webp" alt="Three screens of the setup flow: welcome, finger calibration, and haptic intensity" loading="lazy" />
+            <figcaption><b>FIG. 2.3</b>Three of the eight setup steps. The full page has the working prototype.</figcaption>
           </figure>
         </section>
 
-        <!-- TODO (Gabriel): a short reflection, 2–3 sentences. What would you
-             test first if you built it? What did it teach you about touch? -->
+        <section class="section">
+          <h2 class="mono">What it proposes</h2>
+          <p>
+            <strong>Touch moves to the wrist.</strong> A row of stimulating
+            electrodes on the underside of the band sits over the nerves at the
+            wrist, so the hand stays free while the sensation is felt in the
+            fingers.
+          </p>
+          <figure class="fig">
+            <img src="/assets/images/hapticsense/labeled-final-haptic-2.webp" alt="Underside of the band showing a row of neuromodulation electrodes" loading="lazy" />
+            <figcaption><b>FIG. 2.4</b>The stimulating electrodes on the underside of the band.</figcaption>
+          </figure>
+          <p>
+            <strong>Setup is a conversation with your body.</strong> Instead of
+            a settings menu, calibration is a loop: the band sends a pulse, you
+            say whether you felt it, and it adjusts until it fits you.
+          </p>
+          <p>
+            <strong>A physical sense gets physical controls.</strong> Intensity
+            sits on a dial and immersion on a slider, so you can turn the
+            feeling down mid-session without looking away from VR.
+          </p>
+          <figure class="fig">
+            <img src="/assets/images/hapticsense/haptic-47.webp" alt="HapticSense band with its intensity dial and immersion slider" loading="lazy" />
+            <figcaption><b>FIG. 2.5</b>The dial and slider on the face of the band.</figcaption>
+          </figure>
+        </section>
+
+        <section class="section">
+          <h2 class="mono">Questions it opens</h2>
+          <ul class="questions">
+            <li>Can people learn to read the tingling evoked at the wrist as touch at their fingertips, and how long does that take?</li>
+            <li>Does calibrating with a test pulse make first use more reliable than a fixed preset?</li>
+            <li>With intensity on a physical dial, do people adjust it more often, and feel more in control, than with an on-screen setting?</li>
+          </ul>
+          <p>These are what I would test first with a working prototype.</p>
+        </section>
 
         <nav class="next mono" aria-label="More projects">
           <a href="/macos_timeline/">← macOS Timeline</a>
