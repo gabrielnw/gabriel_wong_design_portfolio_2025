@@ -1,5 +1,5 @@
 /* gabrielwong.co — one stylesheet for the whole site.
-   Layout: a single 640px column with line-drawn figure plates.
+   Layout: a single 640px column; the homepage and figures run wider.
    Spacing follows an 8px scale; type follows the scale below. */
 
 :root {
@@ -182,31 +182,11 @@ p {
   color: var(--mark);
 }
 
-/* figure plate: a box of graph paper that holds a line diagram or an image */
+/* quiet frame for experiment images */
 .plate {
-  border: 1px solid var(--rule);
-  background-color: var(--paper);
-  background-image:
-    linear-gradient(var(--grid) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
-  background-size: 8px 8px;
+  background: var(--panel);
   aspect-ratio: 4 / 3;
   overflow: hidden;
-}
-
-.plate svg {
-  width: 100%;
-  height: 100%;
-}
-
-.plate .line {
-  fill: none;
-  stroke: var(--ink);
-  stroke-width: 1.2;
-}
-
-.plate .dot {
-  fill: var(--mark);
 }
 
 /* ---------- homepage ---------- */
@@ -226,41 +206,55 @@ p {
   max-width: 54ch;
 }
 
-.work {
-  display: grid;
-  gap: var(--s1);
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
 }
 
+/* the work leads: real images in a two-column grid */
 .work ol {
   list-style: none;
   margin: 0;
   padding: 0;
-}
-
-.work li {
-  border-top: 1px solid var(--rule);
-}
-
-.work li:last-child {
-  border-bottom: 1px solid var(--rule);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--s5) var(--s3);
+  width: min(var(--wide), 100vw - 2 * var(--s2));
+  margin-inline: calc((var(--column) - min(var(--wide), 100vw - 2 * var(--s2))) / 2);
 }
 
 .work a {
   display: grid;
-  grid-template-columns: 96px minmax(0, 1fr) auto;
-  gap: var(--s3);
-  align-items: center;
-  padding: var(--s2) 0;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 4px var(--s2);
   text-decoration: none;
 }
 
+.work .shot {
+  grid-column: 1 / -1;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: var(--panel);
+  margin-bottom: var(--s1);
+  transition: opacity 0.2s ease;
+}
+
 @media (hover: hover) {
+  .work a:hover .shot {
+    opacity: 0.88;
+  }
   .work a:hover .title {
     color: var(--mark);
   }
 }
 
 .work .title {
+  display: block;
   font: 700 var(--step-0) / 1.4 var(--sans);
   font-stretch: 112%;
 }
@@ -268,23 +262,21 @@ p {
 .work .summary {
   display: block;
   color: var(--ink-soft);
-  font-size: 0.9375rem;
+  font-size: 1rem;
   line-height: 1.5;
 }
 
 .work .year {
-  font: 400 var(--step--1) var(--sans);
+  font: 400 var(--step--1) / 1.9 var(--sans);
   color: var(--ink-soft);
   font-variant-numeric: tabular-nums;
 }
 
-@media (max-width: 520px) {
-  .work a {
-    grid-template-columns: 72px minmax(0, 1fr);
-    gap: var(--s2);
-  }
-  .work .year {
-    display: none;
+@media (max-width: 672px) {
+  .work ol {
+    grid-template-columns: 1fr;
+    width: 100%;
+    margin-inline: 0;
   }
 }
 
@@ -301,8 +293,6 @@ p {
 }
 
 .abstract {
-  border-left: 2px solid var(--mark);
-  padding-left: var(--s2);
   display: grid;
   gap: 6px;
 }
@@ -506,7 +496,6 @@ p {
 
 .experiments .plate {
   aspect-ratio: 1;
-  padding: var(--s1);
 }
 
 .experiments img {
@@ -517,7 +506,7 @@ p {
 
 @media (hover: hover) {
   .experiments a:hover .plate {
-    border-color: var(--mark);
+    opacity: 0.88;
   }
 }
 

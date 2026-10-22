@@ -6,7 +6,7 @@ Personal design portfolio for Gabriel Wong, hosted at gabrielwong.co via GitHub 
 
 ## Structure
 
-- `/index.html` — Homepage: bio and a list of projects, each with a line-drawn figure plate
+- `/index.html` — Homepage: bio and a two-column grid of projects, each with a real project image
 - `/about/` — About page
 - `/css/site.css` — New stylesheet (notebook-index redesign) used by the homepage, About and short case studies
 - `/css/full.css` — Extra styles for the full case study pages (`/<project>/full/`), loaded after site.css and the project's `*-utils.css` (charts, specimens, prototype)

@@ -116,8 +116,6 @@ body.full .hero-overview {
 }
 
 body.full .hero-overview .lede {
-  border-left: 2px solid var(--mark);
-  padding-left: var(--s2);
   font: 400 var(--step-1) / 1.5 var(--serif);
   max-width: none;
 }
@@ -179,8 +177,8 @@ body.full .case-list li::marker {
 
 body.full .pull-quote {
   margin: var(--s2) 0;
-  padding: 0 0 0 var(--s2);
-  border-left: 2px solid var(--mark);
+  padding: 0 0 0 var(--s3);
+  border: 0;
   border-radius: 0;
   background: none;
   font: italic 400 var(--step-1) / 1.5 var(--serif);
@@ -205,6 +203,12 @@ body.full .what-if h2 {
   background: none;
   padding: 0;
   max-width: none;
+}
+
+/* the DNA interview takeaways: a quiet panel, no accent bar */
+body.full .takeaway-card {
+  border-left: 0;
+  background: var(--panel);
 }
 
 /* grids of images inside the long pages */
