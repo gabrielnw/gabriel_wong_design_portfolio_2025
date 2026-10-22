@@ -29,7 +29,7 @@ Each project has a short case study at `/<project>/` (overview, facts, question,
 ## Tech Stack
 
 - Vanilla HTML/CSS/JS (no framework or build step)
-- Fonts: Hanken Grotesk, Source Serif 4, IBM Plex Mono; the TAI full page also loads Chakra Petch and Poppins for its type specimen
+- Fonts: Archivo (headlines, labels, UI; wide uppercase for titles and section heads via `font-stretch`) and Newsreader (body text). `--sans` is Archivo, `--serif` is Newsreader; small interface text uses the `.ui` class. The TAI full page also loads Chakra Petch and Poppins for its type specimen
 - Hosting: GitHub Pages with custom domain (gabrielwong.co)
 
 ## Conventions

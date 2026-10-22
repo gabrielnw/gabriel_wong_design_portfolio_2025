@@ -1,5 +1,5 @@
 /* gabrielwong.co — one stylesheet for the whole site.
-   Layout: a single 640px column (C) with line-drawn figure plates (A).
+   Layout: a single 640px column with line-drawn figure plates.
    Spacing follows an 8px scale; type follows the scale below. */
 
 :root {
@@ -13,9 +13,9 @@
   --panel: #f4f5f8; /* quiet fill used instead of outlines */
 
   /* type */
-  --sans: "Hanken Grotesk", system-ui, -apple-system, sans-serif;
-  --serif: "Source Serif 4", Georgia, serif;
-  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  /* Archivo for headlines, labels and interface; Newsreader for reading */
+  --sans: "Archivo", system-ui, -apple-system, sans-serif;
+  --serif: "Newsreader", Georgia, serif;
   --step--1: 0.8125rem; /* 13px */
   --step-0: 1rem;       /* 16px */
   --step-1: 1.1875rem;  /* 19px */
@@ -55,7 +55,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: var(--paper);
   color: var(--ink);
-  font: 400 var(--step-0) / 1.65 var(--sans);
+  font: 400 1.125rem / 1.6 var(--serif);
   padding: var(--s4) max(var(--s2), env(safe-area-inset-left)) var(--s5);
 }
 
@@ -128,10 +128,21 @@ p {
   gap: var(--s4);
 }
 
-.mono {
-  font: 500 0.6875rem / 1.4 var(--mono);
-  letter-spacing: 0.06em;
+/* small interface text: nav, labels, captions' numbers */
+.ui {
+  font: 500 0.8125rem / 1.4 var(--sans);
+  font-stretch: 112%;
+}
+
+/* the display voice: wide Archivo capitals */
+.intro h1,
+.case-head h1,
+.section > h2.ui {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-stretch: 125%;
   text-transform: uppercase;
+  letter-spacing: 0;
 }
 
 .site-header {
@@ -206,12 +217,8 @@ p {
 }
 
 .intro h1 {
-  font: 400 var(--step-2) / 1.25 var(--serif);
-}
-
-.intro h1 span {
-  color: var(--ink-soft);
-  font-style: italic;
+  font-size: clamp(1.5rem, 6vw, 2.25rem);
+  line-height: 1.05;
 }
 
 .intro p {
@@ -254,7 +261,8 @@ p {
 }
 
 .work .title {
-  font-weight: 600;
+  font: 700 var(--step-0) / 1.4 var(--sans);
+  font-stretch: 112%;
 }
 
 .work .summary {
@@ -264,14 +272,8 @@ p {
   line-height: 1.5;
 }
 
-.work .meta {
-  display: block;
-  margin-top: 6px;
-  color: var(--ink-soft);
-}
-
 .work .year {
-  font: 400 var(--step--1) var(--mono);
+  font: 400 var(--step--1) var(--sans);
   color: var(--ink-soft);
   font-variant-numeric: tabular-nums;
 }
@@ -294,8 +296,8 @@ p {
 }
 
 .case-head h1 {
-  font: 600 var(--step-3) / 1.1 var(--sans);
-  letter-spacing: -0.01em;
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  line-height: 1.05;
 }
 
 .abstract {
@@ -342,8 +344,8 @@ p {
   gap: var(--s2);
 }
 
-.section > .mono {
-  color: var(--ink-soft);
+.section > h2.ui {
+  font-size: var(--step-0);
 }
 
 .section p {
@@ -372,15 +374,14 @@ p {
 }
 
 .fig figcaption {
-  font-size: var(--step--1);
+  font-size: 0.9375rem;
   line-height: 1.5;
   color: var(--ink-soft);
 }
 
 .fig figcaption b {
   color: var(--mark);
-  font: 500 0.6875rem var(--mono);
-  letter-spacing: 0.06em;
+  font: 600 0.75rem var(--sans);
   margin-right: var(--s1);
 }
 
@@ -428,8 +429,7 @@ p {
 
 .questions li::before {
   content: "Q" counter(q);
-  font: 500 0.6875rem / 2.4 var(--mono);
-  letter-spacing: 0.06em;
+  font: 600 0.75rem / 2.4 var(--sans);
   color: var(--mark);
 }
 
@@ -476,7 +476,7 @@ p {
 }
 
 .cv li span:first-child {
-  font: 400 var(--step--1) var(--mono);
+  font: 400 var(--step--1) var(--sans);
   color: var(--ink-soft);
   font-variant-numeric: tabular-nums;
 }
@@ -528,8 +528,7 @@ p {
 
 .experiments .caption b {
   color: var(--mark);
-  font: 500 0.6875rem var(--mono);
-  letter-spacing: 0.06em;
+  font: 600 0.75rem var(--sans);
   margin-right: var(--s1);
 }
 

@@ -33,25 +33,32 @@ body.full > footer {
 body.full h1,
 body.full h2,
 body.full h3,
-body.full h4,
-body.full p,
-body.full li {
+body.full h4 {
   color: inherit;
   font-family: var(--sans);
 }
 
+body.full p,
+body.full li {
+  color: inherit;
+  font-family: var(--serif);
+}
+
 body.full h1 {
-  font: 600 var(--step-3) / 1.1 var(--sans);
-  letter-spacing: -0.01em;
+  font: 800 clamp(2rem, 5vw, 2.75rem) / 1.05 var(--sans);
+  font-stretch: 125%;
+  text-transform: uppercase;
+  letter-spacing: 0;
   text-align: left;
 }
 
 /* section labels */
 body.full main h2 {
-  font: 500 0.6875rem / 1.4 var(--mono);
-  letter-spacing: 0.06em;
+  font: 800 var(--step-0) / 1.4 var(--sans);
+  font-stretch: 125%;
+  letter-spacing: 0;
   text-transform: uppercase;
-  color: var(--mark);
+  color: var(--ink);
   background: none;
   padding: 0;
   border-radius: 0;
@@ -59,14 +66,15 @@ body.full main h2 {
 
 body.full h3 {
   font-size: var(--step-1);
-  font-weight: 600;
+  font-weight: 700;
+  font-stretch: 112%;
   line-height: 1.3;
 }
 
 body.full p,
 body.full li {
-  font-size: var(--step-0);
-  line-height: 1.7;
+  font-size: 1.125rem;
+  line-height: 1.6;
   max-width: 62ch;
 }
 
@@ -87,7 +95,7 @@ body.full img {
 
 body.full .caption,
 body.full figcaption {
-  font-size: var(--step--1);
+  font-size: 0.9375rem;
   line-height: 1.5;
   color: var(--ink-soft);
 }
@@ -130,6 +138,9 @@ body.full .hero-overview-details .detail {
 }
 
 body.full .hero-overview-details h2 {
+  font: 500 0.8125rem / 1.4 var(--sans);
+  font-stretch: 112%;
+  text-transform: none;
   color: var(--ink-soft);
 }
 
@@ -157,7 +168,7 @@ body.full .case-list {
 }
 
 body.full .case-list li {
-  font-size: var(--step-0);
+  font-size: 1.125rem;
   letter-spacing: 0;
   margin: 0;
 }
@@ -265,9 +276,8 @@ body.full .video-embed iframe {
   border: 1px solid var(--ink);
   background: var(--paper);
   color: var(--ink);
-  font: 500 0.6875rem / 1.4 var(--mono);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  font: 500 0.8125rem / 1.4 var(--sans);
+  font-stretch: 112%;
   text-decoration: none;
   opacity: 0;
   pointer-events: none;
