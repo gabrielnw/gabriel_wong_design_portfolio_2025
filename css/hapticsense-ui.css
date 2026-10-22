@@ -8,6 +8,17 @@
   --hs-shadow-color: rgba(0, 0, 0, 0.5);
 }
 
+/* Standalone page layout (hapticsense_ui) */
+.hapticsense-standalone {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #ffffff;
+  margin: 0;
+  font-family: sans-serif;
+}
+
 .device-container {
   position: relative;
   display: flex;
@@ -20,7 +31,7 @@
   position: absolute;
   top: -50px;
   background-color: rgba(255, 255, 255, 0.9);
-  color: rgb(66, 30, 0); /* Dark brown from case study */
+  color: var(--hs-heading, rgb(66, 30, 0));
   padding: 8px 16px;
   border-radius: 4px;
   border: 1px solid rgba(66, 30, 0, 0.1);
@@ -99,7 +110,7 @@
     inset 0 -2px 5px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 16px;
 }
 
 /* Side Button */
@@ -220,37 +231,7 @@
     color: rgba(255, 255, 255, 0.9);
 }
 
-/* Button Overhaul - Tactical */
-.btn-primary, .btn-secondary {
-    border: 1px solid var(--hs-accent-color);
-    background: rgba(211, 95, 40, 0.1);
-    color: var(--hs-accent-color);
-    border-radius: 0; /* Squared corners */
-    padding: 4px 12px; /* Reduced from 6px 16px */
-    font-family: 'Courier New', Courier, monospace;
-    text-transform: uppercase;
-    font-size: 10px;
-    letter-spacing: 1px;
-    cursor: pointer;
-    transition: all 0.2s;
-    position: relative;
-}
-
-.btn-primary:hover, .btn-secondary:hover {
-    background: var(--hs-accent-color);
-    color: #000;
-}
-
-.btn-primary::after {
-    /* Technical marker on button */
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 4px;
-    height: 4px;
-    background: currentColor;
-}
+/* Buttons */
 
 /* Step Specific Visuals - Technical Update */
 .icon-check {
@@ -387,7 +368,7 @@
 
 .button-group {
     display: flex;
-    gap: 15px;
+    gap: 16px;
 }
 
 /* Visuals */
@@ -442,7 +423,7 @@
 .controls-area {
   flex: 1;
   display: flex;
-  gap: 15px;
+  gap: 16px;
 }
 
 .control-module {
@@ -557,4 +538,16 @@
     height: 6px;
     background-color: rgba(0,0,0,0.2);
     border-radius: 50%;
+}
+
+/* Standalone page responsive */
+@media (max-width: 768px) {
+  .hapticsense-standalone {
+    padding: 16px;
+  }
+
+  .hapticsense-standalone .device-container {
+    transform: scale(0.85);
+    transform-origin: center center;
+  }
 }

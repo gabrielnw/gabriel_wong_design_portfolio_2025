@@ -3,8 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="css/styles.css" />
+    <title>Gabriel Wong</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <script src="/js/carousel.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -21,7 +22,7 @@
             <a href="#">index</a>
           </li>
           <li>
-            <a href="experiments/">experiments</a>
+            <a href="/experiments/">experiments</a>
           </li>
         </ul>
       </nav>
@@ -45,33 +46,47 @@
         </ul>
       </section>
       <section class="work">
-        <div class="projects">
-          <a href="the_future_of_data_storage/">
-            <img
-              class="projects-img"
-              src="assets/images/project-1-case-study.webp"
-              alt="The Future of Data Storage case study preview"
-            />
-            The Future of Data Storage</a
-          >
-
-          <a href="hapticsense/">
-            <img
-              class="projects-img"
-              src="assets/images/project-2-case-study.webp"
-              alt="HapticSense project mockup"
-            />
-            HapticSense</a
-          >
-
-          <a href="tai/">
-            <img
-              class="projects-img"
-              src="assets/images/project-3-case-study.webp"
-              alt="Tuskegee Airmen Inc. site redesign preview"
-            />
-            Tuskegee Airmen Inc.</a
-          >
+        <div class="carousel">
+          <div class="carousel-scene">
+            <div class="carousel-ring">
+              <a href="/macos_timeline/" class="carousel-card">
+                <img
+                  class="projects-img"
+                  src="/assets/images/project-4-case-study.webp"
+                  alt="macOS Timeline concept preview"
+                />
+                <span>macos timeline</span>
+              </a>
+              <a href="/the_future_of_data_storage/" class="carousel-card">
+                <img
+                  class="projects-img"
+                  src="/assets/images/project-1-case-study.webp"
+                  alt="The Future of Data Storage case study preview"
+                />
+                <span>the future of data storage</span>
+              </a>
+              <a href="/hapticsense/" class="carousel-card">
+                <img
+                  class="projects-img"
+                  src="/assets/images/project-2-case-study.webp"
+                  alt="HapticSense project mockup"
+                />
+                <span>hapticsense</span>
+              </a>
+              <a href="/tai/" class="carousel-card">
+                <img
+                  class="projects-img"
+                  src="/assets/images/project-3-case-study.webp"
+                  alt="Tuskegee Airmen Inc. site redesign preview"
+                />
+                <span>tuskegee airmen inc.</span>
+              </a>
+            </div>
+          </div>
+          <div class="carousel-nav">
+            <button class="carousel-btn" data-dir="-1" aria-label="Previous project">&larr;</button>
+            <button class="carousel-btn" data-dir="1" aria-label="Next project">&rarr;</button>
+          </div>
         </div>
       </section>
     </main>

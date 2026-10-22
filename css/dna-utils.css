@@ -1,11 +1,9 @@
 /* DNA Case Study Utilities */
 
-.dna-body main h1 {
-  text-align: left;
-}
-
-.dna-body .what-if h1 {
+.dna-body .what-if h2 {
   text-align: center;
+  max-width: 400px;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
 }
 
 /* Scenarios Grid */
@@ -19,7 +17,7 @@
 .scenario-card {
   background: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(0, 43, 0, 0.1);
+  border: 1px solid var(--color-dna-border);
   padding: 24px;
   border-radius: 12px;
   display: flex;
@@ -44,14 +42,14 @@
 .scenario-card h3 {
   font-family: "Playfair Display", serif;
   font-size: 1.4rem;
-  color: rgb(0, 43, 0);
+  color: var(--color-dna-heading);
   margin: 0;
 }
 
 .scenario-card p {
   font-size: 0.95rem;
   line-height: 1.6;
-  color: rgba(0, 43, 0, 0.8);
+  color: var(--color-dna-muted);
 }
 
 /* Artifacts Grid */
@@ -64,25 +62,21 @@
 
 .artifact-card {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: flex-start;
   gap: 24px;
-  background: #fdfef4;
-  border: 1px solid rgba(0, 43, 0, 0.1);
+  background: var(--color-dna-card-bg);
+  border: 1px solid var(--color-dna-border);
   padding: 32px;
 }
 
-@media (min-width: 768px) {
-  .artifact-card {
-    flex-direction: row;
-    align-items: flex-start;
-  }
-  .artifact-card img {
-    width: 40%;
-    min-width: 300px;
-  }
-  .artifact-card .content {
-    flex: 1;
-  }
+.artifact-card img {
+  width: 40%;
+  min-width: 300px;
+}
+
+.artifact-card .content {
+  flex: 1;
 }
 
 .artifact-card h3 {
@@ -100,24 +94,24 @@
 .artifact-card .feedback-list li {
   margin-bottom: 8px;
   line-height: 1.5;
-  color: rgba(0, 43, 0, 0.8);
+  color: var(--color-dna-muted);
 }
 
 .artifact-card .feedback-list li strong {
-  color: rgb(0, 43, 0);
+  color: var(--color-dna-heading);
   font-weight: 600;
 }
 
 /* Expert Interview Card */
 .takeaway-card {
-  background: #e8f5e9; /* Light green tint */
-  border-left: 4px solid #3e8b2a;
+  background: rgba(62, 139, 42, 0.1);
+  border-left: 4px solid var(--color-dna-accent);
   padding: 24px;
   margin: 24px 0;
 }
 
 .takeaway-card h3 {
-  color: #1b5e20;
+  color: var(--color-dna-heading);
   margin-bottom: 16px;
 }
 
@@ -128,35 +122,13 @@
 
 .takeaway-card li {
   margin-bottom: 8px;
-  color: #2e7d32;
+  color: var(--color-dna-body);
 }
 
-/* Trend Analysis */
-.trend-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  margin-top: 24px;
-}
-
-.trend-grid img {
-  width: 100%;
-  height: auto;
-  border-radius: 4px;
-}
-
-/* Pull Quote (Shared style if not in global) */
-.pull-quote {
-  font-family: "Playfair Display", serif;
-  font-size: 1.8rem;
-  font-style: italic;
-  color: rgb(0, 43, 0);
-  border-left: 4px solid #3e8b2a;
-  padding: 12px 24px;
-  margin: 32px 0;
+.dna-body .pull-quote {
+  color: var(--color-dna-heading);
+  border-left-color: var(--color-dna-accent);
   background: rgba(62, 139, 42, 0.05);
-  border-radius: 0 8px 8px 0;
-  line-height: 1.4;
 }
 
 /* Mobile Responsive Styles */
@@ -181,8 +153,14 @@
 
   /* Artifact Cards Mobile */
   .artifact-card {
+    flex-direction: column;
     padding: 16px;
     gap: 16px;
+  }
+
+  .artifact-card img {
+    width: 100%;
+    min-width: 0;
   }
 
   .artifact-card h3 {
@@ -203,25 +181,8 @@
     padding-left: 16px;
   }
 
-  /* Trend Grid Mobile */
-  .trend-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  /* Pull Quote Mobile */
-  .pull-quote {
-    font-size: 1.4rem;
-    padding: 12px 16px;
-    margin: 24px 0;
-  }
-
   /* DNA Body Mobile */
-  .dna-body main h1 {
-    font-size: 1.5rem;
-  }
-
-  .dna-body .what-if h1 {
+  .dna-body .what-if h2 {
     font-size: 1.4rem;
   }
 }

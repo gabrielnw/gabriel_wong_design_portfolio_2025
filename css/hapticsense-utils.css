@@ -1,24 +1,21 @@
 /* Utility classes used by HapticSense page — minimal, non-invasive */
 
-/* Design Improvements */
-.what-if {
-  padding: 80px 24px;
-  text-align: center;
-  background-color: rgb(66, 30, 0);
-  color: rgb(255, 242, 229);
-  border-radius: 8px;
-  margin: 40px 0;
+.hs-body {
+  --color-hs-bg: rgb(255, 242, 229);
+  --color-hs-heading: rgb(66, 30, 0);
+  --color-hs-body: rgb(102, 51, 0);
+  --color-hs-subheading: rgb(153, 76, 0);
+  --color-hs-accent: rgb(211, 95, 40);
 }
 
-.hs-body .what-if h1 {
-  font-family: "Playfair Display", serif;
+/* What-If Theme */
+.hs-body .what-if {
+  background-color: var(--color-hs-heading);
+  color: var(--color-hs-bg);
+}
+
+.hs-body .what-if h2 {
   font-size: clamp(1.5rem, 4vw, 2.5rem);
-  line-height: 1.3;
-  max-width: 900px;
-  margin: 0 auto;
-  font-weight: 400;
-  font-style: italic;
-  color: inherit; /* Inherit from .what-if */
 }
 
 .hs-grid {
@@ -66,44 +63,21 @@
   }
 }
 
-.coming-soon-card {
-  border: 2px dashed rgba(0, 0, 0, 0.1);
-  background: rgba(0, 0, 0, 0.02);
-  padding: 40px;
-  text-align: center;
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-}
-
-.coming-soon-card h3 {
-  font-family: "Playfair Display", serif;
-  font-size: 1.5rem;
-  color: rgba(0, 0, 0, 0.6);
-  margin: 0;
-}
-
-.coming-soon-card p {
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 1rem;
-  margin: 0;
-}
-
 /* Case-study specific enhancements */
 .hs-body.case-study {
-  background-color: rgb(255, 242, 229);
+  background-color: var(--color-hs-bg);
 }
 
-.hs-body h1,
+.hs-body h1 {
+  color: var(--color-hs-heading);
+}
 .hs-body h2 {
-  color: rgb(66, 30, 0);
+  background: rgba(211, 95, 40, 0.1);
+  color: var(--color-hs-heading);
 }
 
 .hs-body p {
-  color: rgb(102, 51, 0);
+  color: var(--color-hs-body);
   max-width: 65ch; /* Optimal reading length */
   margin-bottom: 1.5rem;
   font-size: 1.05rem;
@@ -111,25 +85,13 @@
 }
 
 .hs-body h3 {
-  color: rgb(153, 76, 0);
+  color: var(--color-hs-subheading);
 }
 
-.project-title {
-  font-family: "Playfair Display", serif;
-  font-size: 1.25rem;
-  margin: 0 0 8px 0;
-}
-.case-study .pull-quote {
-  font-family: "Playfair Display", serif;
-  font-size: 1.8rem;
-  font-style: italic;
-  color: rgb(66, 30, 0);
-  border-left: 4px solid rgb(211, 95, 40);
-  padding: 12px 24px;
-  margin: 32px 0;
+.hs-body .pull-quote {
+  color: var(--color-hs-heading);
+  border-left-color: var(--color-hs-accent);
   background: rgba(211, 95, 40, 0.05);
-  border-radius: 0 8px 8px 0;
-  line-height: 1.4;
 }
 
 /* Mobile Responsive Styles */
@@ -139,7 +101,7 @@
     margin: 24px 0;
   }
 
-  .hs-body .what-if h1 {
+  .hs-body .what-if h2 {
     font-size: clamp(1.2rem, 5vw, 1.8rem);
   }
 
@@ -148,17 +110,4 @@
     margin-bottom: 1rem;
   }
 
-  .case-study .pull-quote {
-    font-size: 1.4rem;
-    padding: 12px 16px;
-    margin: 24px 0;
-  }
-
-  .coming-soon-card {
-    padding: 24px 16px;
-  }
-
-  .coming-soon-card h3 {
-    font-size: 1.2rem;
-  }
 }

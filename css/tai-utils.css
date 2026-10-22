@@ -1,27 +1,36 @@
 /* Utility classes used by TAI page */
 
 /* Theme: Red, White, and Blue (Modern/Clean) */
-.tai-body.case-study {
-  background-color: #f0f4f8; /* Light cool grey/blue */
+.tai-body {
+  --color-tai-bg: #f0f4f8;
+  --color-tai-heading: #0a2540;
+  --color-tai-body: #334e68;
+  --color-tai-accent: #d64545;
+  --color-tai-navy: #1c2c63;
+  --color-tai-card-bg: #ffffff;
+  --color-tai-card-border: rgba(10, 37, 64, 0.1);
+  --color-tai-muted: #595959;
+  --color-tai-dark-red: #aa2020;
 }
 
-.tai-body h1,
+.tai-body.case-study {
+  background-color: var(--color-tai-bg);
+}
+
+.tai-body h1 {
+  color: var(--color-tai-heading);
+}
 .tai-body h2 {
-  color: #0a2540; /* Dark Navy Blue */
+  background: rgba(28, 44, 99, 0.1);
+  color: var(--color-tai-heading);
 }
 
 .tai-body p {
-  color: #334e68; /* Dark Slate */
+  color: var(--color-tai-body);
 }
 
 .tai-body h3 {
-  color: #d64545; /* Red Accent */
-}
-
-.project-title {
-  font-family: "Playfair Display", serif;
-  font-size: 1.25rem;
-  margin: 0 0 8px 0;
+  color: var(--color-tai-accent);
 }
 
 /* Masonry Grid Layout */
@@ -70,8 +79,8 @@
 
 /* Specific Components */
 .tai-card {
-  background: #ffffff;
-  border: 1px solid rgba(10, 37, 64, 0.1);
+  background: var(--color-tai-card-bg);
+  border: 1px solid var(--color-tai-card-border);
   border-radius: 8px;
   padding: 24px;
   margin-bottom: 16px;
@@ -91,7 +100,7 @@
 
 /* Button style override if needed */
 .btn-primary {
-  background-color: #0a2540;
+  background-color: var(--color-tai-heading);
   color: #ffffff;
   border: none;
   padding: 10px 20px;
@@ -104,15 +113,15 @@
 }
 
 .btn-primary:hover {
-  background-color: #d64545;
+  background-color: var(--color-tai-accent);
   color: #ffffff;
   text-decoration: none;
 }
 
 /* Coded Style Guide */
 .style-guide-container {
-  background: #ffffff;
-  border: 1px solid rgba(10, 37, 64, 0.1);
+  background: var(--color-tai-card-bg);
+  border: 1px solid var(--color-tai-card-border);
   border-radius: 8px;
   padding: 32px;
   margin-top: 24px;
@@ -130,7 +139,7 @@
   margin-top: 0;
   margin-bottom: 16px;
   font-family: "Playfair Display", serif;
-  color: #0a2540;
+  color: var(--color-tai-heading);
 }
 
 /* Color Grid */
@@ -159,31 +168,31 @@
   backdrop-filter: blur(4px);
 }
 
-.bg-grey {
+.tai-bg-grey {
   background-color: #7a7a7a;
 }
-.bg-navy {
-  background-color: #1c2c63;
+.tai-bg-navy {
+  background-color: var(--color-tai-navy);
 }
-.bg-light-grey {
+.tai-bg-light-grey {
   background-color: #d9d9d9;
   color: #1a1b18 !important;
 }
-.bg-dark-grey {
+.tai-bg-dark-grey {
   background-color: #696666;
 }
-.bg-red {
+.tai-bg-red {
   background-color: #ff2020;
 }
-.bg-white {
+.tai-bg-white {
   background-color: #ffffff;
   color: #1a1b18 !important;
   border: 1px solid #eee;
 }
-.bg-dark-red {
-  background-color: #aa2020;
+.tai-bg-dark-red {
+  background-color: var(--color-tai-dark-red);
 }
-.bg-black {
+.tai-bg-black {
   background-color: #1a1b18;
 }
 
@@ -206,13 +215,13 @@
 .type-label {
   font-family: "Space Grotesk", sans-serif;
   font-size: 0.85rem;
-  color: #666;
+  color: var(--color-tai-muted);
   margin-bottom: 8px;
 }
 
 .type-sample {
   margin: 0;
-  color: #1c2c63;
+  color: var(--color-tai-navy);
 }
 
 .style-guide-container .type-sample.chakra-display-lg {
@@ -243,8 +252,8 @@
 
 /* User Testing Chart */
 .tai-chart-container {
-  background: #ffffff;
-  border: 1px solid rgba(10, 37, 64, 0.1);
+  background: var(--color-tai-card-bg);
+  border: 1px solid var(--color-tai-card-border);
   border-radius: 8px;
   padding: 32px;
   margin-top: 24px;
@@ -254,7 +263,7 @@
   margin-top: 0;
   margin-bottom: 24px;
   font-family: "Playfair Display", serif;
-  color: #0a2540;
+  color: var(--color-tai-heading);
 }
 
 .chart-legend {
@@ -263,7 +272,7 @@
   margin-bottom: 32px;
   font-family: "Space Grotesk", sans-serif;
   font-size: 0.9rem;
-  color: #666;
+  color: var(--color-tai-muted);
 }
 
 .legend-item {
@@ -352,16 +361,16 @@
 }
 
 .bar.navy {
-  background-color: #1c2c63;
+  background-color: var(--color-tai-navy);
 }
 .bar.red {
-  background-color: #aa2020;
+  background-color: var(--color-tai-dark-red);
 }
 
 .x-label {
   font-family: "Space Grotesk", sans-serif;
   font-size: 0.8rem;
-  color: #666;
+  color: var(--color-tai-muted);
   text-align: center;
   height: 20px; /* Fixed height for alignment */
   display: flex;
