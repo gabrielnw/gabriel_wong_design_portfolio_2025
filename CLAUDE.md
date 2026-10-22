@@ -17,7 +17,7 @@ Personal design portfolio for Gabriel Wong, hosted at gabrielwong.co via GitHub 
 
 Each project lives in its own directory with an `index.html`:
 
-Each project has a short case study at `/<project>/` (abstract, facts, question, process, outcome; uses `/css/site.css`) and the full write-up at `/<project>/full/` (site.css + full.css + the project's utils).
+Each project has a short case study at `/<project>/` (overview, facts, question, process, outcome; uses `/css/site.css`) and the full write-up at `/<project>/full/` (site.css + full.css + the project's utils).
 
 - `/macos_timeline/` — macOS Timeline (Fig. 01)
 - `/hapticsense/` — HapticSense (Fig. 02); `/hapticsense_ui/` holds its UI prototype styles
