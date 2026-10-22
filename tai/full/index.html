@@ -478,7 +478,8 @@
     </a>
 
     <script>
-      (function () {
+      // d3 loads with defer, so wait until it has run
+      document.addEventListener("DOMContentLoaded", function () {
         // Data from user survey
         const data = [
           { score: "1", count: 4, label: "40%" },
@@ -600,7 +601,7 @@
               .attr("fill", textColor)
               .attr("font-family", "'IBM Plex Mono', monospace")
           );
-      })();
+      });
     </script>
   </body>
 </html>
