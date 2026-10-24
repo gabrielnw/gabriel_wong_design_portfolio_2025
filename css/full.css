@@ -232,6 +232,20 @@ body.full .takeaway-card {
   background: var(--panel);
 }
 
+/* HapticSense: the Nintendo ad beside its HapticSense counterpart */
+body.full .ad-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--s3);
+  align-items: end;
+}
+
+body.full .ad-pair figure {
+  margin: 0;
+  display: grid;
+  gap: var(--s1);
+}
+
 /* grids of images inside the long pages */
 body.full .hs-grid,
 body.full .tai-grid {
