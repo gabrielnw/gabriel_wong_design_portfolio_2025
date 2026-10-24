@@ -23,6 +23,19 @@
   gap: 16px;
 }
 
+/* room for the prototype's floating "Interactive Prototype" label below */
+.hs-demo {
+  margin: 0 0 96px;
+}
+
+.hs-demo video {
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto 8px;
+  border-radius: 4px;
+  background: #000;
+}
+
 .nintendo-grid {
   column-count: 2;
   column-gap: 16px;
