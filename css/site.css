@@ -168,6 +168,16 @@ p {
   color: var(--ink);
 }
 
+/* Email leaves the site, so it reads as an action: underline + outbound arrow */
+.site-header .contact {
+  text-decoration: underline;
+}
+
+.site-header .contact span {
+  display: inline-block; /* keeps the underline off the arrow */
+  margin-left: 0.2em;
+}
+
 .site-footer {
   border-top: 1px solid var(--rule);
   padding-top: var(--s2);
