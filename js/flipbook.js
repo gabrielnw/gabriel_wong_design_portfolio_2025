@@ -11,6 +11,14 @@
     const nextBtn = root.querySelector(".mag-next");
     const count = root.querySelector(".mag-count");
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const TURN_MS = 600;
+
+    // shadow the turning leaf casts on the page beneath it
+    const castL = document.createElement("div");
+    const castR = document.createElement("div");
+    castL.className = castR.className = "mag-cast";
+    left.append(castL);
+    right.append(castR);
 
     // spread 0 is the cover alone on the right; spread s shows pages 2s and 2s+1
     const lastSpread = Math.floor(total / 2);
@@ -86,9 +94,11 @@
       const leaf = document.createElement("div");
       leaf.className = "mag-leaf " + (dir > 0 ? "to-next" : "to-prev");
       leaf.innerHTML =
-        '<div class="mag-face front"><img alt=""></div><div class="mag-face back"><img alt=""></div>';
+        '<div class="mag-face front"><img alt=""><div class="mag-shade"></div></div>' +
+        '<div class="mag-face back"><img alt=""><div class="mag-shade"></div></div>';
       leaf.querySelector(".front img").src = src(dir > 0 ? curR : curL);
       leaf.querySelector(".back img").src = src(dir > 0 ? newL : newR);
+      const shades = leaf.querySelectorAll(".mag-shade");
 
       // reveal the page underneath the leaf
       if (dir > 0) setPage(right, newR);
@@ -98,20 +108,41 @@
       busy = true;
       root.dataset.at = atState(target);
 
-      leaf.getBoundingClientRect(); // apply the start state before turning
-      leaf.style.transform = "perspective(2400px) rotateY(" + (dir > 0 ? -180 : 180) + "deg)";
+      // the side the leaf starts over, and the side it lands on
+      const [fromCast, toCast] = dir > 0 ? [castR, castL] : [castL, castR];
 
-      let finished = false;
+      // drive the turn frame by frame so the shading follows the angle
+      const t0 = performance.now();
+      const step = (now) => {
+        const t = Math.min((now - t0) / TURN_MS, 1);
+        const eased = (1 - Math.cos(Math.PI * t)) / 2;
+        const angle = eased * 180;
+        const rad = (angle * Math.PI) / 180;
+        const lift = Math.sin(rad); // 0 flat, 1 standing up at the spine
+        const reach = Math.abs(Math.cos(rad)) * 100; // how far the leaf's edge sits from the spine, in %
+
+        leaf.style.transform = "perspective(2400px) rotateY(" + -dir * angle + "deg)";
+        shades.forEach((el) => (el.style.opacity = lift));
+
+        const over = angle < 90 ? fromCast : toCast;
+        const under = over === fromCast ? toCast : fromCast;
+        over.style.setProperty("--edge", reach + "%");
+        over.style.setProperty("--soft", 3 + 14 * lift + "%");
+        over.style.opacity = 0.2 + 0.8 * lift;
+        under.style.opacity = 0;
+
+        if (t < 1) requestAnimationFrame(step);
+        else finish();
+      };
+
       const finish = () => {
-        if (finished) return;
-        finished = true;
         spread = target;
         render();
         leaf.remove();
+        castL.style.opacity = castR.style.opacity = 0;
         busy = false;
       };
-      leaf.addEventListener("transitionend", finish, { once: true });
-      setTimeout(finish, 900);
+      requestAnimationFrame(step);
     }
 
     function setMode() {

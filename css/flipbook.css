@@ -58,6 +58,7 @@
   content: "";
   position: absolute;
   inset: 0;
+  z-index: 1;
   pointer-events: none;
 }
 
@@ -77,7 +78,6 @@
   z-index: 2;
   transform: perspective(2400px) rotateY(0deg);
   transform-style: preserve-3d;
-  transition: transform 0.6s ease-in-out;
 }
 
 .mag-leaf.to-next {
@@ -98,6 +98,69 @@
 
 .mag-face.back {
   transform: rotateY(180deg);
+}
+
+/* the leaf keeps the spine shading of the page it is: a right page on the way
+   over, a left page once it lands (and the reverse when turning back) */
+.mag-face::after,
+.mag-shade {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.to-next .front::after,
+.to-prev .back::after {
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.18), transparent 8%);
+}
+
+.to-next .back::after,
+.to-prev .front::after {
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.18), transparent 8%);
+}
+
+/* the leaf darkens as it stands up and turns away from the light; JS sets the opacity */
+.mag-shade {
+  opacity: 0;
+}
+
+.to-next .front .mag-shade,
+.to-prev .back .mag-shade {
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.32));
+}
+
+.to-next .back .mag-shade,
+.to-prev .front .mag-shade {
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.32));
+}
+
+/* the shadow the leaf casts past its edge, softer the higher it lifts;
+   --edge is how far the edge sits from the spine, set per frame */
+.mag-cast {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+  --edge: 0%;
+  --soft: 3%;
+}
+
+.mag-right .mag-cast {
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.28) var(--edge),
+    transparent calc(var(--edge) + var(--soft))
+  );
+}
+
+.mag-left .mag-cast {
+  background: linear-gradient(
+    to left,
+    rgba(0, 0, 0, 0.28) var(--edge),
+    transparent calc(var(--edge) + var(--soft))
+  );
 }
 
 .mag-controls {
@@ -170,8 +233,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .mag-book,
-  .mag-leaf {
+  .mag-book {
     transition: none;
   }
 
