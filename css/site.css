@@ -244,6 +244,31 @@ p {
   transition: opacity 0.2s ease;
 }
 
+/* animated thumbnails: the poster image sits under a muted loop (js/thumbs.js) */
+.work span.shot {
+  display: block;
+  position: relative;
+  overflow: hidden;
+}
+
+.work .shot > img,
+.work .shot > video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.work .shot > video {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.work .shot > video.is-playing {
+  opacity: 1;
+}
+
 @media (hover: hover) {
   .work a:hover .shot {
     opacity: 0.88;
