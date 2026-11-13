@@ -43,14 +43,12 @@ html {
   -webkit-text-size-adjust: 100%;
   color-scheme: light;
   background: var(--paper); /* scrolling past the edge shows paper, not white */
-  overscroll-behavior: none; /* no rubber-band bounce at the top and bottom */
   scrollbar-gutter: stable; /* pages don't shift sideways when a scrollbar appears */
   -webkit-tap-highlight-color: transparent;
 }
 
 body {
   margin: 0;
-  overscroll-behavior: none; /* some browsers read it from body, not html */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: var(--paper);
@@ -583,6 +581,7 @@ p {
   height: 100dvh;
   max-width: none;
   max-height: none;
+  overscroll-behavior: contain; /* scrolling in the viewer never moves the page behind it */
   margin: 0;
   padding:
     max(var(--s2), env(safe-area-inset-top))
