@@ -477,7 +477,7 @@ p {
 
 /* ---------- about ---------- */
 
-/* the opening sentence is the headline: set large in the reading face, it says who this is
+/* the opening sentence is the headline: set large in the heading face, it says who this is
    before anything else; the portrait and the rest of the story sit quietly beneath it */
 .about {
   display: grid;
@@ -489,9 +489,9 @@ p {
 .statement {
   grid-column: 1 / -1;
   margin: 0;
-  font: 400 clamp(1.75rem, 5vw, 2.625rem) / 1.12 var(--serif);
-  font-optical-sizing: auto;
-  letter-spacing: -0.01em;
+  font: 700 clamp(1.5rem, 4.4vw, 2.25rem) / 1.15 var(--sans);
+  font-stretch: 112%; /* the site's sentence-case heading voice, set larger */
+  letter-spacing: -0.02em;
   text-wrap: balance;
 }
 
