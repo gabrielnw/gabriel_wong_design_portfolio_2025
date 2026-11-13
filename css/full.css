@@ -49,7 +49,7 @@ body.full h1 {
   font: 800 clamp(1.75rem, 8.5vw, 2.75rem) / 1.05 var(--sans); /* matches the short case study title */
   font-stretch: 125%;
   text-transform: uppercase;
-  letter-spacing: 0;
+  letter-spacing: -0.02em; /* matches the short case study title */
   text-align: left;
 }
 
