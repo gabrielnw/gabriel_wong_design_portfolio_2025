@@ -604,3 +604,11 @@
     clip: rect(0 0 0 0);
     white-space: nowrap;
 }
+
+/* keyboard focus on the physical controls: the band's orange, clear of the dark case */
+.slider-handle:focus-visible,
+.knob-dial:focus-visible,
+#screen-content button:focus-visible {
+    outline: 2px solid #d35f28;
+    outline-offset: 3px;
+}

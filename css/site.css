@@ -228,6 +228,23 @@ p {
   max-width: 54ch;
 }
 
+/* first stop for keyboard users: jumps past the header to the page's content */
+.skip-link {
+  position: absolute;
+  left: var(--s2);
+  top: var(--s2);
+  z-index: 10;
+  padding: 8px 12px;
+  background: var(--ink);
+  color: var(--paper);
+  text-decoration: none;
+  transform: translateY(calc(-100% - var(--s3)));
+}
+
+.skip-link:focus-visible {
+  transform: none;
+}
+
 .visually-hidden {
   position: absolute;
   width: 1px;

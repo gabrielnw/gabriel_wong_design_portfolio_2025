@@ -1,4 +1,20 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // The setup demo loops on its own unless reduced motion is on; a button pauses and plays it.
+  const demo = document.querySelector('.hs-demo video[data-autoplay]');
+  const demoToggle = document.querySelector('.hs-demo-toggle');
+  if (demo && demoToggle) {
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const label = () => {
+      demoToggle.textContent = demo.paused ? 'Play video' : 'Pause video';
+      demoToggle.setAttribute('aria-pressed', String(demo.paused));
+    };
+    demo.addEventListener('play', label);
+    demo.addEventListener('pause', label);
+    demoToggle.addEventListener('click', () => (demo.paused ? demo.play().catch(() => {}) : demo.pause()));
+    if (!reduce.matches) demo.play().catch(() => {});
+    label();
+  }
+
   // Slider and knob: both follow the finger 1:1, resist past their ends and spring back on release.
   const sliderHandle = document.querySelector('.slider-handle');
   const sliderTrack = document.querySelector('.slider-track');
@@ -123,6 +139,64 @@ document.addEventListener("DOMContentLoaded", () => {
     };
     knobDial.addEventListener('pointerup', endKnob);
     knobDial.addEventListener('pointercancel', endKnob);
+  }
+
+  // --- Keyboard: both controls are sliders to assistive tech. Arrows move 10%,
+  // Page Up/Down 25%, Home and End go to the ends; the control springs to its new value. ---
+  const immersionOf = (pos) => Math.round(((SLIDER_MAX - pos) / (SLIDER_MAX - SLIDER_MIN)) * 100);
+  const intensityOf = (deg) => Math.round((deg / 360) * 100);
+
+  function makeSlider(el, label, value) {
+    el.tabIndex = 0;
+    el.setAttribute('role', 'slider');
+    el.setAttribute('aria-label', label);
+    el.setAttribute('aria-valuemin', '0');
+    el.setAttribute('aria-valuemax', '100');
+    el.setAttribute('aria-valuenow', String(value));
+    el.setAttribute('aria-valuetext', value + '%');
+  }
+  function announce(el, value) {
+    el.setAttribute('aria-valuenow', String(value));
+    el.setAttribute('aria-valuetext', value + '%');
+  }
+  // the percentage a key moves to, or null for keys the control doesn't handle
+  function keyTarget(key, now) {
+    const steps = { ArrowUp: 10, ArrowRight: 10, ArrowDown: -10, ArrowLeft: -10, PageUp: 25, PageDown: -25 };
+    if (key in steps) return Math.max(0, Math.min(100, now + steps[key]));
+    if (key === 'Home') return 0;
+    if (key === 'End') return 100;
+    return null;
+  }
+
+  makeSlider(sliderHandle, 'Immersion level', immersionOf(sliderPos));
+  sliderHandle.addEventListener('keydown', (e) => {
+    const target = keyTarget(e.key, immersionOf(sliderPos));
+    if (target === null) return;
+    e.preventDefault();
+    const shown = parseFloat(sliderHandle.style.top) || sliderPos;
+    sliderPos = SLIDER_MAX - (target / 100) * (SLIDER_MAX - SLIDER_MIN);
+    stopSliderSpring();
+    stopSliderSpring = springTo(shown, sliderPos, showSlider);
+    updateImmersionUI(sliderPos);
+    announce(sliderHandle, target);
+  });
+  sliderHandle.addEventListener('pointermove', () => announce(sliderHandle, immersionOf(sliderPos)));
+
+  if (knobDial) {
+    makeSlider(knobDial, 'Haptic intensity', intensityOf(currentRotation));
+    knobDial.addEventListener('keydown', (e) => {
+      const target = keyTarget(e.key, intensityOf(currentRotation));
+      if (target === null) return;
+      e.preventDefault();
+      const match = /rotate\(([-\d.]+)deg\)/.exec(knobDial.style.transform);
+      const shown = match ? parseFloat(match[1]) : currentRotation;
+      currentRotation = (target / 100) * 360;
+      stopKnobSpring();
+      stopKnobSpring = springTo(shown, currentRotation, showKnob);
+      updateHapticUI(currentRotation);
+      announce(knobDial, target);
+    });
+    knobDial.addEventListener('pointermove', () => announce(knobDial, intensityOf(currentRotation)));
   }
 
     // UI Flow Logic
