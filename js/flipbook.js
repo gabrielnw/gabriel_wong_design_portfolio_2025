@@ -12,6 +12,8 @@
     const count = root.querySelector(".mag-count");
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     const TURN_MS = 600;
+    const CHAINED_TURN_MS = 350; // a turn queued during another one runs quicker
+    const EASE_OUT = "cubic-bezier(0.23, 1, 0.32, 1)";
 
     // shadow the turning leaf casts on the page beneath it
     const castL = document.createElement("div");
@@ -26,6 +28,7 @@
     let page = 1;
     let single = false;
     let busy = false;
+    let queued = 0; // turns asked for while another was still running (+ forward, - back)
 
     const pagesOf = (s) => [s === 0 ? null : 2 * s, 2 * s + 1 <= total ? 2 * s + 1 : null];
 
@@ -67,14 +70,29 @@
       root.dataset.at = atState(spread);
     }
 
-    function go(dir) {
-      if (busy) return;
+    // single-page mode: ease the new page in, drifting slightly from the side it came from
+    function arrive(dir) {
+      const img = right.querySelector("img");
+      img.getAnimations().forEach((a) => a.cancel());
+      const from = reduceMotion.matches
+        ? { opacity: 0.4 }
+        : { opacity: 0.4, transform: "translateX(" + dir * 3 + "%)" };
+      const play = () => img.animate([from, { opacity: 1, transform: "none" }], { duration: 220, easing: EASE_OUT });
+      img.decode().then(play, play);
+    }
+
+    function go(dir, chained) {
+      if (busy) {
+        queued = Math.max(-3, Math.min(3, queued + dir));
+        return;
+      }
 
       if (single) {
         const next = page + dir;
         if (next < 1 || next > total) return;
         page = next;
         render();
+        arrive(dir);
         return;
       }
 
@@ -114,7 +132,7 @@
       // drive the turn frame by frame so the shading follows the angle
       const t0 = performance.now();
       const step = (now) => {
-        const t = Math.min((now - t0) / TURN_MS, 1);
+        const t = Math.min((now - t0) / (chained ? CHAINED_TURN_MS : TURN_MS), 1);
         const eased = (1 - Math.cos(Math.PI * t)) / 2;
         const angle = eased * 180;
         const rad = (angle * Math.PI) / 180;
@@ -141,6 +159,11 @@
         leaf.remove();
         castL.style.opacity = castR.style.opacity = 0;
         busy = false;
+        if (queued) {
+          const next = Math.sign(queued);
+          queued -= next;
+          go(next, true);
+        }
       };
       requestAnimationFrame(step);
     }

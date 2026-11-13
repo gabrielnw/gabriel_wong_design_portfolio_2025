@@ -650,14 +650,25 @@ p {
   overflow: hidden;
 }
 
+.viewer[open] {
+  animation: viewer-fade 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* the image settles in from slightly smaller; reduced motion keeps only the fade */
 @media (prefers-reduced-motion: no-preference) {
-  .viewer[open] {
-    animation: viewer-in 0.18s ease;
+  .viewer[open] .viewer-img {
+    animation: viewer-in 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+}
+
+@keyframes viewer-fade {
+  from {
+    opacity: 0;
   }
 }
 
 @keyframes viewer-in {
   from {
-    opacity: 0;
+    transform: scale(0.97);
   }
 }

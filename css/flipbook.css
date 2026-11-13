@@ -227,22 +227,8 @@
   display: none;
 }
 
-.flipbook.is-single .mag-right img {
-  animation: mag-fade 0.25s ease-out;
-}
-
-@keyframes mag-fade {
-  from {
-    opacity: 0.4;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   .mag-book {
     transition: none;
-  }
-
-  .flipbook.is-single .mag-right img {
-    animation: none;
   }
 }
