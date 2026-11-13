@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // For simplicity in this visual demo, we'll just move the handle along the Y axis of the track container's local space
   // since the handle is a child of the track.
   
-  sliderHandle.addEventListener('mousedown', (e) => {
+  sliderHandle.addEventListener('pointerdown', (e) => {
       isDraggingSlider = true;
       sliderHandle.style.cursor = 'grabbing';
       sliderStartY = e.clientY;
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let center = { x: 0, y: 0 };
 
     if (knobDial && knobBase) {
-        knobDial.addEventListener('mousedown', (e) => {
+        knobDial.addEventListener('pointerdown', (e) => {
             isRotatingKnob = true;
             knobDial.style.cursor = 'grabbing';
             
@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    document.addEventListener('mousemove', (e) => {
+    document.addEventListener('pointermove', (e) => {
         if (isDraggingSlider) {
             // Calculate delta
             const deltaY = e.clientY - sliderStartY;
@@ -128,12 +128,15 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    document.addEventListener('mouseup', () => {
+    // pointer events so the slider and knob drag with a finger as well as a mouse
+    const endDrag = () => {
         isDraggingSlider = false;
         isRotatingKnob = false;
         if (sliderHandle) sliderHandle.style.cursor = 'grab';
         if (knobDial) knobDial.style.cursor = 'grab';
-    });
+    };
+    document.addEventListener('pointerup', endDrag);
+    document.addEventListener('pointercancel', endDrag);
 
     // UI Flow Logic
     const steps = {

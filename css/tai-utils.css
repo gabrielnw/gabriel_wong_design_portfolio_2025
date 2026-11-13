@@ -112,10 +112,12 @@
   transition: background-color 0.2s;
 }
 
-.btn-primary:hover {
-  background-color: var(--color-tai-accent);
-  color: #ffffff;
-  text-decoration: none;
+@media (hover: hover) and (pointer: fine) {
+  .btn-primary:hover {
+    background-color: var(--color-tai-accent);
+    color: #ffffff;
+    text-decoration: none;
+  }
 }
 
 /* Coded Style Guide */

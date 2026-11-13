@@ -26,9 +26,11 @@
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.scenario-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 20px rgba(0, 43, 0, 0.05);
+@media (hover: hover) and (pointer: fine) {
+  .scenario-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0, 43, 0, 0.05);
+  }
 }
 
 .scenario-card img {
