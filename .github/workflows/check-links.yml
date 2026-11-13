@@ -1,0 +1,13 @@
+name: Check links
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Every local link and image points at a real file
+        run: python3 .github/scripts/check_links.py

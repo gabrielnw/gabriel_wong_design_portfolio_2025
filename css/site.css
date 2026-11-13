@@ -54,6 +54,7 @@ body {
   background: var(--paper);
   color: var(--ink);
   font: 400 1.125rem / 1.6 var(--serif);
+  overflow-wrap: break-word; /* a long word or address wraps instead of running past the column */
   padding: var(--s4) max(var(--s2), env(safe-area-inset-left)) var(--s5);
 }
 
@@ -134,6 +135,7 @@ p {
   max-width: var(--column);
   margin: 0 auto;
   display: grid;
+  grid-template-columns: minmax(0, 1fr); /* a long word wraps instead of widening the page */
   gap: var(--s4);
 }
 
@@ -151,6 +153,7 @@ p {
   font-stretch: 125%;
   text-transform: uppercase;
   letter-spacing: 0;
+  hyphens: auto; /* a one-word title wider than a phone breaks with a hyphen where the browser can */
 }
 
 .site-header {
@@ -329,11 +332,12 @@ p {
 
 .case-head {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--s3);
 }
 
 .case-head h1 {
-  font-size: clamp(2rem, 5vw, 2.75rem);
+  font-size: clamp(1.75rem, 8.5vw, 2.75rem); /* small enough on a 320px phone that a one-word name like HapticSense fits */
   line-height: 1.05;
 }
 

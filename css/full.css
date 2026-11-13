@@ -20,6 +20,7 @@ body.full > footer {
 
 body.full > main {
   display: grid;
+  grid-template-columns: minmax(0, 1fr); /* a long word wraps instead of widening the page */
   gap: var(--s5);
   padding-top: var(--s4);
   padding-bottom: var(--s5);
@@ -45,7 +46,7 @@ body.full li {
 }
 
 body.full h1 {
-  font: 800 clamp(2rem, 5vw, 2.75rem) / 1.05 var(--sans);
+  font: 800 clamp(1.75rem, 8.5vw, 2.75rem) / 1.05 var(--sans); /* matches the short case study title */
   font-stretch: 125%;
   text-transform: uppercase;
   letter-spacing: 0;
