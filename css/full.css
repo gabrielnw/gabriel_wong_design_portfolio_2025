@@ -96,7 +96,7 @@ body.full a.btn-primary {
   text-decoration: none;
 }
 
-@media (hover: hover) {
+@media (hover: hover) and (pointer: fine) {
   body.full a.btn-primary:hover {
     background: var(--ink-soft);
     color: var(--paper);
@@ -328,7 +328,11 @@ body.full .video-embed iframe {
   pointer-events: auto;
 }
 
-@media (hover: hover) {
+.back-to-top.is-visible:active {
+  opacity: 0.6;
+}
+
+@media (hover: hover) and (pointer: fine) {
   .back-to-top:hover {
     color: var(--mark);
     border-color: var(--mark);

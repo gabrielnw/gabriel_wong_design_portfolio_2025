@@ -78,8 +78,18 @@ button {
   touch-action: manipulation; /* no double-tap zoom delay */
 }
 
+button {
+  -webkit-user-select: none; /* a long press on a control doesn't select its label */
+  user-select: none;
+}
+
+/* press feedback on touch: the browser's tap flash is off, so links dim while held */
+a:active {
+  opacity: 0.6;
+}
+
 /* hover colours only where there is a pointer, so taps don't leave links red */
-@media (hover: hover) {
+@media (hover: hover) and (pointer: fine) {
   a:hover {
     color: var(--mark);
     text-decoration-thickness: 2px;
@@ -279,7 +289,7 @@ p {
   opacity: 1;
 }
 
-@media (hover: hover) {
+@media (hover: hover) and (pointer: fine) {
   .work a:hover .shot {
     opacity: 0.88;
   }
@@ -543,7 +553,7 @@ p {
   object-fit: cover;
 }
 
-@media (hover: hover) {
+@media (hover: hover) and (pointer: fine) {
   .experiments a:hover .plate {
     opacity: 0.88;
   }
@@ -574,7 +584,11 @@ p {
   max-width: none;
   max-height: none;
   margin: 0;
-  padding: var(--s2) var(--s3) var(--s3);
+  padding:
+    max(var(--s2), env(safe-area-inset-top))
+    max(var(--s3), env(safe-area-inset-right))
+    max(var(--s3), env(safe-area-inset-bottom))
+    max(var(--s3), env(safe-area-inset-left));
   border: 0;
   background: var(--paper);
   color: var(--ink);
@@ -615,10 +629,14 @@ p {
   cursor: pointer;
 }
 
-@media (hover: hover) {
+@media (hover: hover) and (pointer: fine) {
   .viewer-close:hover {
     background: var(--rule);
   }
+}
+
+.viewer-close:active {
+  background: var(--rule);
 }
 
 .viewer-img {

@@ -183,10 +183,15 @@
   cursor: pointer;
 }
 
-@media (hover: hover) {
+@media (hover: hover) and (pointer: fine) {
   .mag-controls button:hover:not(:disabled) {
     border-color: var(--ink);
   }
+}
+
+.mag-controls button:active:not(:disabled) {
+  border-color: var(--ink);
+  background: var(--panel);
 }
 
 .mag-controls button:disabled {
