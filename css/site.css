@@ -531,51 +531,127 @@ p {
 
 /* ---------- experiments ---------- */
 
+/* The studies are plotted straight onto the paper: their white grounds multiply away,
+   so the drawings share one sheet and step across it, each tucked under the last.
+   The one drawn on black keeps its ground, as a solid print. */
 .experiments {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--s4) var(--s3);
   list-style: none;
   margin: 0;
   padding: 0;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--s3);
+  width: min(var(--wide), 100vw - 2 * var(--s2));
+  margin-inline: calc((var(--column) - min(var(--wide), 100vw - 2 * var(--s2))) / 2);
+}
+
+.experiments li {
+  grid-column: 1 / span 8;
+}
+
+.experiments li:nth-child(even) {
+  grid-column: 5 / span 8;
+}
+
+/* the white margins of neighbouring plots overlap, so the drawings sit closer than their frames */
+.experiments li + li {
+  margin-top: -28%;
+}
+
+.experiments .on-black {
+  margin-top: var(--s4);
 }
 
 .experiments a {
-  display: grid;
-  gap: var(--s1);
+  position: relative;
+  display: block;
   text-decoration: none;
 }
 
-.experiments .plate {
+.experiments img {
+  display: block;
+  width: 100%;
+  height: auto;
   aspect-ratio: 1;
+  mix-blend-mode: multiply;
 }
 
-.experiments img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.experiments .on-black img {
+  mix-blend-mode: normal;
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .experiments a:hover .plate {
-    opacity: 0.88;
+  .experiments a:hover img {
+    opacity: 0.8;
   }
 }
 
+/* the number sits in the drawing's own empty corner, like a plate number on a print */
 .experiments .caption {
+  position: absolute;
+  right: 4%;
+  bottom: 8%;
+  text-align: right;
   font-size: var(--step--1);
   color: var(--ink-soft);
 }
 
-.experiments .caption b {
-  color: var(--mark);
-  font: 600 0.75rem var(--sans);
-  margin-right: var(--s1);
+.experiments li:nth-child(even) .caption {
+  right: auto;
+  left: 4%;
+  text-align: left;
 }
 
-@media (max-width: 520px) {
+/* on black, the number steps outside the print instead */
+.experiments .on-black .caption {
+  right: auto;
+  left: calc(100% + var(--s3));
+  bottom: 0;
+  text-align: left;
+}
+
+.experiments .caption b {
+  display: block;
+  color: var(--mark);
+  font: 800 var(--step-2) / 1 var(--sans);
+  font-stretch: 125%;
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+}
+
+@media (max-width: 720px) {
   .experiments {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+    width: auto;
+    margin-inline: 0;
+  }
+
+  .experiments li,
+  .experiments li:nth-child(even) {
+    grid-column: 1;
+  }
+
+  .experiments li + li {
+    margin-top: -12%;
+  }
+
+  .experiments .on-black {
+    margin-top: var(--s3);
+  }
+
+  .experiments .caption b {
+    font-size: var(--step-1);
+  }
+
+  .experiments .on-black .caption {
+    position: static;
+    display: block;
+    margin-top: var(--s1);
+  }
+
+  .experiments .on-black .caption b {
+    display: inline;
+    margin-right: var(--s1);
   }
 }
 
@@ -644,11 +720,16 @@ p {
 }
 
 .viewer-img {
+  mix-blend-mode: multiply; /* the plot sits on the paper, as it does on the page */
   justify-self: center;
   align-self: center;
   max-width: min(100%, var(--wide));
   max-height: 100%;
   object-fit: contain;
+}
+
+.viewer.on-black .viewer-img {
+  mix-blend-mode: normal;
 }
 
 .viewer-open {
@@ -673,6 +754,7 @@ p {
 }
 
 ::view-transition-group(experiment-image) {
+  mix-blend-mode: multiply; /* keeps a light plot's white ground off the paper mid-morph */
   animation-duration: 0.35s;
   animation-timing-function: cubic-bezier(0.32, 0.72, 0, 1); /* drawer-like: quick start, soft landing */
 }

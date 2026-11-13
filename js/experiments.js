@@ -31,7 +31,9 @@
     thumb = link.querySelector("img");
     img.src = link.href;
     img.alt = thumb ? thumb.alt : "";
-    title.textContent = link.querySelector(".caption")?.textContent.replace(/(\d)([A-Z])/, "$1 · $2") || "";
+    title.textContent = img.alt;
+    // light plots sit straight on the paper; the one drawn on black keeps its ground
+    viewer.classList.toggle("on-black", Boolean(link.closest(".on-black")));
 
     const show = (morph) => {
       if (thumb) thumb.style.viewTransitionName = "";
