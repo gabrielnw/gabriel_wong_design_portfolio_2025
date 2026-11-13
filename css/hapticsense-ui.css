@@ -338,7 +338,8 @@
     to { opacity: 1; transform: translateY(0); }
 }
 
-#screen-content h1 { font-size: 18px; } /* Reduced from 24px */
+#screen-content h1,
+#screen-content .screen-title { font-size: 18px; } /* a screen's main title; an h2 so the page keeps one h1 */
 #screen-content h2 { font-size: 16px; } /* Reduced from 20px */
 
 .btn-primary, .btn-secondary {
@@ -592,4 +593,14 @@
     .screen-step {
         animation-name: fadeOnly;
     }
+}
+
+/* the standalone prototype's page title, for screen readers and the page outline */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
 }
