@@ -17,28 +17,79 @@
 
   const title = viewer.querySelector("#viewer-title");
   const img = viewer.querySelector(".viewer-img");
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   let opener = null;
+  let thumb = null;
+
+  // where supported, the thumbnail grows into the full image and shrinks back into place on close
+  const canMorph = () => typeof document.startViewTransition === "function" && !reduceMotion.matches;
+  const MORPH = "experiment-image";
+  const settle = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+  async function open(link) {
+    opener = link;
+    thumb = link.querySelector("img");
+    img.src = link.href;
+    img.alt = thumb ? thumb.alt : "";
+    title.textContent = link.querySelector(".caption")?.textContent.replace(/(\d)([A-Z])/, "$1 · $2") || "";
+
+    const show = (morph) => {
+      if (thumb) thumb.style.viewTransitionName = "";
+      img.style.viewTransitionName = morph ? MORPH : "";
+      viewer.showModal();
+      viewer.querySelector(".viewer-close").focus();
+      document.documentElement.classList.add("viewer-open");
+    };
+
+    if (!canMorph() || !thumb) {
+      viewer.classList.remove("is-morphing");
+      show(false);
+      return;
+    }
+    // wait briefly for the full image, so the morph lands on a real picture rather than a blank box
+    await Promise.race([img.decode().catch(() => {}), settle(300)]);
+    viewer.classList.add("is-morphing");
+    thumb.style.viewTransitionName = MORPH;
+    document.startViewTransition(() => show(true));
+  }
+
+  function close() {
+    if (!viewer.open) return;
+    const morph = canMorph() && thumb;
+    const hide = () => {
+      img.style.viewTransitionName = "";
+      if (morph) thumb.style.viewTransitionName = MORPH;
+      viewer.close();
+    };
+    if (!morph) {
+      hide();
+      return;
+    }
+    // the same path in reverse: the image shrinks back into its thumbnail
+    document.startViewTransition(hide).finished.finally(() => {
+      if (thumb) thumb.style.viewTransitionName = "";
+    });
+  }
 
   links.forEach((link) => {
     link.addEventListener("click", (event) => {
       if (event.metaKey || event.ctrlKey || event.shiftKey || event.button !== 0) return;
       event.preventDefault();
-      const thumb = link.querySelector("img");
-      opener = link;
-      img.src = link.href;
-      img.alt = thumb ? thumb.alt : "";
-      title.textContent = link.querySelector(".caption")?.textContent.replace(/(\d)([A-Z])/, "$1 · $2") || "";
-      viewer.showModal();
-      viewer.querySelector(".viewer-close").focus();
-      document.documentElement.classList.add("viewer-open");
+      open(link);
     });
   });
 
-  viewer.querySelector(".viewer-close").addEventListener("click", () => viewer.close());
+  viewer.querySelector(".viewer-close").addEventListener("click", close);
+
+  // Escape closes along the same path as the button
+  viewer.addEventListener("cancel", (event) => {
+    event.preventDefault();
+    close();
+  });
 
   // a click on the backdrop (the dialog itself, outside its content) closes it
   viewer.addEventListener("click", (event) => {
-    if (event.target === viewer) viewer.close();
+    if (event.target === viewer) close();
   });
 
   viewer.addEventListener("close", () => {

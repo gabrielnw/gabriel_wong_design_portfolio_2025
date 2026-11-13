@@ -1,142 +1,129 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Slider Logic
+  // Slider and knob: both follow the finger 1:1, resist past their ends and spring back on release.
   const sliderHandle = document.querySelector('.slider-handle');
   const sliderTrack = document.querySelector('.slider-track');
-  
+  const knobDial = document.querySelector('.knob-dial');
+  const knobBase = document.querySelector('.knob-base');
+
   // Guard clause if elements are not found (e.g. if script loads on a page without the UI)
   if (!sliderHandle || !sliderTrack) return;
 
-  let isDraggingSlider = false;
-  let sliderStartY = 0;
-  let sliderStartTop = 0;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-  // Get track dimensions to constrain movement
-  // The track is rotated 45deg, so we need to be careful with coordinate systems.
-  // For simplicity in this visual demo, we'll just move the handle along the Y axis of the track container's local space
-  // since the handle is a child of the track.
-  
+  // The further past the bound, the less the control follows.
+  function rubberband(overshoot, dimension, constant = 0.55) {
+    return (overshoot * dimension * constant) / (dimension + constant * Math.abs(overshoot));
+  }
+
+  // Critically damped spring (no overshoot), response in seconds. Starts from the current value.
+  function springTo(from, to, onFrame, response = 0.4) {
+    if (reduceMotion.matches) {
+      onFrame(to);
+      return () => {};
+    }
+    const omega = (2 * Math.PI) / response;
+    const t0 = performance.now();
+    let frame;
+    const step = (now) => {
+      const t = (now - t0) / 1000;
+      const value = to + (from - to) * (1 + omega * t) * Math.exp(-omega * t);
+      if (Math.abs(value - to) < 0.01) {
+        onFrame(to);
+        return;
+      }
+      onFrame(value);
+      frame = requestAnimationFrame(step);
+    };
+    frame = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(frame);
+  }
+
+  // --- Slider: the track is rotated 45deg, so its "down" points down-left on screen ---
+  const SLIDER_MIN = 10;
+  const SLIDER_MAX = 90;
+  const AXIS = { x: -Math.SQRT1_2, y: Math.SQRT1_2 };
+  let sliderPos = 50; // logical position in % of the track (10 = top, 90 = bottom)
+  let sliderDrag = null;
+  let stopSliderSpring = () => {};
+
+  const showSlider = (pos) => (sliderHandle.style.top = pos + '%');
+
+  // on-screen length of the track, including any scale on the device (e.g. 0.85 on phones)
+  function trackLength() {
+    const box = sliderTrack.getBoundingClientRect();
+    const scale = box.width / ((sliderTrack.offsetWidth + sliderTrack.offsetHeight) * Math.SQRT1_2);
+    return sliderTrack.offsetHeight * scale;
+  }
+
   sliderHandle.addEventListener('pointerdown', (e) => {
-      isDraggingSlider = true;
-      sliderHandle.style.cursor = 'grabbing';
-      sliderStartY = e.clientY;
-      // Get current top value (parsing '50%' or pixels)
-      const computedStyle = window.getComputedStyle(sliderHandle);
-      // We need to handle the initial '50%' or pixel values
-      // Let's rely on offsetTop for initial position if needed, but here we are modifying style.top
-      // If style.top is empty (CSS class), it defaults to 50%.
-      // Let's assume the track height is fixed at 90px (from CSS).
-      // 50% is 45px.
-      
-      // Let's store the current percentage or pixel value
-      // A simpler way for a rotated element: calculate the delta in mouse movement, project it onto the slider's axis.
-      // The slider is rotated 45deg.
-      // Moving mouse DOWN (positive Y) and LEFT (negative X) corresponds to moving along the track?
-      // 45deg means top-right to bottom-left.
-      // So -X and +Y are both "down" the track.
-      
-      e.preventDefault();
+    stopSliderSpring();
+    sliderHandle.setPointerCapture(e.pointerId);
+    const shown = parseFloat(sliderHandle.style.top) || sliderPos; // start from where it is on screen
+    sliderDrag = { id: e.pointerId, x: e.clientX, y: e.clientY, from: shown, length: trackLength() };
+    e.preventDefault();
   });
 
-    // Knob Logic
-    const knobDial = document.querySelector('.knob-dial');
-    const knobBase = document.querySelector('.knob-base');
-    let isRotatingKnob = false;
-    let currentRotation = 0;
-    let startAngle = 0;
-    let center = { x: 0, y: 0 };
+  sliderHandle.addEventListener('pointermove', (e) => {
+    if (!sliderDrag || e.pointerId !== sliderDrag.id) return;
+    const along = (e.clientX - sliderDrag.x) * AXIS.x + (e.clientY - sliderDrag.y) * AXIS.y;
+    const raw = sliderDrag.from + (along / sliderDrag.length) * 100;
+    const bound = Math.min(SLIDER_MAX, Math.max(SLIDER_MIN, raw));
+    sliderPos = bound;
+    showSlider(bound + rubberband(raw - bound, 20)); // a short track gives way only a little
+    updateImmersionUI(sliderPos);
+  });
 
-    if (knobDial && knobBase) {
-        knobDial.addEventListener('pointerdown', (e) => {
-            isRotatingKnob = true;
-            knobDial.style.cursor = 'grabbing';
-            
-            const rect = knobBase.getBoundingClientRect();
-            center = {
-                x: rect.left + rect.width / 2,
-                y: rect.top + rect.height / 2
-            };
-            
-            const dx = e.clientX - center.x;
-            const dy = e.clientY - center.y;
-            startAngle = Math.atan2(dy, dx) * (180 / Math.PI);
-            
-            // Adjust for current rotation to prevent jumping
-            // We want the mouse angle to align with the current rotation offset
-            // But simpler: just track delta from startAngle
-            
-            e.preventDefault();
-        });
-    }
+  const endSlider = (e) => {
+    if (!sliderDrag || e.pointerId !== sliderDrag.id) return;
+    sliderDrag = null;
+    const shown = parseFloat(sliderHandle.style.top);
+    if (shown !== sliderPos) stopSliderSpring = springTo(shown, sliderPos, showSlider);
+  };
+  sliderHandle.addEventListener('pointerup', endSlider);
+  sliderHandle.addEventListener('pointercancel', endSlider);
 
-    document.addEventListener('pointermove', (e) => {
-        if (isDraggingSlider) {
-            // Calculate delta
-            const deltaY = e.clientY - sliderStartY;
-            
-            if (!sliderHandle.dataset.pos) sliderHandle.dataset.pos = "50"; // Start at 50%
-            
-            let currentPos = parseFloat(sliderHandle.dataset.pos);
-            
-            // Sensitivity
-            currentPos += deltaY * 0.2; 
-            
-            // Clamp
-            if (currentPos < 10) currentPos = 10;
-            if (currentPos > 90) currentPos = 90;
-            
-            sliderHandle.dataset.pos = currentPos;
-            sliderHandle.style.top = `${currentPos}%`;
-            
-            sliderStartY = e.clientY;
+  // --- Knob: follows the angle of the finger around its centre, 0 to 360deg ---
+  let currentRotation = 0; // logical rotation, clamped
+  let knobDrag = null;
+  let stopKnobSpring = () => {};
 
-            // Update UI if in Immersion step
-            if (typeof updateImmersionUI === 'function') {
-                updateImmersionUI(currentPos);
-            }
-        }
+  const showKnob = (deg) => (knobDial.style.transform = 'rotate(' + deg + 'deg)');
+  const angleOf = (e, c) => (Math.atan2(e.clientY - c.y, e.clientX - c.x) * 180) / Math.PI;
 
-        if (isRotatingKnob) {
-            const dx = e.clientX - center.x;
-            const dy = e.clientY - center.y;
-            const angle = Math.atan2(dy, dx) * (180 / Math.PI);
-            
-            // Calculate delta angle
-            let deltaAngle = angle - startAngle;
-            
-            // Handle wrapping for delta calculation
-            if (deltaAngle > 180) deltaAngle -= 360;
-            if (deltaAngle < -180) deltaAngle += 360;
-
-            // Apply delta
-            let newRotation = currentRotation + deltaAngle;
-            
-            // Clamp rotation (0 to 360 degrees)
-            // This prevents wrapping and ensures min/max limits
-            // This prevents wrapping and ensures min/max limits
-            if (newRotation < 0) newRotation = 0;
-            if (newRotation > 360) newRotation = 360;
-            
-            currentRotation = newRotation;
-            knobDial.style.transform = `rotate(${currentRotation}deg)`;
-            
-            startAngle = angle; // Update start angle for next frame
-
-            // Update UI if in Haptic step
-            if (typeof updateHapticUI === 'function') {
-                updateHapticUI(currentRotation);
-            }
-        }
+  if (knobDial && knobBase) {
+    knobDial.addEventListener('pointerdown', (e) => {
+      stopKnobSpring();
+      knobDial.setPointerCapture(e.pointerId);
+      const rect = knobBase.getBoundingClientRect();
+      const center = { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 };
+      knobDrag = { id: e.pointerId, center, last: angleOf(e, center), raw: currentRotation };
+      e.preventDefault();
     });
 
-    // pointer events so the slider and knob drag with a finger as well as a mouse
-    const endDrag = () => {
-        isDraggingSlider = false;
-        isRotatingKnob = false;
-        if (sliderHandle) sliderHandle.style.cursor = 'grab';
-        if (knobDial) knobDial.style.cursor = 'grab';
+    knobDial.addEventListener('pointermove', (e) => {
+      if (!knobDrag || e.pointerId !== knobDrag.id) return;
+      const angle = angleOf(e, knobDrag.center);
+      let delta = angle - knobDrag.last;
+      if (delta > 180) delta -= 360; // unwrap across the -180/180 seam
+      if (delta < -180) delta += 360;
+      knobDrag.last = angle;
+      knobDrag.raw += delta;
+      const bound = Math.min(360, Math.max(0, knobDrag.raw));
+      currentRotation = bound;
+      showKnob(bound + rubberband(knobDrag.raw - bound, 45));
+      updateHapticUI(currentRotation);
+    });
+
+    const endKnob = (e) => {
+      if (!knobDrag || e.pointerId !== knobDrag.id) return;
+      knobDrag = null;
+      const match = /rotate\(([-\d.]+)deg\)/.exec(knobDial.style.transform);
+      const shown = match ? parseFloat(match[1]) : currentRotation;
+      if (shown !== currentRotation) stopKnobSpring = springTo(shown, currentRotation, showKnob);
     };
-    document.addEventListener('pointerup', endDrag);
-    document.addEventListener('pointercancel', endDrag);
+    knobDial.addEventListener('pointerup', endKnob);
+    knobDial.addEventListener('pointercancel', endKnob);
+  }
 
     // UI Flow Logic
     const steps = {
@@ -179,7 +166,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         if (stepName === 'immersion') {
              // Ensure UI matches current slider state
-             let sliderPos = parseFloat(sliderHandle.dataset.pos || 50);
              updateImmersionUI(sliderPos);
         }
     }

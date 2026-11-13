@@ -143,6 +143,7 @@ p {
 .ui {
   font: 500 0.8125rem / 1.4 var(--sans);
   font-stretch: 112%;
+  letter-spacing: 0.02em; /* small text reads better a little looser */
 }
 
 /* the display voice: wide Archivo capitals */
@@ -152,7 +153,7 @@ p {
   font-weight: 800;
   font-stretch: 125%;
   text-transform: uppercase;
-  letter-spacing: 0;
+  letter-spacing: -0.02em; /* large display type reads better a little tighter */
   hyphens: auto; /* a one-word title wider than a phone breaks with a hyphen where the browser can */
 }
 
@@ -663,6 +664,17 @@ p {
   .viewer[open] .viewer-img {
     animation: viewer-in 0.2s cubic-bezier(0.23, 1, 0.32, 1);
   }
+}
+
+/* when the thumbnail morphs into the image (js/experiments.js), the view transition is the animation */
+.viewer.is-morphing[open],
+.viewer.is-morphing[open] .viewer-img {
+  animation: none;
+}
+
+::view-transition-group(experiment-image) {
+  animation-duration: 0.35s;
+  animation-timing-function: cubic-bezier(0.32, 0.72, 0, 1); /* drawer-like: quick start, soft landing */
 }
 
 @keyframes viewer-fade {
