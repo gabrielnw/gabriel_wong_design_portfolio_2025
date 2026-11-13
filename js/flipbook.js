@@ -71,40 +71,23 @@
     }
 
     // single-page mode: ease the new page in, drifting slightly from the side it came from
-    function arrive(dir) {
+    // after a drag the new page comes in from further out, continuing the finger's motion
+    function arrive(dir, offset = 3) {
       const img = right.querySelector("img");
       img.getAnimations().forEach((a) => a.cancel());
       const from = reduceMotion.matches
         ? { opacity: 0.4 }
-        : { opacity: 0.4, transform: "translateX(" + dir * 3 + "%)" };
-      const play = () => img.animate([from, { opacity: 1, transform: "none" }], { duration: 220, easing: EASE_OUT });
+        : { opacity: 0.4, transform: "translateX(" + dir * offset + "%)" };
+      const duration = offset > 3 ? 320 : 220;
+      const play = () => img.animate([from, { opacity: 1, transform: "none" }], { duration, easing: EASE_OUT });
       img.decode().then(play, play);
     }
 
-    function go(dir, chained) {
-      if (busy) {
-        queued = Math.max(-3, Math.min(3, queued + dir));
-        return;
-      }
+    // --- the turning leaf: shared by button/key turns and by dragging ---
 
-      if (single) {
-        const next = page + dir;
-        if (next < 1 || next > total) return;
-        page = next;
-        render();
-        arrive(dir);
-        return;
-      }
-
+    function startTurn(dir) {
       const target = spread + dir;
-      if (target < 0 || target > lastSpread) return;
-
-      if (reduceMotion.matches) {
-        spread = target;
-        render();
-        return;
-      }
-
+      if (target < 0 || target > lastSpread) return null;
       const [curL, curR] = pagesOf(spread);
       const [newL, newR] = pagesOf(target);
 
@@ -116,7 +99,6 @@
         '<div class="mag-face back"><img alt=""><div class="mag-shade"></div></div>';
       leaf.querySelector(".front img").src = src(dir > 0 ? curR : curL);
       leaf.querySelector(".back img").src = src(dir > 0 ? newL : newR);
-      const shades = leaf.querySelectorAll(".mag-shade");
 
       // reveal the page underneath the leaf
       if (dir > 0) setPage(right, newR);
@@ -128,45 +110,101 @@
 
       // the side the leaf starts over, and the side it lands on
       const [fromCast, toCast] = dir > 0 ? [castR, castL] : [castL, castR];
+      return { dir, target, leaf, shades: leaf.querySelectorAll(".mag-shade"), fromCast, toCast, angle: 0 };
+    }
 
-      // drive the turn frame by frame so the shading follows the angle
+    // draw the leaf at an angle from 0 (flat where it started) to 180 (landed); shading follows the angle
+    function drawTurn(turn, angle) {
+      angle = Math.max(0, Math.min(180, angle));
+      turn.angle = angle;
+      const rad = (angle * Math.PI) / 180;
+      const lift = Math.sin(rad); // 0 flat, 1 standing up at the spine
+      const reach = Math.abs(Math.cos(rad)) * 100; // how far the leaf's edge sits from the spine, in %
+
+      turn.leaf.style.transform = "perspective(2400px) rotateY(" + -turn.dir * angle + "deg)";
+      turn.shades.forEach((el) => (el.style.opacity = lift));
+
+      const over = angle < 90 ? turn.fromCast : turn.toCast;
+      const under = over === turn.fromCast ? turn.toCast : turn.fromCast;
+      over.style.setProperty("--edge", reach + "%");
+      over.style.setProperty("--soft", 3 + 14 * lift + "%");
+      over.style.opacity = 0.2 + 0.8 * lift;
+      under.style.opacity = 0;
+    }
+
+    // land the turn (committed) or lay the leaf back down where it started
+    function endTurn(turn, committed) {
+      if (committed) spread = turn.target;
+      render();
+      turn.leaf.remove();
+      castL.style.opacity = castR.style.opacity = 0;
+      busy = false;
+      if (queued) {
+        const next = Math.sign(queued);
+        queued -= next;
+        go(next, true);
+      }
+    }
+
+    function go(dir, chained, offset) {
+      if (busy) {
+        queued = Math.max(-3, Math.min(3, queued + dir));
+        return;
+      }
+
+      if (single) {
+        const next = page + dir;
+        if (next < 1 || next > total) return;
+        page = next;
+        render();
+        arrive(dir, offset);
+        return;
+      }
+
+      if (reduceMotion.matches) {
+        const target = spread + dir;
+        if (target < 0 || target > lastSpread) return;
+        spread = target;
+        render();
+        return;
+      }
+
+      const turn = startTurn(dir);
+      if (!turn) return;
+
+      // a scripted turn: ease in and out over a fixed time
       const t0 = performance.now();
       const step = (now) => {
         const t = Math.min((now - t0) / (chained ? CHAINED_TURN_MS : TURN_MS), 1);
-        const eased = (1 - Math.cos(Math.PI * t)) / 2;
-        const angle = eased * 180;
-        const rad = (angle * Math.PI) / 180;
-        const lift = Math.sin(rad); // 0 flat, 1 standing up at the spine
-        const reach = Math.abs(Math.cos(rad)) * 100; // how far the leaf's edge sits from the spine, in %
-
-        leaf.style.transform = "perspective(2400px) rotateY(" + -dir * angle + "deg)";
-        shades.forEach((el) => (el.style.opacity = lift));
-
-        const over = angle < 90 ? fromCast : toCast;
-        const under = over === fromCast ? toCast : fromCast;
-        over.style.setProperty("--edge", reach + "%");
-        over.style.setProperty("--soft", 3 + 14 * lift + "%");
-        over.style.opacity = 0.2 + 0.8 * lift;
-        under.style.opacity = 0;
-
+        drawTurn(turn, ((1 - Math.cos(Math.PI * t)) / 2) * 180);
         if (t < 1) requestAnimationFrame(step);
-        else finish();
-      };
-
-      const finish = () => {
-        spread = target;
-        render();
-        leaf.remove();
-        castL.style.opacity = castR.style.opacity = 0;
-        busy = false;
-        if (queued) {
-          const next = Math.sign(queued);
-          queued -= next;
-          go(next, true);
-        }
+        else endTurn(turn, true);
       };
       requestAnimationFrame(step);
     }
+
+    // critically damped spring from the current value and velocity (units per second) to a target
+    function spring(from, to, velocity, onFrame, onDone, response = 0.35) {
+      const omega = (2 * Math.PI) / response;
+      const c1 = from - to;
+      const c2 = velocity + omega * c1;
+      const t0 = performance.now();
+      const step = (now) => {
+        const t = (now - t0) / 1000;
+        const value = to + (c1 + c2 * t) * Math.exp(-omega * t);
+        if (t > response * 3 || Math.abs(value - to) < 0.3) {
+          onFrame(to);
+          onDone();
+          return;
+        }
+        onFrame(value);
+        requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    }
+
+    // where a flick would come to rest (Apple's scroll-deceleration projection), in px
+    const project = (velocity, rate = 0.998) => ((velocity / 1000) * rate) / (1 - rate);
 
     function setMode() {
       const nextSingle = root.clientWidth < 560;
@@ -190,26 +228,99 @@
       if (e.key === "ArrowRight") go(1);
     });
 
-    // click a side to turn that way; swipe on touch screens
+    // tap a side to turn that way; drag to turn the page with your finger
     const stage = root.querySelector(".mag-stage");
-    let startX = null;
+    const SLOP = 10; // px of movement before a press becomes a drag
+    let press = null;
+
     stage.addEventListener("pointerdown", (e) => {
-      startX = e.clientX;
+      if (e.button !== 0 || press) return;
+      press = { id: e.pointerId, x: e.clientX, y: e.clientY, drag: null, history: [] };
     });
-    stage.addEventListener("pointerup", (e) => {
-      if (startX === null) return;
-      const dx = e.clientX - startX;
-      startX = null;
-      if (Math.abs(dx) > 40) {
-        go(dx < 0 ? 1 : -1);
+
+    stage.addEventListener("pointermove", (e) => {
+      if (!press || e.pointerId !== press.id) return;
+      const dx = e.clientX - press.x;
+      press.history.push({ x: e.clientX, t: e.timeStamp });
+      if (press.history.length > 6) press.history.shift();
+
+      if (!press.drag) {
+        if (Math.abs(dx) < SLOP || Math.abs(dx) < Math.abs(e.clientY - press.y)) return;
+        if (busy || reduceMotion.matches) return; // a turn in flight, or no motion wanted: treat as a swipe on release
+        const dir = dx < 0 ? 1 : -1;
+        stage.setPointerCapture(e.pointerId);
+        press.drag = single ? { dir, width: stage.clientWidth } : { dir, width: stage.clientWidth / 2, turn: startTurn(dir) };
+        if (!single && !press.drag.turn) press.drag.edge = true; // nothing to turn to: just resist
+        press.x = e.clientX - Math.sign(dx) * SLOP; // no jump when the drag kicks in
+      }
+
+      const drag = press.drag;
+      const travel = -drag.dir * (e.clientX - press.x); // px moved in the turning direction
+      if (single) {
+        const img = right.querySelector("img");
+        const atEnd = page + drag.dir < 1 || page + drag.dir > total;
+        const moved = atEnd ? rubberband(travel, drag.width) : travel;
+        img.style.transform = "translateX(" + -drag.dir * Math.max(-drag.width, moved) + "px)";
+      } else if (drag.turn) {
+        drawTurn(drag.turn, (travel / drag.width) * 180);
+      }
+    });
+
+    // a mouse drag on a page image would otherwise start the browser's own image drag
+    stage.addEventListener("dragstart", (e) => e.preventDefault());
+
+    const release = (e) => {
+      if (!press || e.pointerId !== press.id) return;
+      const p = press;
+      press = null;
+      const dx = e.clientX - p.x;
+
+      if (!p.drag) {
+        if (e.type === "pointercancel") return;
+        if (Math.abs(dx) > 40) return go(dx < 0 ? 1 : -1); // quick swipe without a tracked drag
+        const box = stage.getBoundingClientRect();
+        let dir = e.clientX - box.left < box.width / 2 ? -1 : 1;
+        if (!single && spread === 0) dir = 1;
+        if (!single && spread === lastSpread) dir = -1;
+        return go(dir);
+      }
+
+      // release velocity in the turning direction, px/s, from moves in the last 100ms (a finger held still has none)
+      const h = p.history.filter((m) => e.timeStamp - m.t < 100);
+      let velocity = 0;
+      if (h.length > 1) {
+        const dt = Math.max(16, h[h.length - 1].t - h[0].t);
+        velocity = (-p.drag.dir * (h[h.length - 1].x - h[0].x) * 1000) / dt;
+      }
+      const travel = -p.drag.dir * (e.clientX - p.x);
+      // commit if the flick would carry it past halfway; a flick back the other way always cancels
+      const commit = e.type !== "pointercancel" && velocity > -100 && travel + project(velocity) > p.drag.width / 2;
+
+      if (single) {
+        const img = right.querySelector("img");
+        const atEnd = page + p.drag.dir < 1 || page + p.drag.dir > total;
+        if (commit && !atEnd) {
+          img.style.transform = "";
+          go(p.drag.dir, false, 30);
+        } else {
+          const from = -p.drag.dir * (atEnd ? rubberband(travel, p.drag.width) : travel);
+          spring(from, 0, 0, (x) => (img.style.transform = "translateX(" + x + "px)"), () => (img.style.transform = ""));
+        }
         return;
       }
-      const box = stage.getBoundingClientRect();
-      let dir = e.clientX - box.left < box.width / 2 ? -1 : 1;
-      if (!single && spread === 0) dir = 1;
-      if (!single && spread === lastSpread) dir = -1;
-      go(dir);
-    });
+
+      const turn = p.drag.turn;
+      if (!turn) return;
+      const degPerPx = 180 / p.drag.width;
+      spring(turn.angle, commit ? 180 : 0, velocity * degPerPx, (a) => drawTurn(turn, a), () => endTurn(turn, commit));
+    };
+    stage.addEventListener("pointerup", release);
+    stage.addEventListener("pointercancel", release);
+
+    // past the first or last page the page gives way less the further you pull
+    function rubberband(overshoot, dimension, constant = 0.55) {
+      return (overshoot * dimension * constant) / (dimension + constant * Math.abs(overshoot));
+    }
 
     new ResizeObserver(setMode).observe(root);
     render();
