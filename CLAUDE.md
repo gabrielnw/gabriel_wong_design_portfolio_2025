@@ -13,6 +13,7 @@ Personal design portfolio for Gabriel Wong, hosted at gabrielwong.co via GitHub 
 - `/css/flipbook.css` + `/js/flipbook.js` — Page-turning magazine reader on the Data Storage short case study; pages are pre-rendered WebPs in `/assets/images/dna/mag/`
 - `/js/` — Scripts used by the full case studies: back-to-top control, HapticSense UI prototype
 - `/assets/images/` — Project images organized by project folder
+- `/favicon.svg`, `/favicon.ico`, `/apple-touch-icon.png` — Tab and home-screen icon (Archivo G on an ink tile; the SVG flips to a paper tile in dark mode). Linked from every page's `<head>`
 
 ### Case Study Pages
 
