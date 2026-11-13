@@ -477,11 +477,32 @@ p {
 
 /* ---------- about ---------- */
 
+/* the opening sentence is the headline: set large in the heading face, it says who this is
+   before anything else; the portrait and the rest of the story sit quietly beneath it */
 .about {
   display: grid;
-  grid-template-columns: 160px minmax(0, 1fr);
-  gap: var(--s3);
+  grid-template-columns: 120px minmax(0, 1fr);
+  gap: var(--s4) var(--s3);
   align-items: start;
+}
+
+.statement {
+  grid-column: 1 / -1;
+  margin: 0;
+  font: 700 clamp(1.5rem, 4.4vw, 2.25rem) / 1.15 var(--sans);
+  font-stretch: 112%; /* the site's sentence-case heading voice, set larger */
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.about img {
+  width: 100%;
+  height: auto;
+  margin-top: 6px; /* level with the cap height of the first line beside it */
 }
 
 .about .text {
@@ -491,10 +512,12 @@ p {
 
 @media (max-width: 520px) {
   .about {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--s3);
   }
+
   .about img {
-    max-width: 160px;
+    width: 120px;
   }
 }
 
