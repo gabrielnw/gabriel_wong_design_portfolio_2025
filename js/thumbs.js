@@ -1,6 +1,13 @@
 // Homepage thumbnails: each project plays a short muted loop while it is on screen.
 // The poster image stays put for reduced motion, data saver, or when a clip can't play.
 (function () {
+  // a thumbnail that fails to load leaves the plain grey tile, not a broken-image icon
+  document.querySelectorAll(".work .shot img, .work img.shot").forEach((img) => {
+    const hide = () => (img.style.visibility = "hidden");
+    if (img.complete && img.naturalWidth === 0) hide();
+    else img.addEventListener("error", hide, { once: true });
+  });
+
   const clips = document.querySelectorAll(".work video[data-src]");
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   const saveData = navigator.connection && navigator.connection.saveData;

@@ -162,7 +162,7 @@
     justify-content: center;
     gap: 6px;
     width: 100%;
-    animation: fadeIn 0.5s ease;
+    animation: fadeIn 0.25s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .screen-step.active {
@@ -392,6 +392,7 @@
     width: 8px;
     background-color: rgba(255,255,255,0.2);
     border-radius: 4px;
+    transform-origin: bottom center; /* fingers curl down toward the palm */
 }
 
 .finger.f1 { height: 25px; animation: flexFinger 1.5s infinite 0s; }
@@ -399,9 +400,10 @@
 .finger.f3 { height: 30px; animation: flexFinger 1.5s infinite 0.4s; }
 .finger.f4 { height: 20px; animation: flexFinger 1.5s infinite 0.6s; }
 
+/* scale instead of height, so each finger keeps its own length and nothing reflows */
 @keyframes flexFinger {
-    0%, 100% { height: inherit; background-color: rgba(255,255,255,0.2); }
-    50% { height: 10px; background-color: var(--hs-accent-color); }
+    0%, 100% { transform: scaleY(1); background-color: rgba(255,255,255,0.2); }
+    50% { transform: scaleY(0.35); background-color: var(--hs-accent-color); }
 }
 
 .pulse-visual {
@@ -552,4 +554,42 @@
     transform: scale(0.85);
     transform-origin: center center;
   }
+}
+
+/* reduced motion: stop the floating, pulsing and curling, keep the colour and opacity cues */
+@keyframes fadeOnly {
+    from { opacity: 0; }
+}
+
+@keyframes pulseFade {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.6; }
+}
+
+@keyframes fingerGlow {
+    0%, 100% { background-color: rgba(255,255,255,0.2); }
+    50% { background-color: var(--hs-accent-color); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .interaction-label {
+        animation: none;
+    }
+
+    .interaction-label::before,
+    .pulse-circle,
+    .pulse-visual {
+        animation-name: pulseFade;
+    }
+
+    .finger.f1,
+    .finger.f2,
+    .finger.f3,
+    .finger.f4 {
+        animation-name: fingerGlow;
+    }
+
+    .screen-step {
+        animation-name: fadeOnly;
+    }
 }
